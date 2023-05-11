@@ -157,13 +157,13 @@ Once you completed all the above steps and processes. You’ll get the confirmat
 
 ## **SECURITY**
 
-* [**Shared responsibility model**](#shared-responsibility-model) 
-* Security services overview 
-* Identity & Access Management (IAM) 
-* MFA 
-* Users, Groups & Roles 
-* Permission management 
-* Password policy
+* [**Shared responsibility model**](#shared-responsibility-model)  <!-- style="font-size:18px" -->
+* [**Security services overview**](#security-services-overview)  <!-- style="font-size:18px" -->
+* Identity & Access Management (IAM) <!-- style="font-size:18px" -->
+* MFA  <!-- style="font-size:18px" -->
+* Users, Groups & Roles  <!-- style="font-size:18px" -->
+* Permission management  <!-- style="font-size:18px" -->
+* Password policy  <!-- style="font-size:18px" -->
 
 ### Shared responsibility model
 
@@ -196,3 +196,27 @@ Customers (you) have complete control over your content.
 
 Customer manages AWS services, software, and access to the data.
 
+### Security services overview
+
+AWS Security is responsible for protecting the global infrastructure that runs all the Amazon Web Services cloud services and the cloud itself. This infrastructure includes the hardware, software, and networks. Amazon Web Services has its priority in protecting this network.
+
+**Benefits of Security Services** <!-- style="font-size:18px" -->
+
+* **Keeps Data Safe**: Infrastructure incorporates strong safeguards to help protect privacy. All data is processed in highly protected data centers.
+* **Meets Compliance Requirements**: Manages dozens of compliance programs in its infrastructure. Organizations meet compliance effortlessly
+* **Saves Operational Cost**: Operational cost reduces as organizations don't have to maintain on-premise facilities. 
+* **Scales Quickly**: Security scales with the organization's usage of Amazon Web Services Cloud. The architecture is built to keep data secure, no matter the size of the enterprise.
+
+Here are some of the most commonly used security services in AWS:
+
+* **IAM (Identity and Access Management)**: This service allows you to manage user access to AWS resources by creating and managing users, groups, and roles. IAM helps you control who can access your resources and what actions they can perform.
+
+* **AWS WAF (Web Application Firewall)**: This service helps protect your web applications from common web exploits such as SQL injection and cross-site scripting (XSS) attacks. You can configure AWS WAF to block or allow traffic based on rules that you define.
+
+* **AWS Shield**: This service provides DDoS (Distributed Denial of Service) protection for your applications running on AWS. AWS Shield helps you mitigate the impact of DDoS attacks by automatically detecting and blocking them.
+
+* **AWS Key Management Service (KMS)**: This service allows you to create and manage encryption keys used to encrypt your data in AWS. You can use AWS KMS to encrypt data at rest and in transit, and to control access to your encryption keys.
+
+* **Amazon GuardDuty**: This service is a threat detection service that continuously monitors your AWS environment for malicious activity. GuardDuty can detect activity such as compromised credentials, reconnaissance, and unauthorized access, and provides alerts for you to take action.
+
+* **Amazon Inspector**: This service helps you assess the security and compliance of your applications and infrastructure on AWS. Inspector analyzes your applications and infrastructure against security best practices and industry standards, and provides a detailed report of findings.
