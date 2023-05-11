@@ -5,7 +5,7 @@
 ## TABLE OF CONTENT 
 
 * [**INTRODUCTION**](#introduction)<!-- style="font-size:20px" -->
-* **SECURITY**<!-- style="font-size:20px" -->
+* [**SECURITY**](#security) <!-- style="font-size:20px" -->
 * **COMPUTE I**<!-- style="font-size:20px" -->
 * **COMPUTE II**<!-- style="font-size:20px" -->
 * **STORAGE AND DELIVERY**<!-- style="font-size:20px" -->
@@ -154,3 +154,45 @@ Select your suitable plan then click continue.
 Once you completed all the above steps and processes. You’ll get the confirmation page as below. Now your account will be processed for activation. It may take somewhere between 30 minutes to 1 hour for you to receive an email confirmation that your Amazon Cloud Services account has been activated.
 
 ![image aws](image/aws-account9.png)
+
+## **SECURITY**
+
+* [**Shared responsibility model**](#shared-responsibility-model) 
+* Security services overview 
+* Identity & Access Management (IAM) 
+* MFA 
+* Users, Groups & Roles 
+* Permission management 
+* Password policy
+
+### Shared responsibility model
+
+The AWS shared responsibility model is a concept of dividing responsibilities between AWS and a Customer.
+
+AWS's responsibilities are the security of the cloud.
+
+Customer responsibilities are security in the cloud.
+
+![image security](image/Shared_Responsibility_Model.jpg)
+
+**Responsibility of AWS** <!-- style="font-size:18px" -->
+
+AWS's responsibility is the security of the cloud.
+
+AWS manages all infrastructure layers.
+
+Some of the infrastructure layers are:
+
+* Data centers
+* Hardware and software
+* Virtualization
+* Networking
+
+**Responsibility of a Customer** <!-- style="font-size:18px" -->
+
+Customers' responsibility is the security of everything they make in AWS Cloud.
+
+Customers (you) have complete control over your content.
+
+Customer manages AWS services, software, and access to the data.
+
