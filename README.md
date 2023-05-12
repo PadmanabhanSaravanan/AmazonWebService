@@ -160,7 +160,7 @@ Once you completed all the above steps and processes. You’ll get the confirmat
 * [**Shared responsibility model**](#shared-responsibility-model)  <!-- style="font-size:18px" -->
 * [**Security services overview**](#security-services-overview)  <!-- style="font-size:18px" -->
 * [**Identity & Access Management (IAM)**](#identity-and-access-management) <!-- style="font-size:18px" -->
-* MFA  <!-- style="font-size:18px" -->
+* [**MFA**](#mfa)  <!-- style="font-size:18px" -->
 * Users, Groups & Roles  <!-- style="font-size:18px" -->
 * Permission management  <!-- style="font-size:18px" -->
 * Password policy  <!-- style="font-size:18px" -->
@@ -240,3 +240,17 @@ IAM (Identity and Access Management) is a service offered by AWS that allows you
 * **Audit trails**: IAM provides detailed logs that allow you to track who accessed which resources and when. This helps you monitor and detect any unauthorized access attempts or unusual activity.
 
 * **Integration with other AWS services**: IAM integrates with other AWS services such as Amazon S3, EC2, and RDS, allowing you to control access to these resources using IAM policies.
+
+### MFA
+
+**MFA (Multi-Factor Authentication)** is a security feature that adds an extra layer of protection to your AWS account. With MFA, a user is required to provide two or more forms of authentication before being granted access to their AWS resources. This helps protect against unauthorized access even if a user's password is compromised.
+
+There are several types of MFA supported by AWS, including:
+
+* **Virtual MFA**: This type of MFA uses a smartphone app, such as Google Authenticator or Authy, to generate a unique, time-based code that is required in addition to the user's password to access an AWS resource.
+
+* **Hardware MFA**: This type of MFA uses a physical device, such as a YubiKey, to generate a unique code that is required in addition to the user's password to access an AWS resource.
+
+* **SMS MFA**: This type of MFA sends a unique code to the user's mobile phone via SMS that is required in addition to the user's password to access an AWS resource.
+
+MFA is an important security feature that helps protect your AWS resources against unauthorized access. By requiring users to provide an additional form of authentication in addition to their password, MFA can help prevent attackers from gaining access to your account, even if they have obtained your password through phishing or other means. It is recommended that MFA is enabled for all users in your AWS account.
