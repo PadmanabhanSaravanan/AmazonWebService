@@ -163,7 +163,7 @@ Once you completed all the above steps and processes. You’ll get the confirmat
 * [**MFA**](#mfa)  <!-- style="font-size:18px" -->
 * [**Users, Groups and Roles**](#users-groups-and-roles)  <!-- style="font-size:18px" -->
 * [**Permission management**](#permission-management)  <!-- style="font-size:18px" -->
-* Password policy  <!-- style="font-size:18px" -->
+* [**Password policy**](#password-policy)  <!-- style="font-size:18px" -->
 
 ### **Shared responsibility model**
 
@@ -335,3 +335,29 @@ There are three main components to permission management in AWS:
 * **Access control lists (ACLs)**: ACLs are used to manage permissions for S3 buckets and objects. They define which AWS accounts or users have permission to access the resources and what actions they can perform.
 
 IAM provides several tools for managing permissions, including the ability to create custom policies, grant temporary permissions using IAM roles, and implement multi-factor authentication (MFA) for additional security. By using these tools and following best practices for permission management, you can help ensure the security and integrity of your AWS resources.
+
+### **Password policy**
+
+In AWS, password policies are used to enforce rules for creating and managing user passwords. Password policies help improve the security of your AWS environment by ensuring that user passwords are strong and regularly updated.
+
+AWS Identity and Access Management (IAM) provides a default password policy that includes the following rules:
+
+1. Passwords must be at least 8 characters long
+2. Passwords must contain at least one uppercase letter, one lowercase letter, one number, and one non-alphanumeric character
+3. Passwords cannot contain the user's username or any variation of their username
+4. Users must change their passwords at least every 90 days
+5. Users cannot reuse any of their previous passwords
+
+![image password-policy](image/passwordpolicy1.PNG)
+
+You can customize the default password policy by changing the values of the above rules or by adding additional rules. To customize the password policy, you can follow these steps:
+
+1. Sign in to the AWS Management Console and open the IAM console.
+2. In the navigation pane, choose "Account settings".
+3. Scroll down to the "Password Policy" section and choose "Edit".
+4. Update the password policy rules as needed.
+5. Choose "Save changes" to apply the new policy.
+
+![image password-policy](image/passwordpolicy2.PNG)
+
+By setting and enforcing a strong password policy, you can help ensure the security of your AWS resources and prevent unauthorized access to your account. It is also important to educate your users on the importance of strong passwords and encourage them to use unique, complex passwords for their accounts.
