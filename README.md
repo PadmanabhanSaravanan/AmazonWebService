@@ -361,3 +361,40 @@ You can customize the default password policy by changing the values of the abov
 ![image password-policy](image/passwordpolicy2.PNG)
 
 By setting and enforcing a strong password policy, you can help ensure the security of your AWS resources and prevent unauthorized access to your account. It is also important to educate your users on the importance of strong passwords and encourage them to use unique, complex passwords for their accounts.
+
+## **COMPUTE I**
+
+* [**Elastic Cloud Compute (EC2)**](#elastic-cloud-compute) <!-- style="font-size:18px" -->
+* **Types of VMs** <!-- style="font-size:18px" -->
+* **Instance type pricing** <!-- style="font-size:18px" -->
+* **Boot volume & EBS association** <!-- style="font-size:18px" -->
+* **Boot volume types** <!-- style="font-size:18px" -->
+* **Encryption options** <!-- style="font-size:18px" -->
+* **Tagging importance** <!-- style="font-size:18px" -->
+* **Security Groups** <!-- style="font-size:18px" -->
+* **Status check types** <!-- style="font-size:18px" -->
+* **Placement Groups** <!-- style="font-size:18px" -->
+* **SSH and manage instance** <!-- style="font-size:18px" -->
+* **Multi AZ EC2 setup** <!-- style="font-size:18px" -->
+* **Load balancing (App & Network)** <!-- style="font-size:18px" -->
+* **Health checks** <!-- style="font-size:18px" -->
+* **Path based TG routing** <!-- style="font-size:18px" -->
+* **Lambda TG (with intro to lambda)** <!-- style="font-size:18px" -->
+
+### **Elastic Cloud Compute**
+
+Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable compute capacity in the cloud. It is one of the core services in Amazon Web Services (AWS) and enables users to easily provision and manage virtual machines (VMs), also known as instances, on the AWS cloud.
+
+EC2 offers a variety of instance types, each with different CPU, memory, storage, and network capacity configurations to meet the needs of different workloads. Users can launch instances on-demand, reserve them for a fixed period of time, or use spot instances to bid on spare compute capacity and reduce costs.
+
+Here are some of the key features of EC2:
+
+* **Scalability**: EC2 enables users to quickly and easily scale compute capacity up or down to meet changing demand, without the need for upfront investments in hardware.
+
+* **Flexibility**: EC2 offers a wide range of instance types, operating systems, and software configurations, giving users the flexibility to choose the configuration that best fits their needs.
+
+* **Security**: EC2 provides several security features to help protect instances and data, including network firewalls, encryption, and security groups.
+
+* **Integration**: EC2 integrates with other AWS services such as Amazon S3, Amazon RDS, and AWS Identity and Access Management (IAM), making it easy to build and deploy complex, multi-tier applications on the AWS cloud.
+
+* **Monitoring**: EC2 provides detailed monitoring and logging capabilities to help users track and troubleshoot performance issues, security incidents, and other events.
