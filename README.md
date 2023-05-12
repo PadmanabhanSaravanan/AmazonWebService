@@ -159,7 +159,7 @@ Once you completed all the above steps and processes. You’ll get the confirmat
 
 * [**Shared responsibility model**](#shared-responsibility-model)  <!-- style="font-size:18px" -->
 * [**Security services overview**](#security-services-overview)  <!-- style="font-size:18px" -->
-* Identity & Access Management (IAM) <!-- style="font-size:18px" -->
+* [**Identity & Access Management (IAM)**](#identity-and-access-management) <!-- style="font-size:18px" -->
 * MFA  <!-- style="font-size:18px" -->
 * Users, Groups & Roles  <!-- style="font-size:18px" -->
 * Permission management  <!-- style="font-size:18px" -->
@@ -220,3 +220,23 @@ Here are some of the most commonly used security services in AWS:
 * **Amazon GuardDuty**: This service is a threat detection service that continuously monitors your AWS environment for malicious activity. GuardDuty can detect activity such as compromised credentials, reconnaissance, and unauthorized access, and provides alerts for you to take action.
 
 * **Amazon Inspector**: This service helps you assess the security and compliance of your applications and infrastructure on AWS. Inspector analyzes your applications and infrastructure against security best practices and industry standards, and provides a detailed report of findings.
+
+### Identity and Access Management
+
+IAM (Identity and Access Management) is a service offered by AWS that allows you to manage access to AWS resources. IAM provides a way to create and manage users, groups, and roles, and assign permissions to them to control access to AWS resources.
+
+![image IAM](image/iam.png)
+
+**Features of IAM** <!-- style="font-size:18px" -->
+
+* **Centralized user management**: IAM provides a central location for managing users and their access to AWS resources. This makes it easy to add, remove, or modify user access across multiple AWS services.
+
+* **Fine-grained access control**: IAM allows you to grant permissions at a granular level, specifying which actions a user can perform on specific resources. This gives you precise control over access to resources and helps minimize the risk of accidental or unauthorized access.
+
+* **Multi-factor authentication (MFA)**: IAM supports MFA, which requires users to provide two forms of authentication (such as a password and a code sent to a mobile device) in order to access AWS resources. This helps prevent unauthorized access even if a user's password is compromised.
+
+* **Role-based access control**: IAM allows you to create roles that define a set of permissions that can be assumed by trusted entities such as AWS services, applications, or users. Roles enable you to grant temporary permissions to an entity without requiring long-term access keys.
+
+* **Audit trails**: IAM provides detailed logs that allow you to track who accessed which resources and when. This helps you monitor and detect any unauthorized access attempts or unusual activity.
+
+* **Integration with other AWS services**: IAM integrates with other AWS services such as Amazon S3, EC2, and RDS, allowing you to control access to these resources using IAM policies.
