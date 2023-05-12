@@ -2,7 +2,7 @@
 
 ![image aws](image/aws-logo.png)
 
-## TABLE OF CONTENT 
+## **TABLE OF CONTENT** 
 
 * [**INTRODUCTION**](#introduction)<!-- style="font-size:20px" -->
 * [**SECURITY**](#security) <!-- style="font-size:20px" -->
@@ -11,7 +11,7 @@
 * **STORAGE AND DELIVERY**<!-- style="font-size:20px" -->
 * **NETWORKING**<!-- style="font-size:20px" -->
 
-## INTRODUCTION 
+## **INTRODUCTION** 
 
 * AWS stands for Amazon Web Services.
 * The AWS service is provided by the Amazon that uses distributed IT infrastructure to provide different IT resources available on demand. It provides different services such as infrastructure as a service (IaaS), platform as a service (PaaS) and packaged software as a service (SaaS).
@@ -57,7 +57,7 @@ AWS offers several benefits, including:
 
 Overall, AWS is a powerful cloud computing platform that provides businesses with the tools and services they need to build, deploy, and manage their applications and services on a global scale.
 
-### AWS Global Infrastructure
+### **AWS Global Infrastructure**
 
 * AWS is a cloud computing platform which is globally available.
 * Global infrastructure is a region around the world in which AWS is based. Global infrastructure is a bunch of high-level IT services which is shown below:
@@ -72,12 +72,12 @@ The following are the components that make up the AWS infrastructure:
 
 ![image aws](image/aws-global-infrastructure.png)
 
-#### Availability zone as a Data Center
+#### **Availability zone as a Data Center**
 
 * An availability zone is a facility that can be somewhere in a country or in a city. Inside this facility, i.e., Data Centre, we can have multiple servers, switches, load balancing, firewalls. The things which interact with the cloud sits inside the data centers.
 * An availability zone can be a several data centers, but if they are close together, they are counted as 1 availability zone.
 
-#### Region
+#### **Region**
 
 * A region is a geographical area. Each region consists of 2 more availability zones.
 * A region is a collection of data centers which are completely isolated from other regions.
@@ -87,7 +87,7 @@ The following are the components that make up the AWS infrastructure:
 
 * Availability zones are connected through redundant and isolated metro fibers.
 
-#### Edge Locations
+#### **Edge Locations**
 
 * Edge locations are the endpoints for AWS used for caching content.
 * Edge locations consist of CloudFront, Amazon's Content Delivery Network (CDN).
@@ -96,7 +96,7 @@ The following are the components that make up the AWS infrastructure:
 * Edge locations are mainly located in most of the major cities to distribute the content to end users with reduced latency.
 * For example, some user accesses your website from Singapore; then this request would be redirected to the edge location closest to Singapore where cached data can be read.
 
-#### Regional Edge Cache
+#### **Regional Edge Cache**
 
 * AWS announced a new type of edge location in November 2016, known as a Regional Edge Cache.
 * Regional Edge cache lies between CloudFront Origin servers and the edge locations.
@@ -161,11 +161,11 @@ Once you completed all the above steps and processes. You’ll get the confirmat
 * [**Security services overview**](#security-services-overview)  <!-- style="font-size:18px" -->
 * [**Identity & Access Management (IAM)**](#identity-and-access-management) <!-- style="font-size:18px" -->
 * [**MFA**](#mfa)  <!-- style="font-size:18px" -->
-* Users, Groups & Roles  <!-- style="font-size:18px" -->
+* [**Users, Groups and Roles**](#users-groups-and-roles)  <!-- style="font-size:18px" -->
 * Permission management  <!-- style="font-size:18px" -->
 * Password policy  <!-- style="font-size:18px" -->
 
-### Shared responsibility model
+### **Shared responsibility model**
 
 The AWS shared responsibility model is a concept of dividing responsibilities between AWS and a Customer.
 
@@ -196,7 +196,7 @@ Customers (you) have complete control over your content.
 
 Customer manages AWS services, software, and access to the data.
 
-### Security services overview
+### **Security services overview**
 
 AWS Security is responsible for protecting the global infrastructure that runs all the Amazon Web Services cloud services and the cloud itself. This infrastructure includes the hardware, software, and networks. Amazon Web Services has its priority in protecting this network.
 
@@ -221,7 +221,7 @@ Here are some of the most commonly used security services in AWS:
 
 * **Amazon Inspector**: This service helps you assess the security and compliance of your applications and infrastructure on AWS. Inspector analyzes your applications and infrastructure against security best practices and industry standards, and provides a detailed report of findings.
 
-### Identity and Access Management
+### **Identity and Access Management**
 
 IAM (Identity and Access Management) is a service offered by AWS that allows you to manage access to AWS resources. IAM provides a way to create and manage users, groups, and roles, and assign permissions to them to control access to AWS resources.
 
@@ -241,7 +241,7 @@ IAM (Identity and Access Management) is a service offered by AWS that allows you
 
 * **Integration with other AWS services**: IAM integrates with other AWS services such as Amazon S3, EC2, and RDS, allowing you to control access to these resources using IAM policies.
 
-### MFA
+### **MFA**
 
 **MFA (Multi-Factor Authentication)** is a security feature that adds an extra layer of protection to your AWS account. With MFA, a user is required to provide two or more forms of authentication before being granted access to their AWS resources. This helps protect against unauthorized access even if a user's password is compromised.
 
@@ -254,3 +254,70 @@ There are several types of MFA supported by AWS, including:
 * **SMS MFA**: This type of MFA sends a unique code to the user's mobile phone via SMS that is required in addition to the user's password to access an AWS resource.
 
 MFA is an important security feature that helps protect your AWS resources against unauthorized access. By requiring users to provide an additional form of authentication in addition to their password, MFA can help prevent attackers from gaining access to your account, even if they have obtained your password through phishing or other means. It is recommended that MFA is enabled for all users in your AWS account.
+
+### **Users Groups and Roles**
+
+In AWS Identity and Access Management (IAM), users, groups, and roles are three fundamental entities used to manage access to AWS resources.
+
+* [**Users**](#users): An IAM user is an entity that represents a person or application that interacts with AWS resources. You can create IAM users and assign them unique security credentials such as access keys, passwords, or multi-factor authentication (MFA) devices. You can also grant permissions to users by attaching policies to them.
+
+* [**Groups**](#groups): An IAM group is a collection of IAM users. You can use groups to organize users and apply permissions to multiple users at once. By assigning policies to a group, you can ensure that all members of the group have the same level of access to AWS resources.
+
+* [**Roles**](#roles): An IAM role is an entity that defines a set of permissions that can be assumed by AWS resources. You can use roles to grant permissions to an AWS service or resource so that it can access other AWS resources. For example, you can create a role that allows an Amazon EC2 instance to access an Amazon S3 bucket.
+
+Roles are also used for cross-account access, where you can define a role in one account and allow users or resources in another account to assume that role and access resources in the first account. This is a common scenario for organizations that use multiple AWS accounts to isolate and manage their resources.
+
+Overall, users, groups, and roles are used to manage access to AWS resources and ensure that only authorized users and services can interact with them. By assigning appropriate permissions and following the principle of least privilege, you can minimize the risk of unauthorized access and protect the security of your AWS resources.
+
+#### **Users**
+
+To create an IAM user in AWS, you can follow these steps:
+
+* Sign in to the AWS Management Console and open the IAM console.
+* In the navigation pane, choose "Users".
+* Choose "Add user".
+* Enter a name for the new user in the "User name" field.
+* If you want to allow programmatic access to the AWS API, select the "Programmatic access" checkbox. If you want to allow the user to sign in to the AWS Management Console, select the "AWS Management Console access" checkbox.
+* Depending on whether you selected "Programmatic access" or "AWS Management Console access" (or both), you may need to specify additional options such as a password or permissions.
+* If you want to add the user to a group, choose "Add user to group" and select an existing group or create a new one.
+* Review the user's settings and choose "Create user".
+
+![image users](image/iam-createuser.PNG)
+
+Once the user is created, you can view their security credentials, including their access key and secret access key, which can be used for programmatic access to AWS resources. You can also assign permissions to the user by creating IAM policies and attaching them to the user or the group to which the user belongs.
+
+Note that when creating an IAM user, it is important to follow the principle of least privilege, which means granting the user only the permissions that are necessary to perform their job duties and no more. This helps minimize the risk of accidental or malicious actions that could compromise the security of your AWS resources.
+
+#### **Groups**
+
+To create an IAM group in AWS, you can follow these steps:
+
+* Sign in to the AWS Management Console and open the IAM console.
+* In the navigation pane, choose "Groups".
+* Choose "Create New Group".
+* Enter a name for the group in the "Group Name" field.
+* Choose the policy you want to attach to the group by selecting "Attach Policy" and then selecting a policy from the list. You can also create a custom policy by selecting "Create Policy".
+* Choose "Create Group" to create the group and attach the policy.
+
+![image groups](image/groups.PNG)
+
+Once you have created the group, you can add IAM users to the group by selecting the group in the IAM console, choosing the "Users" tab, and then choosing "Add Users to Group". You can then select the users you want to add to the group and choose "Add Users".
+
+You can also manage the policies attached to the group by selecting the group in the IAM console, choosing the "Permissions" tab, and then choosing "Attach Policy" or "Create Policy".
+
+#### **Roles**
+
+To create an IAM role in AWS, you can follow these steps:
+
+* Sign in to the AWS Management Console and open the IAM console.
+* In the navigation pane, choose "Roles".
+* Choose "Create role".
+* Select the type of trusted entity that you want to use to assume the role. You can choose from AWS service, another AWS account, or web identity provider.
+* Depending on the trusted entity you selected, you may need to specify additional details such as the service or account ID.
+* Choose the permissions you want to grant to the role by selecting one or more policies. You can choose from managed policies, customer managed policies, or inline policies.
+* Enter a name for the role in the "Role name" field.
+* Review the role's settings and choose "Create role".
+
+![image roles](image/roles.PNG)
+
+Once the role is created, you can assign it to an IAM user or an AWS resource such as an EC2 instance. When the user or resource assumes the role, they inherit the permissions granted to the role.
