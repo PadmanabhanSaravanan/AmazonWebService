@@ -162,7 +162,7 @@ Once you completed all the above steps and processes. You’ll get the confirmat
 * [**Identity & Access Management (IAM)**](#identity-and-access-management) <!-- style="font-size:18px" -->
 * [**MFA**](#mfa)  <!-- style="font-size:18px" -->
 * [**Users, Groups and Roles**](#users-groups-and-roles)  <!-- style="font-size:18px" -->
-* Permission management  <!-- style="font-size:18px" -->
+* [**Permission management**](#permission-management)  <!-- style="font-size:18px" -->
 * Password policy  <!-- style="font-size:18px" -->
 
 ### **Shared responsibility model**
@@ -321,3 +321,17 @@ To create an IAM role in AWS, you can follow these steps:
 ![image roles](image/roles.PNG)
 
 Once the role is created, you can assign it to an IAM user or an AWS resource such as an EC2 instance. When the user or resource assumes the role, they inherit the permissions granted to the role.
+
+### **Permission management**
+
+In AWS, permission management is the process of controlling who has access to your resources and what actions they can perform on those resources. AWS Identity and Access Management (IAM) is the service that provides the necessary tools for managing permissions in your AWS environment.
+
+There are three main components to permission management in AWS:
+
+* **Policies**: Policies are documents that define permissions for a specific resource or set of resources. They specify which actions are allowed or denied, and who has access to the resources. Policies can be attached to IAM users, groups, or roles.
+
+* **Roles**: IAM roles are used to grant permissions to AWS resources or services. They can be assigned to EC2 instances, Lambda functions, or other resources, and provide access to other resources in your AWS account or other accounts.
+
+* **Access control lists (ACLs)**: ACLs are used to manage permissions for S3 buckets and objects. They define which AWS accounts or users have permission to access the resources and what actions they can perform.
+
+IAM provides several tools for managing permissions, including the ability to create custom policies, grant temporary permissions using IAM roles, and implement multi-factor authentication (MFA) for additional security. By using these tools and following best practices for permission management, you can help ensure the security and integrity of your AWS resources.
