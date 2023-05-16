@@ -403,14 +403,52 @@ Here are some of the key features of EC2:
 
 Amazon Elastic Compute Cloud (EC2) offers a wide variety of virtual machine (VM) instance types to meet the needs of different workloads and use cases. Here are some of the most commonly used EC2 instance types:
 
-* **General Purpose**: General purpose instances are ideal for a wide range of workloads, including web servers, small databases, and development environments. They offer a balance of compute, memory, and network resources.
+* [**Micro Instances**](#micro-instances)
+* [**General Purpose**](#general-purpose)
+* [**Compute Optimized**](#compute-optimized)
+* [**Memory Optimized**](#memory-optimized)
+* [**Storage Optimized**](#storage-optimized)
+* [**GPU Instances**](#gpu-instances)
+* [**FPGA Instances**](#fpga-instances)
 
-* **Compute Optimized**: Compute optimized instances are designed for CPU-intensive workloads, such as high-performance computing (HPC), media encoding, and gaming servers. They offer high CPU-to-memory ratios and fast network performance.
+#### **Micro Instances**
 
-* **Memory Optimized**: Memory optimized instances are designed for memory-intensive workloads, such as large databases, in-memory analytics, and real-time big data processing. They offer high memory-to-CPU ratios and fast network performance.
+The EC2 micro instance type is a type of general purpose instance that provides a low-cost option for running lightweight workloads and small applications. It is designed for low traffic websites, small development and test workloads, and other low intensity applications.
 
-* **Storage Optimized**: Storage optimized instances are designed for storage-intensive workloads, such as NoSQL databases, data warehousing, and Elasticsearch. They offer high disk throughput and low latency, and are often used for applications that require large amounts of sequential read and write operations.
+![image instance](image/microInstance.png)
 
-* **GPU Instances**: GPU instances are designed for workloads that require high-performance graphics processing, such as machine learning, video encoding, and gaming. They offer access to powerful NVIDIA GPUs and are optimized for high-performance computing.
+#### **General Purpose**
 
-* **FPGA Instances**: FPGA instances are designed for workloads that require custom hardware acceleration, such as genomics, financial modeling, and encryption. They offer access to field programmable gate arrays (FPGAs) that can be programmed to accelerate specific workloads.
+General purpose instances are ideal for a wide range of workloads, including web servers, small databases, and development environments. They offer a balance of compute, memory, and network resources.
+
+![image instance](image/generalPurpose.png)
+
+#### **Compute Optimized**
+
+Compute optimized instances are designed for CPU-intensive workloads, such as high-performance computing (HPC), media encoding, and gaming servers. They offer high CPU-to-memory ratios and fast network performance.
+
+![image instance](image/computeOptimized.png)
+
+#### **Memory Optimized**
+
+Memory optimized instances are designed for memory-intensive workloads, such as large databases, in-memory analytics, and real-time big data processing. They offer high memory-to-CPU ratios and fast network performance.
+
+![image instance](image/memoryOptimized.png)
+
+#### **Storage Optimized**
+
+Storage optimized instances are designed for storage-intensive workloads, such as NoSQL databases, data warehousing, and Elasticsearch. They offer high disk throughput and low latency, and are often used for applications that require large amounts of sequential read and write operations.
+
+![image instance](image/storageOptimized.png)
+
+#### **GPU Instances**
+
+GPU instances are designed for workloads that require high-performance graphics processing, such as machine learning, video encoding, and gaming. They offer access to powerful NVIDIA GPUs and are optimized for high-performance computing.
+
+![image instance](image/GPUInstances.png)
+
+#### **FPGA Instances**
+
+FPGA instances are designed for workloads that require custom hardware acceleration, such as genomics, financial modeling, and encryption. They offer access to field programmable gate arrays (FPGAs) that can be programmed to accelerate specific workloads.
+
+![image instance](image/FGPAInstances.png)
