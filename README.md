@@ -367,7 +367,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Elastic Cloud Compute (EC2)**](#elastic-cloud-compute) <!-- style="font-size:18px" -->
 * [**Types of VMs**](#types-of-vms) <!-- style="font-size:18px" -->
 * [**Instance type pricing**](#instance-type-pricing) <!-- style="font-size:18px" -->
-* **Boot volume & EBS association** <!-- style="font-size:18px" -->
+* [**Boot volume & EBS association**](#boot-volume-and-ebs-association) <!-- style="font-size:18px" -->
 * **Boot volume types** <!-- style="font-size:18px" -->
 * **Encryption options** <!-- style="font-size:18px" -->
 * **Tagging importance** <!-- style="font-size:18px" -->
@@ -484,3 +484,21 @@ There are several pricing options available for EC2 instances:
 #### **On Demand Capacity Reservations**
 
 ![image instance](image/ondemadReservations.PNG)
+
+### **Boot volume and EBS association**
+
+When launching an Amazon EC2 instance, the boot volume refers to the primary storage device that contains the operating system and boot files for the instance. By default, the boot volume is an Amazon Elastic Block Store (EBS) volume.
+
+Here are the key points about boot volumes and EBS association:
+
+* Amazon EBS: Amazon Elastic Block Store (EBS) provides block-level storage volumes that can be attached to EC2 instances. EBS volumes are network-attached and can persist independently of the running instance.
+
+* Boot Volume: The boot volume is the primary storage device from which the EC2 instance starts up and runs. It contains the operating system, applications, and data. The boot volume is typically an EBS volume but can also be an instance store volume for certain instance types.
+
+* EBS-Backed Instances: Most EC2 instances are EBS-backed, which means they use an EBS volume as the boot volume. EBS-backed instances allow for data persistence even if the instance is stopped or terminated.
+
+* EBS Volume Association: When launching an EC2 instance, you can specify the EBS volume to be used as the boot volume. You can either create a new EBS volume or select an existing one. The instance will be associated with the specified EBS volume as its boot volume.
+
+* Elasticity and Management: By using EBS-backed instances, you can easily manage and scale your EC2 instances. You can take snapshots of EBS volumes for backups, resize volumes, and detach and reattach volumes to other instances.
+
+* Instance Store Volumes: Some EC2 instance types offer instance store volumes as the boot volume. Instance store volumes are physically attached to the host computer and provide temporary block-level storage that is lost if the instance is stopped or terminated.
