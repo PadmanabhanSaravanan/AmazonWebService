@@ -368,8 +368,8 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Types of VMs**](#types-of-vms) <!-- style="font-size:18px" -->
 * [**Instance type pricing**](#instance-type-pricing) <!-- style="font-size:18px" -->
 * [**Boot volume & EBS association**](#boot-volume-and-ebs-association) <!-- style="font-size:18px" -->
-* **Boot volume types** <!-- style="font-size:18px" -->
-* **Encryption options** <!-- style="font-size:18px" -->
+* [**Boot volume types**](#boot-volume-types) <!-- style="font-size:18px" -->
+* [**Encryption options**](#encryption-options) <!-- style="font-size:18px" -->
 * **Tagging importance** <!-- style="font-size:18px" -->
 * **Security Groups** <!-- style="font-size:18px" -->
 * **Status check types** <!-- style="font-size:18px" -->
@@ -518,3 +518,17 @@ Instance Store Boot Volumes:
 
 Instance store volumes are temporary block-level storage that is physically attached to the host computer where the EC2 instance is running. The data stored on instance store volumes is lost if the instance is stopped or terminated. The performance characteristics and capacity of instance store volumes vary depending on the EC2 instance type.
 It's important to note that the availability of boot volume types may vary depending on the EC2 instance type and region. You can choose the appropriate boot volume type based on your workload requirements for performance, durability, and cost.
+
+### **Encryption options**
+
+the encryption options available for data security in Amazon EC2:
+
+* EBS Encryption: Amazon Elastic Block Store (EBS) provides the option to encrypt EBS volumes at rest. EBS encryption uses AWS Key Management Service (KMS) to manage the encryption keys. By enabling EBS encryption, data stored on the EBS volumes is automatically encrypted, providing protection against unauthorized access.
+
+* S3 Server-Side Encryption: If your EC2 instances interact with Amazon S3 for storage, you can enable server-side encryption for S3 objects. This ensures that any data uploaded to S3 is encrypted at rest. S3 supports multiple server-side encryption options, including Amazon S3 Managed Keys (SSE-S3), AWS Key Management Service (SSE-KMS), and Server-Side Encryption with Customer-Provided Keys (SSE-C).
+
+* RDS Encryption: If your EC2 instances utilize Amazon RDS for managing databases, you can enable encryption for RDS database instances. RDS provides the option to encrypt data at rest, ensuring the privacy and security of your database content. RDS encryption supports both AWS Key Management Service (KMS) and Oracle Wallet Manager for managing encryption keys.
+
+* Transit Encryption: To protect data while it is in transit between EC2 instances and other services or clients, you can use encryption protocols such as SSL/TLS. Implementing SSL/TLS encryption secures network communications and prevents eavesdropping or tampering with data in transit.
+
+* Client-Side Encryption: If you have sensitive data that needs to be encrypted before being sent to an EC2 instance, you can implement client-side encryption. This involves encrypting the data on the client side before it is transmitted to the EC2 instance. The encrypted data can then be securely stored or processed on the instance.
