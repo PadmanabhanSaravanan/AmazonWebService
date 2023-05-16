@@ -365,8 +365,8 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 ## **COMPUTE I**
 
 * [**Elastic Cloud Compute (EC2)**](#elastic-cloud-compute) <!-- style="font-size:18px" -->
-* **Types of VMs** <!-- style="font-size:18px" -->
-* **Instance type pricing** <!-- style="font-size:18px" -->
+* [**Types of VMs**](#types-of-vms) <!-- style="font-size:18px" -->
+* [**Instance type pricing**](#instance-type-pricing) <!-- style="font-size:18px" -->
 * **Boot volume & EBS association** <!-- style="font-size:18px" -->
 * **Boot volume types** <!-- style="font-size:18px" -->
 * **Encryption options** <!-- style="font-size:18px" -->
@@ -402,6 +402,8 @@ Here are some of the key features of EC2:
 ### **Types of VMs**
 
 Amazon Elastic Compute Cloud (EC2) offers a wide variety of virtual machine (VM) instance types to meet the needs of different workloads and use cases. Here are some of the most commonly used EC2 instance types:
+
+![image instance](image/instancetypes.jpg)
 
 * [**Micro Instances**](#micro-instances)
 * [**General Purpose**](#general-purpose)
@@ -452,3 +454,33 @@ GPU instances are designed for workloads that require high-performance graphics 
 FPGA instances are designed for workloads that require custom hardware acceleration, such as genomics, financial modeling, and encryption. They offer access to field programmable gate arrays (FPGAs) that can be programmed to accelerate specific workloads.
 
 ![image instance](image/FGPAInstances.png)
+
+### **Instance type pricing**
+
+There are several pricing options available for EC2 instances:
+
+* [**On-Demand Instances**](#on-demand-instances)
+* [**Reserved Instances**](#reserved-instances)
+* [**Scheduled Instances**](#scheduled-instances)
+* [**Spot Instances**](#spot-instances)
+* [**On Demand Capacity Reservations**](#on-demand-capacity-reservations)
+
+#### **On Demand Instances**
+
+![image instance](image/onDemand.PNG)
+
+#### **Reserved Instances**
+
+![image instance](image/reserved.PNG)
+
+#### **Scheduled Instances**
+
+![image instance](image/scheduled.PNG)
+
+#### **Spot Instances**
+
+![image instance](image/spot.PNG)
+
+#### **On Demand Capacity Reservations**
+
+![image instance](image/ondemadReservations.PNG)
