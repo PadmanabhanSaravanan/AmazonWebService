@@ -377,7 +377,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**SSH and manage instance**](#ssh-and-manage-instance) <!-- style="font-size:18px" -->
 * [**Multi AZ EC2 setup**](#multi-az-ec2-setup) <!-- style="font-size:18px" -->
 * [**Load balancing (App & Network)**](#load-balancing) <!-- style="font-size:18px" -->
-* **Health checks** <!-- style="font-size:18px" -->
+* [**Health checks**](#health-checks) <!-- style="font-size:18px" -->
 * **Path based TG routing** <!-- style="font-size:18px" -->
 * **Lambda TG (with intro to lambda)** <!-- style="font-size:18px" -->
 
@@ -717,3 +717,36 @@ Built-in support for WebSockets and HTTP/2: ALB natively supports WebSockets and
 Both ALB and NLB offer automatic scaling, health checks, and integration with AWS services like Auto Scaling, AWS Certificate Manager, and AWS CloudFormation. The choice between ALB and NLB depends on your application's requirements, such as the layer at which you need routing capabilities and the type of traffic you are handling (HTTP, HTTPS, TCP, UDP, etc.).
 
 By leveraging AWS load balancers, you can improve the availability, scalability, and fault tolerance of your applications by efficiently distributing incoming traffic across multiple targets and ensuring a seamless user experience.
+
+### **Health checks**
+
+Health checks are an essential feature of load balancers that allow them to monitor the health and availability of the registered targets (such as EC2 instances) and route traffic only to the healthy targets. AWS provides built-in health check capabilities for both the Application Load Balancer (ALB) and Network Load Balancer (NLB). Here's how health checks work:
+
+**1. Configuration**:
+
+* When you create a load balancer, you define a health check configuration. This includes specifying the protocol, ping target, interval, timeout, and thresholds for determining the health of the targets.
+* For ALB, you configure health checks at the target group level. Each target group can have its own health check settings.
+* For NLB, health checks are configured at the load balancer level. The same health check settings apply to all registered targets.
+
+**2. Health Check Process**:
+
+* The load balancer periodically sends health check requests to the registered targets to determine their health status.
+* The health check request typically follows a specific protocol (HTTP, HTTPS, TCP, etc.) and is sent to a specific endpoint or port on the target.
+* The load balancer waits for a response within a specified timeout period.
+* Based on the response received, the load balancer determines whether the target is healthy or unhealthy.
+
+**3. Target Health States**:
+
+* Healthy: If a target responds to the health check request with a success status code (e.g., HTTP 200 OK), it is considered healthy.
+* Unhealthy: If a target fails to respond within the specified timeout period or responds with an error status code, it is considered unhealthy.
+* During the health check process, the load balancer continuously monitors the target's health and updates its status accordingly.
+
+**4. Routing Decisions**:
+
+* The load balancer uses the health check results to make routing decisions. It forwards incoming traffic only to the healthy targets.
+* If a target becomes unhealthy (fails the health check), the load balancer stops routing traffic to that target until it becomes healthy again.
+* When a target recovers and passes the health check, the load balancer resumes routing traffic to that target.
+
+Health checks play a crucial role in maintaining the availability and reliability of your applications. They ensure that traffic is directed only to healthy targets, effectively handling failures and automatically removing unhealthy instances from the load balancing rotation.
+
+By configuring appropriate health check settings, you can ensure that the load balancer consistently monitors the health of your targets and distributes traffic only to the healthy instances, improving the overall performance and availability of your application.
