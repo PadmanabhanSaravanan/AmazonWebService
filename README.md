@@ -376,7 +376,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Placement Groups**](#placement-groups) <!-- style="font-size:18px" -->
 * [**SSH and manage instance**](#ssh-and-manage-instance) <!-- style="font-size:18px" -->
 * [**Multi AZ EC2 setup**](#multi-az-ec2-setup) <!-- style="font-size:18px" -->
-* **Load balancing (App & Network)** <!-- style="font-size:18px" -->
+* [**Load balancing (App & Network)**](#load-balancing) <!-- style="font-size:18px" -->
 * **Health checks** <!-- style="font-size:18px" -->
 * **Path based TG routing** <!-- style="font-size:18px" -->
 * **Lambda TG (with intro to lambda)** <!-- style="font-size:18px" -->
@@ -684,3 +684,36 @@ To set up an Amazon EC2 instance in a multi-Availability Zone (AZ) configuration
 * Monitor the health and performance of your instances, load balancer, and Auto Scaling group using AWS CloudWatch or other monitoring tools.
 
 By deploying EC2 instances in multiple Availability Zones and utilizing load balancing and Auto Scaling, you can achieve high availability, fault tolerance, and scalability for your application. This setup ensures that your application remains accessible even if one Availability Zone becomes unavailable or instances fail, providing a reliable and resilient infrastructure.
+
+### **Load balancing** 
+
+Load balancing is a critical component of building scalable and highly available applications. Amazon Web Services (AWS) provides two types of load balancers: Application Load Balancer (ALB) and Network Load Balancer (NLB). Let's explore each type:
+
+**Application Load Balancer (ALB)**:
+
+* ALB operates at the application layer (Layer 7) of the OSI model and is designed to route traffic to multiple targets, such as EC2 instances, containers, and Lambda functions.
+
+**Features of ALB include**:
+
+* **Advanced request routing**: ALB supports path-based routing, host-based routing, and HTTP/HTTPS traffic routing based on specific rules and conditions.
+* **Content-based routing**: ALB can route traffic based on the content of the request, such as headers, cookies, or query parameters.
+Built-in support for WebSockets and HTTP/2: ALB natively supports WebSockets and HTTP/2 connections.
+* **Integrated with other AWS services**: ALB seamlessly integrates with AWS services like AWS Certificate Manager, AWS WAF (Web Application Firewall), and AWS CloudFormation.
+* **Target group support**: ALB uses target groups to route traffic to instances or containers within an Auto Scaling group or ECS (Elastic Container Service) service.
+
+
+**Network Load Balancer (NLB)**:
+
+* NLB operates at the transport layer (Layer 4) and is designed to handle high-throughput, low-latency traffic. It is ideal for TCP and UDP traffic that requires extreme performance.
+
+**Features of NLB include**:
+
+* **Ultra-high performance**: NLB can handle millions of requests per second with very low latencies.
+* **Static IP support**: NLB provides a static IP address for your load balancer, enabling you to maintain a fixed entry point to your application.
+* **Port-level routing**: NLB routes traffic based on the destination IP address and port number, allowing you to load balance traffic across multiple ports or protocols.
+* **Cross-zone load balancing**: NLB evenly distributes traffic across targets in different Availability Zones.
+* **Support for Elastic IP addresses**: NLB can be associated with an Elastic IP address, providing a static IP for your load balancer.
+
+Both ALB and NLB offer automatic scaling, health checks, and integration with AWS services like Auto Scaling, AWS Certificate Manager, and AWS CloudFormation. The choice between ALB and NLB depends on your application's requirements, such as the layer at which you need routing capabilities and the type of traffic you are handling (HTTP, HTTPS, TCP, UDP, etc.).
+
+By leveraging AWS load balancers, you can improve the availability, scalability, and fault tolerance of your applications by efficiently distributing incoming traffic across multiple targets and ensuring a seamless user experience.
