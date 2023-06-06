@@ -372,8 +372,8 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Encryption options**](#encryption-options) <!-- style="font-size:18px" -->
 * [**Tagging importance**](#tagging-importance) <!-- style="font-size:18px" -->
 * [**Security Groups**](#security-groups) <!-- style="font-size:18px" -->
-* **Status check types** <!-- style="font-size:18px" -->
-* **Placement Groups** <!-- style="font-size:18px" -->
+* [**Status check types**](#status-check-types) <!-- style="font-size:18px" -->
+* [**Placement Groups**] <!-- style="font-size:18px" -->
 * **SSH and manage instance** <!-- style="font-size:18px" -->
 * **Multi AZ EC2 setup** <!-- style="font-size:18px" -->
 * **Load balancing (App & Network)** <!-- style="font-size:18px" -->
@@ -564,3 +564,17 @@ Tagging is an important practice in AWS, including EC2 instances, as it provides
 * Security groups are stateful, i.e., if you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again.
 
 ![image security-group](image/security-group.png)
+
+### **Status check types**
+
+When it comes to monitoring the health and status of your Amazon EC2 instances, there are two types of status checks that are performed:
+
+* **System Status Checks**: These checks monitor the underlying infrastructure that supports your EC2 instances. They ensure that the systems essential for the instances to operate properly are functioning correctly. System status checks include monitoring components such as power, network connectivity, and hardware issues of the underlying host server.
+
+* **Instance Status Checks**: These checks monitor the software and operating system running on your EC2 instances. They ensure that the instances are responsive and running as expected. Instance status checks include monitoring components such as system and software issues, improper configurations, and application-level issues.
+
+Both system status checks and instance status checks are performed automatically by AWS on a regular basis. The checks help identify any potential issues or problems with your instances and allow you to take appropriate action to resolve them.
+
+You can view the status checks for your instances in the AWS Management Console, CLI, or programmatically using the AWS SDKs. When a status check fails, it indicates that there may be an issue with your instance, and you should investigate and troubleshoot accordingly.
+
+Monitoring the status checks of your EC2 instances is essential for ensuring the overall health and availability of your infrastructure. By promptly addressing any issues identified through the status checks, you can maintain the reliability and performance of your EC2 instances.
