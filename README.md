@@ -375,7 +375,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Status check types**](#status-check-types) <!-- style="font-size:18px" -->
 * [**Placement Groups**](#placement-groups) <!-- style="font-size:18px" -->
 * [**SSH and manage instance**](#ssh-and-manage-instance) <!-- style="font-size:18px" -->
-* **Multi AZ EC2 setup** <!-- style="font-size:18px" -->
+* [**Multi AZ EC2 setup**](#multi-az-ec2-setup) <!-- style="font-size:18px" -->
 * **Load balancing (App & Network)** <!-- style="font-size:18px" -->
 * **Health checks** <!-- style="font-size:18px" -->
 * **Path based TG routing** <!-- style="font-size:18px" -->
@@ -647,3 +647,40 @@ Replace `<private_key_file.pem>` with the actual path to your private key file, 
 * Managing user accounts and permissions.
 * Configuring firewall settings and security measures.
 * Remember to follow security best practices, such as regularly updating your software, using secure protocols, and restricting SSH access to trusted IP addresses or IP ranges, to ensure the security of your EC2 instances.
+
+### **Multi AZ EC2 setup**
+
+To set up an Amazon EC2 instance in a multi-Availability Zone (AZ) configuration for high availability and fault tolerance, you can follow these steps:
+
+**Launch EC2 Instances in Multiple Availability Zones**:
+
+* In the EC2 management console, launch multiple instances in different Availability Zones.
+* Ensure that the instances are set up with the necessary configuration and specifications required for your application.
+
+**Configure Load Balancing**:
+
+* Set up an Elastic Load Balancer (ELB) or an Application Load Balancer (ALB) to distribute incoming traffic across the EC2 instances.
+* Configure the load balancer to listen on the necessary ports and protocols and route traffic to the instances.
+
+**Configure Auto Scaling**:
+
+* Set up an Auto Scaling group to automatically adjust the number of instances based on predefined scaling policies.
+* Define scaling policies based on metrics such as CPU utilization, network traffic, or custom metrics.
+* Auto Scaling will help ensure that the desired number of instances are running at all times, even if instances fail or additional capacity is needed.
+
+**Configure Elastic IP Addresses (Optional)**:
+
+* Assign Elastic IP addresses to your EC2 instances if you require a fixed public IP address for your application.
+* This step is optional but can be useful in scenarios where you need a static IP that remains associated with your instances even if they are replaced or scaled up/down.
+
+**Configure Security Groups**:
+
+* Ensure that the security groups associated with your instances allow incoming traffic from the load balancer and any necessary outbound traffic.
+* Review and configure the security group rules according to your application's requirements.
+
+**Test and Monitor**:
+
+* Once your multi-AZ setup is complete, test the connectivity to your application by accessing it through the load balancer's DNS name or the assigned Elastic IP address.
+* Monitor the health and performance of your instances, load balancer, and Auto Scaling group using AWS CloudWatch or other monitoring tools.
+
+By deploying EC2 instances in multiple Availability Zones and utilizing load balancing and Auto Scaling, you can achieve high availability, fault tolerance, and scalability for your application. This setup ensures that your application remains accessible even if one Availability Zone becomes unavailable or instances fail, providing a reliable and resilient infrastructure.
