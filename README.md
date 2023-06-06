@@ -374,7 +374,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Security Groups**](#security-groups) <!-- style="font-size:18px" -->
 * [**Status check types**](#status-check-types) <!-- style="font-size:18px" -->
 * [**Placement Groups**](#placement-groups) <!-- style="font-size:18px" -->
-* **SSH and manage instance** <!-- style="font-size:18px" -->
+* [**SSH and manage instance**](#ssh-and-manage-instance) <!-- style="font-size:18px" -->
 * **Multi AZ EC2 setup** <!-- style="font-size:18px" -->
 * **Load balancing (App & Network)** <!-- style="font-size:18px" -->
 * **Health checks** <!-- style="font-size:18px" -->
@@ -607,3 +607,43 @@ Placement Groups in Amazon EC2 are a feature that allows you to control the plac
 * Instances in different Placement Groups do not share the same underlying hardware.
 * The type of Placement Group cannot be changed once created.
 * The availability of Placement Groups may vary across different AWS regions.
+
+### **SSH and manage instance**
+
+To SSH into and manage an Amazon EC2 instance, you can follow these steps:
+
+**Obtain the necessary information**:
+
+* Public IP or DNS name of the EC2 instance: This is required to establish the SSH connection.
+* Key pair: Ensure that you have the private key file associated with the key pair used during instance creation.
+
+**Set appropriate permissions for the private key file**:
+
+* In a terminal or command prompt, navigate to the directory where the private key file is stored.
+* Set the correct permissions for the private key file to ensure its security:
+
+![image SSH](image/SSH1.PNG)
+
+**Connect to the EC2 instance**:
+
+* Open a terminal or command prompt on your local machine.
+* Use the SSH command to connect to the EC2 instance, providing the path to the private key file and the public IP or DNS name of the instance:
+
+![image SSH](image/SSH2.PNG)
+
+Replace `<private_key_file.pem>` with the actual path to your private key file, `<user>` with the appropriate username for the instance's operating system (e.g., "ec2-user" for Amazon Linux, "ubuntu" for Ubuntu), and `<public_ip_or_dns>` with the public IP or DNS name of the EC2 instance.
+
+**Access and manage the EC2 instance**:
+
+* Once connected via SSH, you will have a command line interface to interact with the EC2 instance.
+* You can run commands, install software, configure applications, and perform various administrative tasks on the instance, depending on your requirements.
+
+**Some common management tasks you can perform through SSH include**:
+
+* Installing and updating software packages.
+* Configuring and managing web servers, databases, and other services.
+* Transferring files to and from the instance using tools like SCP or SFTP.
+* Monitoring logs and troubleshooting issues.
+* Managing user accounts and permissions.
+* Configuring firewall settings and security measures.
+* Remember to follow security best practices, such as regularly updating your software, using secure protocols, and restricting SSH access to trusted IP addresses or IP ranges, to ensure the security of your EC2 instances.
