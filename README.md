@@ -373,7 +373,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Tagging importance**](#tagging-importance) <!-- style="font-size:18px" -->
 * [**Security Groups**](#security-groups) <!-- style="font-size:18px" -->
 * [**Status check types**](#status-check-types) <!-- style="font-size:18px" -->
-* [**Placement Groups**] <!-- style="font-size:18px" -->
+* [**Placement Groups**](#placement-groups) <!-- style="font-size:18px" -->
 * **SSH and manage instance** <!-- style="font-size:18px" -->
 * **Multi AZ EC2 setup** <!-- style="font-size:18px" -->
 * **Load balancing (App & Network)** <!-- style="font-size:18px" -->
@@ -578,3 +578,32 @@ Both system status checks and instance status checks are performed automatically
 You can view the status checks for your instances in the AWS Management Console, CLI, or programmatically using the AWS SDKs. When a status check fails, it indicates that there may be an issue with your instance, and you should investigate and troubleshoot accordingly.
 
 Monitoring the status checks of your EC2 instances is essential for ensuring the overall health and availability of your infrastructure. By promptly addressing any issues identified through the status checks, you can maintain the reliability and performance of your EC2 instances.
+
+### **Placement Groups**
+
+Placement Groups in Amazon EC2 are a feature that allows you to control the placement of your instances within the AWS infrastructure. Placement Groups provide benefits in terms of performance, network latency, and availability for certain types of workloads. Here are the types of Placement Groups available:
+
+**Cluster Placement Group**:
+
+* Recommended for applications that require low-latency and high-bandwidth communication between instances.
+* Instances are placed in a single Availability Zone and are tightly packed within a single rack.
+* It provides the highest level of network performance and is suitable for HPC (High-Performance Computing) and tightly coupled applications.
+
+**Spread Placement Group**:
+
+* Recommended for applications that require high availability and can tolerate the failure of individual instances.
+* Instances are placed on distinct underlying hardware and spread across different racks within an Availability Zone.
+* It reduces the risk of simultaneous failures and provides isolation for critical applications.
+
+**Partition Placement Group**:
+
+* Recommended for large-scale distributed and fault-tolerant applications.
+* Instances are spread across multiple partitions, each with its own set of racks within an Availability Zone.
+* It enables high availability and fault tolerance, as failures are contained within partitions, minimizing the impact on other partitions.
+
+**Important points to consider**:
+
+* Placement Groups can only be created in a VPC (Virtual Private Cloud).
+* Instances in different Placement Groups do not share the same underlying hardware.
+* The type of Placement Group cannot be changed once created.
+* The availability of Placement Groups may vary across different AWS regions.
