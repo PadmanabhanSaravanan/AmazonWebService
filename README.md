@@ -371,7 +371,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Boot volume types**](#boot-volume-types) <!-- style="font-size:18px" -->
 * [**Encryption options**](#encryption-options) <!-- style="font-size:18px" -->
 * [**Tagging importance**](#tagging-importance) <!-- style="font-size:18px" -->
-* **Security Groups** <!-- style="font-size:18px" -->
+* [**Security Groups**](#security-groups) <!-- style="font-size:18px" -->
 * **Status check types** <!-- style="font-size:18px" -->
 * **Placement Groups** <!-- style="font-size:18px" -->
 * **SSH and manage instance** <!-- style="font-size:18px" -->
@@ -548,3 +548,19 @@ Tagging is an important practice in AWS, including EC2 instances, as it provides
 * Automation and Resource Lifecycle: Tags can be used to automate resource lifecycle management tasks. For instance, you can use tags to define lifecycle policies for EC2 instances, such as automatically stopping or terminating instances after a specific period of inactivity. Tags can also be utilized in resource scheduling and auto-scaling configurations.
 
 * Monitoring and Troubleshooting: Tags can be used for filtering and grouping instances in monitoring and troubleshooting scenarios. For example, you can use tags to create specific Amazon CloudWatch dashboards, aggregate logs, or set up alarms based on tags to track performance or identify issues across specific subsets of instances.
+
+### **Security Groups**
+
+* A security group is a virtual firewall which is controlling the traffic to your EC2 instances.
+* When you first launch an EC2 instance, you can associate it with one or more security groups.
+* A Security group is the first defence against hackers.
+
+**Some important points to remember:**
+
+* All inbound traffic is blocked by Default, i.e., you need to add the traffic such as HTTP, HTTPs, etc.
+* All outbound traffic is allowed automatically.
+* You can have any number of EC2 instances within a security group.
+* You can have multiple security groups attached to EC2 instance./li>
+* Security groups are stateful, i.e., if you create an inbound rule allowing traffic in, that traffic is automatically allowed back out again.
+
+![image security-group](image/security-group.png)
