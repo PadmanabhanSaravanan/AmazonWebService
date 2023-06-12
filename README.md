@@ -367,6 +367,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Elastic Cloud Compute (EC2)**](#elastic-cloud-compute) <!-- style="font-size:18px" -->
 * [**Types of VMs**](#types-of-vms) <!-- style="font-size:18px" -->
 * [**Instance type pricing**](#instance-type-pricing) <!-- style="font-size:18px" -->
+* [**Create EC2 Insatnce**](#create-ec2-insatnce) <!-- style="font-size:18px" -->
 * [**Boot volume & EBS association**](#boot-volume-and-ebs-association) <!-- style="font-size:18px" -->
 * [**Boot volume types**](#boot-volume-types) <!-- style="font-size:18px" -->
 * [**Encryption options**](#encryption-options) <!-- style="font-size:18px" -->
@@ -485,6 +486,44 @@ There are several pricing options available for EC2 instances:
 
 ![image instance](image/ondemadReservations.PNG)
 
+### **Create EC2 Insatnce**
+
+1. Search EC2 in search bar and Select EC2 Instance 
+
+![Create AWS](image/AWS1.PNG)
+
+2. To Create Instance click on Launch instance
+
+![Create AWS](image/2.PNG)
+
+3. Give the name for the instance
+
+![Create AWS](image/4.PNG)
+
+4. Select Application and OS Image
+
+![Create AWS](image/5.PNG)
+
+5. In Key Pair(Login) Select create new key pair
+
+![Create AWS](image/8_1.PNG)
+
+6. Give keypair name ,select Key Pair Type and file format and select create key pair and file will be downloaded
+
+![Create AWS](image/7.PNG)
+
+7. Select network settings
+
+![Create AWS](image/9.PNG)
+
+8. Connfigure storage
+
+![Create AWS](image/10.PNG)
+
+9. After all configuration select Launch Instance which will launch the instance
+
+![Create AWS](image/11.PNG)
+
 ### **Boot volume and EBS association**
 
 When launching an Amazon EC2 instance, the boot volume refers to the primary storage device that contains the operating system and boot files for the instance. By default, the boot volume is an Amazon Elastic Block Store (EBS) volume.
@@ -532,6 +571,12 @@ the encryption options available for data security in Amazon EC2:
 * Transit Encryption: To protect data while it is in transit between EC2 instances and other services or clients, you can use encryption protocols such as SSL/TLS. Implementing SSL/TLS encryption secures network communications and prevents eavesdropping or tampering with data in transit.
 
 * Client-Side Encryption: If you have sensitive data that needs to be encrypted before being sent to an EC2 instance, you can implement client-side encryption. This involves encrypting the data on the client side before it is transmitted to the EC2 instance. The encrypted data can then be securely stored or processed on the instance.
+
+On account attributes select EBS Encrytion 
+
+![Create AWS](image/20.PNG)
+
+![Create AWS](image/21.PNG)
 
 ### **Tagging importance**
 
