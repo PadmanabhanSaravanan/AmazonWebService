@@ -378,8 +378,8 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Multi AZ EC2 setup**](#multi-az-ec2-setup) <!-- style="font-size:18px" -->
 * [**Load balancing (App & Network)**](#load-balancing) <!-- style="font-size:18px" -->
 * [**Health checks**](#health-checks) <!-- style="font-size:18px" -->
-* **Path based TG routing** <!-- style="font-size:18px" -->
-* **Lambda TG (with intro to lambda)** <!-- style="font-size:18px" -->
+* [**Path based TG routing**](#path-based-tg-routing) <!-- style="font-size:18px" -->
+* [**Lambda TG (with intro to lambda)**](#lambda-tg) <!-- style="font-size:18px" -->
 
 ### **Elastic Cloud Compute**
 
@@ -631,6 +631,8 @@ To SSH into and manage an Amazon EC2 instance, you can follow these steps:
 
 ![image SSH](image/SSH2.PNG)
 
+![image SSH](image/SSH_2.PNG)
+
 Replace `<private_key_file.pem>` with the actual path to your private key file, `<user>` with the appropriate username for the instance's operating system (e.g., "ec2-user" for Amazon Linux, "ubuntu" for Ubuntu), and `<public_ip_or_dns>` with the public IP or DNS name of the EC2 instance.
 
 **Access and manage the EC2 instance**:
@@ -783,3 +785,38 @@ Path-based routing allows you to create a single ALB that can handle multiple ap
 
 It's important to note that ALB supports various routing conditions, including path-based routing. You can also combine path-based routing with other conditions, such as host-based routing, query string parameters, and header values, to create more complex routing rules based on specific requirements.
 
+### **Lambda TG**
+
+Lambda Target Groups (Lambda TG) are a feature of the Application Load Balancer (ALB) in AWS that allows you to integrate AWS Lambda functions with ALB. But before we dive into Lambda TG, let's start with a brief introduction to AWS Lambda.
+
+AWS Lambda is a serverless compute service provided by AWS. It allows you to run your code without provisioning or managing servers. With Lambda, you can focus on writing the application logic while AWS handles the underlying infrastructure and scaling. You can write Lambda functions in various programming languages, including Python, Node.js, Java, and more.
+
+Now, let's explore Lambda TG, which combines the power of AWS Lambda with the routing capabilities of ALB:
+
+**1. Create a Lambda Function:**
+
+* To use Lambda with ALB, you need to create a Lambda function that contains the code to process the incoming requests.
+* This code can perform various tasks such as data processing, authentication, authorization, validation, or invoking other AWS services.
+
+**2. Configure the Application Load Balancer:**
+
+* Create an Application Load Balancer (ALB) in AWS.
+* Set up the necessary listeners and define the routing rules to handle incoming requests.
+
+**3. Create a Lambda Target Group:**
+
+* In the ALB configuration, create a target group specifically for Lambda functions.
+* Specify the target type as "lambda" when creating the target group.
+
+**4. Associate Lambda Functions with the Target Group:**
+
+* Associate your Lambda function with the Lambda target group.
+* This tells the ALB to forward the incoming requests to the Lambda function for processing.
+
+**5. Process Requests with Lambda:**
+
+* When an HTTP or HTTPS request is received by the ALB, it checks the routing rules.
+* If the request matches the conditions defined in the ALB's listeners, it is forwarded to the Lambda function associated with the target group.
+* The Lambda function executes the code logic defined in your function, processing the request payload and generating a response.
+
+By using Lambda TG, you can leverage the scalability, fault tolerance, and cost efficiency of AWS Lambda while benefiting from the advanced routing capabilities of ALB. Lambda TG allows you to build serverless architectures with event-driven request processing, offloading the heavy lifting to Lambda functions and enabling you to focus on developing your application logic.
