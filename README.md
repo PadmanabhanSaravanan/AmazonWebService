@@ -750,3 +750,36 @@ Health checks are an essential feature of load balancers that allow them to moni
 Health checks play a crucial role in maintaining the availability and reliability of your applications. They ensure that traffic is directed only to healthy targets, effectively handling failures and automatically removing unhealthy instances from the load balancing rotation.
 
 By configuring appropriate health check settings, you can ensure that the load balancer consistently monitors the health of your targets and distributes traffic only to the healthy instances, improving the overall performance and availability of your application.
+
+### **Path based TG routing**
+
+Path-based routing is a feature of the Application Load Balancer (ALB) in AWS that allows you to route incoming traffic to different target groups based on the path in the URL. This enables you to direct requests to different applications or microservices running on different instances or containers behind the ALB. Here's how path-based routing works:
+
+**1. Create Target Groups**:
+
+* Define the target groups that correspond to different applications or services you want to route traffic to.
+* Each target group represents a set of instances or containers serving a specific application or microservice.
+
+**2. Configure Listener Rules**:
+
+* In the ALB configuration, set up listener rules that specify how to route incoming requests based on the path in the URL.
+* Each listener rule consists of a condition and an action.
+* The condition includes a path pattern, such as "/app1/" or "/app2/", which matches the desired paths for routing.
+* The action specifies the target group to forward the request to when the condition is met.
+
+**3. Route Requests**:
+
+* When a request is received by the ALB, it evaluates the listener rules in order.
+* It compares the path in the request URL to the path patterns defined in the listener rules.
+* If a match is found, the ALB routes the request to the corresponding target group associated with that rule.
+* If no match is found, the default action specified in the listener rule is used.
+
+**4. Backend Server Processing**:
+
+* Once the request is routed to the appropriate target group, the instances or containers associated with that target group process the request.
+* Each application or service behind the target group can handle the request based on its own logic and configuration.
+
+Path-based routing allows you to create a single ALB that can handle multiple applications or microservices with different paths. This approach simplifies your architecture, reduces costs, and provides flexibility in scaling and managing your applications.
+
+It's important to note that ALB supports various routing conditions, including path-based routing. You can also combine path-based routing with other conditions, such as host-based routing, query string parameters, and header values, to create more complex routing rules based on specific requirements.
+
