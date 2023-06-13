@@ -733,8 +733,6 @@ Both ALB and NLB offer automatic scaling, health checks, and integration with AW
 
 By leveraging AWS load balancers, you can improve the availability, scalability, and fault tolerance of your applications by efficiently distributing incoming traffic across multiple targets and ensuring a seamless user experience.
 
-
-
 ### **Health checks**
 
 Health checks are an essential feature of load balancers that allow them to monitor the health and availability of the registered targets (such as EC2 instances) and route traffic only to the healthy targets. AWS provides built-in health check capabilities for both the Application Load Balancer (ALB) and Network Load Balancer (NLB). Here's how health checks work:
@@ -835,3 +833,163 @@ Now, let's explore Lambda TG, which combines the power of AWS Lambda with the ro
 * The Lambda function executes the code logic defined in your function, processing the request payload and generating a response.
 
 By using Lambda TG, you can leverage the scalability, fault tolerance, and cost efficiency of AWS Lambda while benefiting from the advanced routing capabilities of ALB. Lambda TG allows you to build serverless architectures with event-driven request processing, offloading the heavy lifting to Lambda functions and enabling you to focus on developing your application logic.
+
+### **Load Balancer Configuration:**
+
+A load balancer takes requests from clients and distributes them across targets in a target group.
+
+Before you begin, ensure that you have a virtual private cloud (VPC) with at least one public subnet in each of the Availability Zones used by your targets.
+
+* [**Step 1: Configure a target group**](#configure-a-target-group)
+* [**Step 2: Register targets**](#register-targets)
+* [**Step 3: Configure a load balancer and a listener**](#configure-a-load-balancer-and-a-listener)
+
+#### **Configure a target group**
+
+**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+**2.** In the navigation panel, choose Target Groups.
+
+**3.** Choose Create target group.
+
+![image TG](image/targetgroup8.PNG)
+
+**4.** In the Basic configuration section, set the following parameters:
+
+* For Choose a target type, select Instances to specify targets by instance ID or IP addresses to specify targets by IP address. If the target type is a Lambda function, you can enable health checks by selecting Enable in the Health checks section.
+
+![image TG](image/targetgroup.PNG)
+
+* For Target group name, enter a name for the target group.
+
+![image TG](image/targetgroup2.PNG)
+
+* Modify the Port and Protocol as needed.
+
+* If the target type is IP addresses, choose IPv4 or IPv6 as the IP address type, otherwise skip to the next step.
+
+* Note that only targets that have the selected IP address type can be included in this target group. The IP address type cannot be changed after the target group is created.
+
+* For VPC, select a virtual private cloud (VPC) with the targets that you want to include in your target group.
+
+* For Protocol version, select HTTP1 when the request protocol is HTTP/1.1 or HTTP/2; select HTTP2, when the request protocol is HTTP/2 or gRPC; and select gRPC, when the request protocol is gRPC.
+
+![image TG](image/targetgroup3.PNG)
+
+**5.** In the Health checks section, modify the default settings as needed. For Advanced health check settings, choose the health check port, count, timeout, interval, and specify success codes. If health checks consecutively exceed the Unhealthy threshold count, the load balancer takes the target out of service. If health checks consecutively exceed the Healthy threshold count, the load balancer puts the target back in service. For more information, see Health checks for your target groups.
+
+![image TG](image/targetgroup4.PNG)
+
+**6.** (Optional) Add one or more tags as follows:
+
+* Expand the Tags section.
+* Choose Add tag.
+* Enter the tag Key and tag Value. Allowed characters are letters, spaces, numbers (in UTF-8), and the following special characters: + - = . _ : / @. Do not use leading or trailing spaces. Tag values are case-sensitive.
+
+![image TG](image/targetgroup5.PNG)
+
+**7.** Choose Next.
+
+#### **Register targets**
+
+**1.** In the Register targets page, add one or more targets as follows:
+
+* If the target type is Instances, select one or more instances, enter one or more ports, and then choose Include as pending below.
+
+* If the target type is IP addresses, do the following:
+
+    => Select a network VPC from the list, or choose Other private IP addresses.
+
+    => Enter the IP address manually, or find the IP address using instance details. You can enter up to five IP addresses at a time.
+
+    => Enter the ports for routing traffic to the specified IP addresses.
+
+    => Choose Include as pending below.
+
+* If the target type is Lambda, select a Lambda function, or enter a Lambda function ARN, and then choose Include as pending below.
+
+![image TG](image/targetgroup6.PNG)
+
+**2.** Choose Create target group.
+
+![image TG](image/targetgroup7.PNG)
+
+#### **Configure a load balancer and a listener**
+
+**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+**2.** In the navigation panel, choose Load Balancers.
+
+**3.** Choose Create Load Balancer.
+
+![image LB](image/loadbalancer1.PNG)
+
+**4.** Under Application Load Balancer, choose Create.
+
+![image LB](image/loadbalancer2.PNG)
+
+**5.** Basic configuration
+
+* For Load balancer name, enter a name for your load balancer. For example, my-alb. The name of your Application Load Balancer must be unique within your set of Application Load Balancers and Network Load Balancers for the Region. Names can have a maximum of 32 characters, and can contain only alphanumeric characters and hyphens. They can not begin or end with a hyphen, or with internal-.
+
+* For Scheme, choose Internet-facing or Internal. An internet-facing load balancer routes requests from clients to targets over the internet. An internal load balancer routes requests to targets using private IP addresses.
+
+* For IP address type, choose IPv4 or Dualstack. Use IPv4 if your clients use IPv4 addresses to communicate with the load balancer. Choose Dualstack if your clients use both IPv4 and IPv6 addresses to communicate with the load balancer.
+
+![image LB](image/loadbalancer3.PNG)
+
+**6.** Network mapping
+
+* For VPC, select the VPC that you used for your EC2 instances. If you selected Internet-facing for Scheme, only VPCs with an internet gateway are available for selection.
+
+*  For Mappings, select two or more Availability Zones and corresponding subnets. Enabling multiple Availability Zones increases the fault tolerance of your applications.
+
+    For an internal load balancer, you can assign a private IP address from the IPv4 or IPv6 range of each subnet instead of letting AWS assign one for you.
+
+    Select one subnet per zone to enable. If you enabled Dualstack mode for the load balancer, select subnets with associated IPv6 CIDR blocks. You can specify one of the following:
+
+    => Subnets from two or more Availability Zones
+
+    => Subnets from one or more Local Zones
+
+    => One Outpost subnet
+
+![image LB](image/loadbalancer4.PNG)
+
+**7.** For Security groups, select an existing security group, or create a new one.
+
+    The security group for your load balancer must allow it to communicate with registered targets on both the listener port and the health check port. The console can create a security group for your load balancer on your behalf with rules that allow this communication. You can also create a security group and select it instead. For more information, see Recommended rules.
+
+    (Optional) To create a new security group for your load balancer, choose Create a new security group.
+
+![image LB](image/loadbalancer5.PNG)
+
+**8.** For Listeners and routing, the default listener accepts HTTP traffic on port 80. You can keep the default protocol and port, or choose different ones. For Default action, choose the target group that you created. You can optionally choose Add listener to add another listener (for example, an HTTPS listener).
+
+    If you create an HTTPS listener, configure the required Secure listener settings. Otherwise, go to the next step.
+
+    When you use HTTPS for your load balancer listener, you must deploy an SSL certificate on your load balancer. The load balancer uses this certificate to terminate the connection and decrypt requests from clients before sending them to the targets. For more information, see SSL certificates. Additionally, specify the security policy that the load balancer uses to negotiate SSL connections with the clients. For more information, see Security policies.
+
+    For Default SSL certificate, do one of the following:
+
+    => If you created or imported a certificate using AWS Certificate Manager, select From ACM, and then select the certificate.
+
+    => If you uploaded a certificate using IAM, select From IAM, and then select the certificate.
+
+    => If you want to import a certificate to ACM or IAM , enter a certificate name. Then, paste the PEM-encoded private key and body.
+
+![image LB](image/loadbalancer6.PNG)
+
+**9.** (Optional) You can use Add-on services, such as the AWS Global Accelerator to create an accelerator and associate the load balancer with the accelerator. The accelerator name can have up to 64 characters. Allowed characters are a-z, A-Z, 0-9, . and - (hyphen). Once the accelerator is created, you can use the AWS Global Accelerator console to manage it.
+
+![image LB](image/loadbalancer7.PNG)
+
+**10.** Tag and create
+
+* (Optional) Add a tag to categorize your load balancer. Tag keys must be unique for each load balancer. Allowed characters are letters, spaces, numbers (in UTF-8), and the following special characters: + - = . _ : / @. Do not use leading or trailing spaces. Tag values are case-sensitive.
+
+* Review your configuration, and choose Create load balancer. A few default attributes are applied to your load balancer during creation. You can view and edit them after creating the load balancer. For more information, see Load balancer attributes.
+
+![image LB](image/loadbalancer8.PNG)
+
+![image LB](image/loadbalancer9.PNG)
