@@ -380,6 +380,7 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Health checks**](#health-checks) <!-- style="font-size:18px" -->
 * [**Path based TG routing**](#path-based-tg-routing) <!-- style="font-size:18px" -->
 * [**Lambda TG (with intro to lambda)**](#lambda-tg) <!-- style="font-size:18px" -->
+[**Load Balancer Configuration**](#load-balancer-configuration) <!-- style="font-size:18px" -->
 
 ### **Elastic Cloud Compute**
 
