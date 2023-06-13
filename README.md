@@ -6,7 +6,7 @@
 
 * [**INTRODUCTION**](#introduction)<!-- style="font-size:20px" -->
 * [**SECURITY**](#security) <!-- style="font-size:20px" -->
-* [**COMPUTE I**](#tagging-importance) <!-- style="font-size:20px" -->
+* [**COMPUTE I**](#compute-i) <!-- style="font-size:20px" -->
 * **COMPUTE II**<!-- style="font-size:20px" -->
 * **STORAGE AND DELIVERY**<!-- style="font-size:20px" -->
 * **NETWORKING**<!-- style="font-size:20px" -->
@@ -376,7 +376,6 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Status check types**](#status-check-types) <!-- style="font-size:18px" -->
 * [**Placement Groups**](#placement-groups) <!-- style="font-size:18px" -->
 * [**SSH and manage instance**](#ssh-and-manage-instance) <!-- style="font-size:18px" -->
-* [**Multi AZ EC2 setup**](#multi-az-ec2-setup) <!-- style="font-size:18px" -->
 * [**Load balancing (App & Network)**](#load-balancing) <!-- style="font-size:18px" -->
 * [**Health checks**](#health-checks) <!-- style="font-size:18px" -->
 * [**Path based TG routing**](#path-based-tg-routing) <!-- style="font-size:18px" -->
@@ -388,7 +387,9 @@ Amazon Elastic Compute Cloud (EC2) is a web service that provides resizable comp
 
 EC2 offers a variety of instance types, each with different CPU, memory, storage, and network capacity configurations to meet the needs of different workloads. Users can launch instances on-demand, reserve them for a fixed period of time, or use spot instances to bid on spare compute capacity and reduce costs.
 
-Here are some of the key features of EC2:
+![image ec2](image/ec2.png)
+
+**Here are some of the key features of EC2:**
 
 * **Scalability**: EC2 enables users to quickly and easily scale compute capacity up or down to meet changing demand, without the need for upfront investments in hardware.
 
@@ -530,30 +531,30 @@ When launching an Amazon EC2 instance, the boot volume refers to the primary sto
 
 Here are the key points about boot volumes and EBS association:
 
-* Amazon EBS: Amazon Elastic Block Store (EBS) provides block-level storage volumes that can be attached to EC2 instances. EBS volumes are network-attached and can persist independently of the running instance.
+* **Amazon EBS**: Amazon Elastic Block Store (EBS) provides block-level storage volumes that can be attached to EC2 instances. EBS volumes are network-attached and can persist independently of the running instance.
 
-* Boot Volume: The boot volume is the primary storage device from which the EC2 instance starts up and runs. It contains the operating system, applications, and data. The boot volume is typically an EBS volume but can also be an instance store volume for certain instance types.
+* **Boot Volume**: The boot volume is the primary storage device from which the EC2 instance starts up and runs. It contains the operating system, applications, and data. The boot volume is typically an EBS volume but can also be an instance store volume for certain instance types.
 
-* EBS-Backed Instances: Most EC2 instances are EBS-backed, which means they use an EBS volume as the boot volume. EBS-backed instances allow for data persistence even if the instance is stopped or terminated.
+* **EBS-Backed Instances**: Most EC2 instances are EBS-backed, which means they use an EBS volume as the boot volume. EBS-backed instances allow for data persistence even if the instance is stopped or terminated.
 
-* EBS Volume Association: When launching an EC2 instance, you can specify the EBS volume to be used as the boot volume. You can either create a new EBS volume or select an existing one. The instance will be associated with the specified EBS volume as its boot volume.
+* **EBS Volume Association**: When launching an EC2 instance, you can specify the EBS volume to be used as the boot volume. You can either create a new EBS volume or select an existing one. The instance will be associated with the specified EBS volume as its boot volume.
 
-* Elasticity and Management: By using EBS-backed instances, you can easily manage and scale your EC2 instances. You can take snapshots of EBS volumes for backups, resize volumes, and detach and reattach volumes to other instances.
+* **Elasticity and Management**: By using EBS-backed instances, you can easily manage and scale your EC2 instances. You can take snapshots of EBS volumes for backups, resize volumes, and detach and reattach volumes to other instances.
 
-* Instance Store Volumes: Some EC2 instance types offer instance store volumes as the boot volume. Instance store volumes are physically attached to the host computer and provide temporary block-level storage that is lost if the instance is stopped or terminated.
+* **Instance Store Volumes**: Some EC2 instance types offer instance store volumes as the boot volume. Instance store volumes are physically attached to the host computer and provide temporary block-level storage that is lost if the instance is stopped or terminated.
 
 ### **Boot volume types**
 
 When launching an Amazon EC2 instance, you have different options for selecting the type of boot volume. The boot volume type determines the characteristics and performance of the storage device used as the primary storage for the instance's operating system and boot files. The available boot volume types include:
 
-Amazon EBS (Elastic Block Store) Boot Volumes:
+**1. Amazon EBS (Elastic Block Store) Boot Volumes:**
 
 * General Purpose SSD (gp2): This is the default boot volume type for most EC2 instances. It offers a balance of price and performance, suitable for a wide range of workloads.
 * Provisioned IOPS SSD (io2): This boot volume type is optimized for high-performance applications that require low-latency and consistent I/O performance. It offers configurable IOPS (Input/Output Operations Per Second) to meet specific application requirements.
 * Throughput Optimized HDD (st1): This boot volume type is designed for frequently accessed, throughput-intensive workloads, such as big data processing or log processing.
 * Cold HDD (sc1): This boot volume type is designed for less frequently accessed workloads, providing low-cost storage for large volumes of data.
 
-Instance Store Boot Volumes:
+**2. Instance Store Boot Volumes:**
 
 Instance store volumes are temporary block-level storage that is physically attached to the host computer where the EC2 instance is running. The data stored on instance store volumes is lost if the instance is stopped or terminated. The performance characteristics and capacity of instance store volumes vary depending on the EC2 instance type.
 It's important to note that the availability of boot volume types may vary depending on the EC2 instance type and region. You can choose the appropriate boot volume type based on your workload requirements for performance, durability, and cost.
@@ -571,12 +572,6 @@ the encryption options available for data security in Amazon EC2:
 * Transit Encryption: To protect data while it is in transit between EC2 instances and other services or clients, you can use encryption protocols such as SSL/TLS. Implementing SSL/TLS encryption secures network communications and prevents eavesdropping or tampering with data in transit.
 
 * Client-Side Encryption: If you have sensitive data that needs to be encrypted before being sent to an EC2 instance, you can implement client-side encryption. This involves encrypting the data on the client side before it is transmitted to the EC2 instance. The encrypted data can then be securely stored or processed on the instance.
-
-On account attributes select EBS Encrytion 
-
-![Create AWS](image/20.PNG)
-
-![Create AWS](image/21.PNG)
 
 ### **Tagging importance**
 
@@ -634,17 +629,23 @@ Placement Groups in Amazon EC2 are a feature that allows you to control the plac
 * Instances are placed in a single Availability Zone and are tightly packed within a single rack.
 * It provides the highest level of network performance and is suitable for HPC (High-Performance Computing) and tightly coupled applications.
 
+![image placement-group](image/placement-group-cluster.png)
+
 **Spread Placement Group**:
 
 * Recommended for applications that require high availability and can tolerate the failure of individual instances.
 * Instances are placed on distinct underlying hardware and spread across different racks within an Availability Zone.
 * It reduces the risk of simultaneous failures and provides isolation for critical applications.
 
+![image placement-group](image/placement-group-spread.png)
+
 **Partition Placement Group**:
 
 * Recommended for large-scale distributed and fault-tolerant applications.
 * Instances are spread across multiple partitions, each with its own set of racks within an Availability Zone.
 * It enables high availability and fault tolerance, as failures are contained within partitions, minimizing the impact on other partitions.
+
+![image placement-group](image/placement-group-partition.png)
 
 **Important points to consider**:
 
@@ -695,43 +696,6 @@ Replace `<private_key_file.pem>` with the actual path to your private key file, 
 * Configuring firewall settings and security measures.
 * Remember to follow security best practices, such as regularly updating your software, using secure protocols, and restricting SSH access to trusted IP addresses or IP ranges, to ensure the security of your EC2 instances.
 
-### **Multi AZ EC2 setup**
-
-To set up an Amazon EC2 instance in a multi-Availability Zone (AZ) configuration for high availability and fault tolerance, you can follow these steps:
-
-**Launch EC2 Instances in Multiple Availability Zones**:
-
-* In the EC2 management console, launch multiple instances in different Availability Zones.
-* Ensure that the instances are set up with the necessary configuration and specifications required for your application.
-
-**Configure Load Balancing**:
-
-* Set up an Elastic Load Balancer (ELB) or an Application Load Balancer (ALB) to distribute incoming traffic across the EC2 instances.
-* Configure the load balancer to listen on the necessary ports and protocols and route traffic to the instances.
-
-**Configure Auto Scaling**:
-
-* Set up an Auto Scaling group to automatically adjust the number of instances based on predefined scaling policies.
-* Define scaling policies based on metrics such as CPU utilization, network traffic, or custom metrics.
-* Auto Scaling will help ensure that the desired number of instances are running at all times, even if instances fail or additional capacity is needed.
-
-**Configure Elastic IP Addresses (Optional)**:
-
-* Assign Elastic IP addresses to your EC2 instances if you require a fixed public IP address for your application.
-* This step is optional but can be useful in scenarios where you need a static IP that remains associated with your instances even if they are replaced or scaled up/down.
-
-**Configure Security Groups**:
-
-* Ensure that the security groups associated with your instances allow incoming traffic from the load balancer and any necessary outbound traffic.
-* Review and configure the security group rules according to your application's requirements.
-
-**Test and Monitor**:
-
-* Once your multi-AZ setup is complete, test the connectivity to your application by accessing it through the load balancer's DNS name or the assigned Elastic IP address.
-* Monitor the health and performance of your instances, load balancer, and Auto Scaling group using AWS CloudWatch or other monitoring tools.
-
-By deploying EC2 instances in multiple Availability Zones and utilizing load balancing and Auto Scaling, you can achieve high availability, fault tolerance, and scalability for your application. This setup ensures that your application remains accessible even if one Availability Zone becomes unavailable or instances fail, providing a reliable and resilient infrastructure.
-
 ### **Load balancing** 
 
 Load balancing is a critical component of building scalable and highly available applications. Amazon Web Services (AWS) provides two types of load balancers: Application Load Balancer (ALB) and Network Load Balancer (NLB). Let's explore each type:
@@ -739,6 +703,8 @@ Load balancing is a critical component of building scalable and highly available
 **Application Load Balancer (ALB)**:
 
 * ALB operates at the application layer (Layer 7) of the OSI model and is designed to route traffic to multiple targets, such as EC2 instances, containers, and Lambda functions.
+
+![image ALB](image/alb.PNG)
 
 **Features of ALB include**:
 
@@ -753,6 +719,8 @@ Built-in support for WebSockets and HTTP/2: ALB natively supports WebSockets and
 
 * NLB operates at the transport layer (Layer 4) and is designed to handle high-throughput, low-latency traffic. It is ideal for TCP and UDP traffic that requires extreme performance.
 
+![image nlb](image/nlb.PNG)
+
 **Features of NLB include**:
 
 * **Ultra-high performance**: NLB can handle millions of requests per second with very low latencies.
@@ -764,6 +732,8 @@ Built-in support for WebSockets and HTTP/2: ALB natively supports WebSockets and
 Both ALB and NLB offer automatic scaling, health checks, and integration with AWS services like Auto Scaling, AWS Certificate Manager, and AWS CloudFormation. The choice between ALB and NLB depends on your application's requirements, such as the layer at which you need routing capabilities and the type of traffic you are handling (HTTP, HTTPS, TCP, UDP, etc.).
 
 By leveraging AWS load balancers, you can improve the availability, scalability, and fault tolerance of your applications by efficiently distributing incoming traffic across multiple targets and ensuring a seamless user experience.
+
+
 
 ### **Health checks**
 
