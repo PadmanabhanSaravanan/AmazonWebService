@@ -1207,3 +1207,19 @@ It's important to note that AMIs are specific to the cloud provider you are usin
 In summary, a machine image or AMI is a pre-configured template that allows you to create instances with specific software configurations and operating systems in the cloud. It simplifies the process of deploying and scaling applications, enables consistent environments, and facilitates disaster recovery planning.
 
 ![image AMI](image/machineImage.PNG)
+
+### **AMI across AZ**
+
+When working with Amazon Web Services (AWS), an Amazon Machine Image (AMI) can be created and used across multiple Availability Zones (AZs). An Availability Zone is an isolated location within a region that is designed to provide fault tolerance and high availability.
+
+Here's how you can use an AMI across AZs in AWS:
+
+**1. Create an AMI:** First, you need to create an AMI from an existing instance. This can be done using the AWS Management Console, AWS CLI (Command Line Interface), or SDKs (Software Development Kits). When creating the AMI, ensure that the source instance is running in the desired AZ.
+
+**2. Copy the AMI to other AZs:** After creating the initial AMI, you can copy it to other AZs within the same region. This step allows you to have the same machine image available in multiple AZs for redundancy and load balancing purposes. The AWS Management Console or AWS CLI can be used to initiate the AMI copy process.
+
+**3. Launch instances from the AMI in different AZs:** Once the AMI is available in multiple AZs, you can launch instances from the AMI in each AZ. When launching instances, you can choose the specific AZ for each instance to ensure they are distributed across different AZs. This helps in achieving higher availability and fault tolerance.
+
+**4. Load balancing and scaling:** By having instances launched from the same AMI across multiple AZs, you can use AWS load balancing services like Elastic Load Balancing (ELB) or AWS Auto Scaling to distribute traffic evenly among the instances and scale up or down based on demand. These services are designed to work seamlessly with instances in different AZs.
+
+**5. Monitoring and managing instances across AZs:** It's important to monitor and manage your instances across different AZs to ensure they are functioning properly. AWS provides various monitoring and management tools like Amazon CloudWatch, AWS Systems Manager, and AWS Management Console that allow you to monitor and control instances across AZs from a centralized location.
