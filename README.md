@@ -7,7 +7,7 @@
 * [**INTRODUCTION**](#introduction)<!-- style="font-size:20px" -->
 * [**SECURITY**](#security) <!-- style="font-size:20px" -->
 * [**COMPUTE I**](#compute-i) <!-- style="font-size:20px" -->
-* **COMPUTE II**<!-- style="font-size:20px" -->
+* [**COMPUTE II**](#compute-ii)<!-- style="font-size:20px" -->
 * **STORAGE AND DELIVERY**<!-- style="font-size:20px" -->
 * **NETWORKING**<!-- style="font-size:20px" -->
 
@@ -1081,3 +1081,55 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 **10.** Choose Create target group.
 
 ![image LambdaTG](image/lambdaTG13.PNG)
+
+## COMPUTE II
+
+* [**Auto scaling launch configuration**](#auto-scaling-launch-configuration) <!-- style="font-size:18px" -->
+* [**Auto scale groups**](#auto-scale-groups) <!-- style="font-size:18px" -->
+* [**Bootstrap scripts**] <!-- style="font-size:18px" -->
+* [**Instance metadata access**] <!-- style="font-size:18px" -->
+* [**Failure simulation**] <!-- style="font-size:18px" -->
+* [**Machine image (AMI)**] <!-- style="font-size:18px" -->
+* [**AMI across AZ**] <!-- style="font-size:18px" -->
+* [**Security aspects of AMI**] <!-- style="font-size:18px" -->
+* [**Elastic Beanstalk**] <!-- style="font-size:18px" -->
+* [**Command line interface (CLI)**] <!-- style="font-size:18px" -->
+* [**Multi AZ EC2 setup**] <!-- style="font-size:18px" -->
+
+### **Auto scaling launch configuration**
+
+
+
+### **Auto scale groups**
+
+* Amazon EC2 Auto Scaling helps you ensure that you have the correct number of Amazon EC2 instances available to handle the load for your application. You create collections of EC2 instances, called Auto Scaling groups
+* You can specify the minimum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. You can specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes above this size. If you specify the desired capacity, either when you create the group or at any time thereafter, Amazon EC2 Auto Scaling ensures that your group has this many instances. If you specify scaling policies, then Amazon EC2 Auto Scaling can launch or terminate instances as demand on your application increases or decreases.
+
+![image AS](image/autoscaling.png)
+
+### **Bootstrap scripts**
+
+Bootstrap scripts are scripts or commands that are executed automatically when a system or application starts up. They are used to perform initialization tasks, configure the environment, install dependencies, and set up the system for proper operation. Bootstrap scripts are commonly used in various contexts, including server provisioning, application deployment, and cloud infrastructure setup.
+
+In an AWS cluster, the script is called a user-data script.
+
+Add script in user-data while creating instance 
+
+```script
+#!/bin/bash
+sudo yum update -y
+sudo yum -y install nginx
+sudo systemctl start nginx
+```
+
+![image bootscript](image/bootstrapScript.PNG)
+
+Open a terminal or command prompt on your local machine.
+
+Use the SSH command to connect to the EC2 instance, providing the path to the private key file and the public IP or DNS name of the instance
+
+check nginx server as be installed
+
+`nginx -v`
+
+![image bootscript](image/bootstrapScript1.PNG)
