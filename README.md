@@ -380,7 +380,8 @@ By setting and enforcing a strong password policy, you can help ensure the secur
 * [**Health checks**](#health-checks) <!-- style="font-size:18px" -->
 * [**Path based TG routing**](#path-based-tg-routing) <!-- style="font-size:18px" -->
 * [**Lambda TG (with intro to lambda)**](#lambda-tg) <!-- style="font-size:18px" -->
-[**Load Balancer Configuration**](#load-balancer-configuration) <!-- style="font-size:18px" -->
+* [**Load Balancer Configuration**](#load-balancer-configuration) <!-- style="font-size:18px" -->
+* [**LambdaTG Configuration**](#configure-lambdatg) <!-- style="font-size:18px" -->
 
 ### **Elastic Cloud Compute**
 
@@ -994,3 +995,89 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 ![image LB](image/loadbalancer8.PNG)
 
 ![image LB](image/loadbalancer9.PNG)
+
+### **Configure LambdaTG**
+
+> **To create a new function (console)**
+
+**1.** Open the Functions page of the Lambda console and choose Create Function.
+
+![image LambdaTG](image/lambdaTG.PNG)
+
+**2.** Choose Author from scratch.
+
+![image LambdaTG](image/lambdaTG1.PNG)
+
+**3.** Under Basic information, do the following:
+
+* For Function name, enter the name for your function.
+
+* For Runtime, select the runtime you want to use.
+
+* (Optional) For Architecture, choose the instruction set architecture for your function. The default architecture is x86_64. Ensure that the .zip deployment package for your function is compatible with the instruction set architecture you select.
+
+![image LambdaTG](image/lambdaTG2.PNG)
+
+**4.** Advanced Settings
+
+![image LambdaTG](image/lambdaTG3.PNG)
+
+**5.** Choose Create function. Lambda creates a basic 'Hello App' function using your chosen runtime.
+
+> **To upload a .zip or JAR archive from your local machine (console)**
+
+**1.** In the Functions page of the Lambda console, choose the function you want to upload the .zip or JAR file for.
+
+![image LambdaTG](image/lambdaTG4.PNG)
+
+**2.** Select the Code tab.
+
+![image LambdaTG](image/lambdaTG5.PNG)
+
+**3.** In the Code source pane, choose Upload from.
+
+**4.** Choose .zip or .jar file.
+
+**5.** To upload the .zip or JAR file, do the following:
+
+* Select Upload, then select your .zip or JAR file in the file chooser.
+
+* Choose Open.
+
+* Choose Save.
+
+> **To create a target group and register the Lambda function using the new console**
+
+**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+**2.** On the navigation pane, under LOAD BALANCING, choose Target Groups.
+
+**3.** Choose Create target group.
+
+**4.** For Choose a target type, select Lambda function.
+
+**5.** For Target group name, type a name for the target group.
+
+![image LambdaTG](image/lambdaTG9.PNG)
+
+**6.** (Optional) To enable health checks, choose Enable in the Health checks section.
+
+![image LambdaTG](image/lambdaTG10.PNG)
+
+**7.** (Optional) Add one or more tags as follows:
+
+* Expand the Tags section.
+
+* Choose Add tag.
+
+* Enter the tag key and the tag value.
+
+![image LambdaTG](image/lambdaTG12.PNG)
+
+**8.** Choose Next.
+
+**9.** Specify a single Lambda function or omit this step and specify a Lambda function later.
+
+**10.** Choose Create target group.
+
+![image LambdaTG](image/lambdaTG13.PNG)
