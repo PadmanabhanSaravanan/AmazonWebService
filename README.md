@@ -1086,10 +1086,10 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 * [**Auto scaling launch configuration**](#auto-scaling-launch-configuration) <!-- style="font-size:18px" -->
 * [**Auto scale groups**](#auto-scale-groups) <!-- style="font-size:18px" -->
-* [**Bootstrap scripts**] <!-- style="font-size:18px" -->
-* [**Instance metadata access**] <!-- style="font-size:18px" -->
-* [**Failure simulation**] <!-- style="font-size:18px" -->
-* [**Machine image (AMI)**] <!-- style="font-size:18px" -->
+* [**Bootstrap scripts**](#bootstrap-scripts) <!-- style="font-size:18px" -->
+* [**Instance metadata access**](#instance-metadata-access) <!-- style="font-size:18px" -->
+* [**Failure simulation**](#failure-simulation) <!-- style="font-size:18px" -->
+* [**Machine image (AMI)**](#machine-image) <!-- style="font-size:18px" -->
 * [**AMI across AZ**] <!-- style="font-size:18px" -->
 * [**Security aspects of AMI**] <!-- style="font-size:18px" -->
 * [**Elastic Beanstalk**] <!-- style="font-size:18px" -->
@@ -1175,3 +1175,35 @@ When conducting failure simulations, it's essential to carefully plan and coordi
 Various tools and frameworks are available to facilitate failure simulation, such as Chaos Monkey for AWS, Simian Army, and Gremlin. These tools provide automated ways to inject failures and validate system behavior under stress.
 
 Overall, failure simulation is a valuable practice for building and maintaining robust and resilient systems. It helps teams gain confidence in their system's ability to handle failures, identify weaknesses, and proactively improve system reliability.
+
+### **Machine image**
+
+In the context of cloud computing, a machine image, often referred to as an Amazon Machine Image (AMI) in the case of Amazon Web Services (AWS), is a pre-configured template that contains the necessary software, operating system, and application configurations required to launch instances (virtual servers) in the cloud.
+
+An AMI is essentially a snapshot or a blueprint of a virtual machine, which includes the following components:
+
+**1. Operating System:** The AMI includes the specific operating system (such as Linux, Windows, or other distributions) with a pre-installed set of configurations and software packages.
+
+**2. Software Stack:** It can include additional software, frameworks, libraries, and utilities that are required for your applications or services to run. This can include web servers, databases, programming languages, development tools, and more.
+
+**3. Customizations:** You can customize an AMI to suit your specific needs. This can involve installing additional software, making specific configurations, or applying security settings based on your application requirements.
+
+**4. Disk Image:** The AMI contains a disk image that includes the root file system, applications, data, and any other configurations necessary for the instance to function properly.
+
+AMI provides several benefits, including:
+
+**1. Easy Replication:** With AMIs, you can create multiple identical instances quickly and efficiently. Instead of manually configuring each instance, you can simply launch new instances using the pre-configured AMI, saving time and effort.
+
+**2. Scalability:** AMIs are particularly useful for scaling applications or services. By creating an AMI of a properly configured instance, you can launch multiple instances with the same configuration to handle increased traffic or workload demands.
+
+**3. Rapid Deployment:** AMIs enable rapid deployment of new instances with consistent configurations. This is especially beneficial for auto-scaling groups or when you need to quickly spin up new instances to replace failed or underperforming ones.
+
+**4. Version Control:** AMIs allow you to manage different versions of your application or software stack. You can create new AMIs as you make updates or changes, providing a snapshot of each version that can be easily deployed when needed.
+
+**5. Disaster Recovery:** AMIs can serve as a foundation for disaster recovery plans. By regularly creating and storing AMIs in different regions or availability zones, you can quickly recover your systems in case of failures or disasters.
+
+It's important to note that AMIs are specific to the cloud provider you are using. While AWS refers to them as Amazon Machine Images (AMI), other cloud providers have similar concepts with different names, such as Virtual Machine Image (VMI) in Azure or Compute Image in Google Cloud Platform.
+
+In summary, a machine image or AMI is a pre-configured template that allows you to create instances with specific software configurations and operating systems in the cloud. It simplifies the process of deploying and scaling applications, enables consistent environments, and facilitates disaster recovery planning.
+
+![image AMI](image/machineImage.PNG)
