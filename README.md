@@ -1090,7 +1090,7 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 * [**Instance metadata access**](#instance-metadata-access) <!-- style="font-size:18px" -->
 * [**Failure simulation**](#failure-simulation) <!-- style="font-size:18px" -->
 * [**Machine image (AMI)**](#machine-image) <!-- style="font-size:18px" -->
-* [**AMI across AZ**] <!-- style="font-size:18px" -->
+* [**AMI across AZ**](#ami-across-az) <!-- style="font-size:18px" -->
 * [**Security aspects of AMI**] <!-- style="font-size:18px" -->
 * [**Elastic Beanstalk**] <!-- style="font-size:18px" -->
 * [**Command line interface (CLI)**] <!-- style="font-size:18px" -->
@@ -1223,3 +1223,5 @@ Here's how you can use an AMI across AZs in AWS:
 **4. Load balancing and scaling:** By having instances launched from the same AMI across multiple AZs, you can use AWS load balancing services like Elastic Load Balancing (ELB) or AWS Auto Scaling to distribute traffic evenly among the instances and scale up or down based on demand. These services are designed to work seamlessly with instances in different AZs.
 
 **5. Monitoring and managing instances across AZs:** It's important to monitor and manage your instances across different AZs to ensure they are functioning properly. AWS provides various monitoring and management tools like Amazon CloudWatch, AWS Systems Manager, and AWS Management Console that allow you to monitor and control instances across AZs from a centralized location.
+
+![image AMI](image/AMI-AZ.png)
