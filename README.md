@@ -1092,7 +1092,7 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 * [**Machine image (AMI)**](#machine-image) <!-- style="font-size:18px" -->
 * [**AMI across AZ**](#ami-across-az) <!-- style="font-size:18px" -->
 * [**Security aspects of AMI**](#security-aspects-of-ami) <!-- style="font-size:18px" -->
-* [**Elastic Beanstalk**] <!-- style="font-size:18px" -->
+* [**Elastic Beanstalk**](#elastic-beanstalk) <!-- style="font-size:18px" -->
 * [**Command line interface (CLI)**] <!-- style="font-size:18px" -->
 * [**Multi AZ EC2 setup**] <!-- style="font-size:18px" -->
 
@@ -1247,3 +1247,33 @@ the security aspects of Amazon Machine Images (AMIs), there are several importan
 **8. Monitoring and Logging:** Implement robust monitoring and logging mechanisms to capture and analyze activities related to the AMIs. This helps detect any suspicious or unauthorized activities, provides visibility into image usage, and aids in incident response and forensic analysis if security incidents occur.
 
 **9. Compliance and Auditing:** Ensure compliance with relevant security standards and regulations. Regularly audit and assess the security posture of the AMIs to identify and address any security gaps or vulnerabilities.
+
+### **Elastic Beanstalk**
+
+Elastic Beanstalk is a fully managed service provided by AWS that simplifies the deployment, scaling, and management of applications. It allows you to quickly deploy your web applications and services on popular platforms like Java, .NET, PHP, Node.js, Python, Ruby, Go, and Docker.
+
+![image EB](image/EB.png)
+
+Here are some key aspects and features of Elastic Beanstalk:
+
+**1. Application Management:** Elastic Beanstalk handles the infrastructure provisioning and configuration for you, allowing you to focus on developing and deploying your application code. It supports a variety of application types, frameworks, and languages.
+
+**2. Easy Deployment:** With Elastic Beanstalk, you can deploy your applications using different methods, such as uploading your code through the AWS Management Console, using the AWS CLI (Command Line Interface), or integrating with source control systems like Git.
+
+**3. Auto Scaling and Load Balancing:** Elastic Beanstalk automatically scales your application environment based on the incoming traffic and load. It provisions the necessary compute resources and load balancers to handle traffic spikes and ensure high availability and performance.
+
+**4. Environment Management:** You can create multiple environments (e.g., development, testing, production) within Elastic Beanstalk to separate and manage different stages of your application's lifecycle. Each environment can have its own configuration settings and resources.
+
+**5. Monitoring and Logging:** Elastic Beanstalk integrates with AWS CloudWatch, allowing you to monitor the health, performance, and resource utilization of your application environment. It provides metrics, logs, and alarms to help you troubleshoot issues and optimize your application's performance.
+
+**6. Customization and Configuration:** Elastic Beanstalk provides flexibility for customization. You can configure environment variables, modify instance types, specify scaling options, set up security groups, and define other application-specific configurations.
+
+**7. Integration with Other AWS Services:** Elastic Beanstalk seamlessly integrates with various AWS services, such as Amazon RDS for managing databases, Amazon S3 for storing static files, and Amazon CloudFront for content delivery. This allows you to leverage other AWS services to enhance the functionality and performance of your applications.
+
+**8. Platform Updates and Patching:** AWS regularly updates and patches the underlying platform managed by Elastic Beanstalk, including the operating system, web server, and language runtime environments. This ensures that your applications benefit from the latest security updates and performance improvements.
+
+**9. Managed Database Support:** Elastic Beanstalk provides support for managing databases by integrating with AWS RDS (Relational Database Service). You can easily configure and deploy your database along with your application, making it convenient to manage the entire application stack.
+
+Elastic Beanstalk simplifies the deployment and management of applications, making it an ideal choice for developers and teams looking for a streamlined and scalable deployment solution without the need for managing the underlying infrastructure.
+
+![image EB](image/Elastic-Beanstalk-Environment-Tiers.png)
