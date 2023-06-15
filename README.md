@@ -1312,7 +1312,7 @@ key features and benefits of the AWS CLI:
 * [**Status checks and monitoring**](#status-checks-and-monitoring) <!-- style="font-size:18px" -->
 * [**Attaching, preparing & mounting**](#attaching-preparing-and-mounting) <!-- style="font-size:18px" -->
 * [**Snapshots from Volumes**](#snapshots-from-volumes) <!-- style="font-size:18px" -->
-* [**Volumes from snapshots**] <!-- style="font-size:18px" -->
+* [**Volumes from snapshots**](#volumes-from-snapshots) <!-- style="font-size:18px" -->
 * [**Data migration strategies**] <!-- style="font-size:18px" -->
 * [**Volume performance**] <!-- style="font-size:18px" -->
 * [**Elastic File System (EFS)**] <!-- style="font-size:18px" -->
@@ -1611,3 +1611,51 @@ The Encryption field indicates the selected volume's encryption status. If the s
 7. Choose Create snapshot.
 
 ![image snapshot](image/snapshot1.PNG)
+
+### **Volumes from snapshots**
+
+Volumes from snapshots refer to the process of creating new Amazon Elastic Block Store (EBS) volumes using existing EBS snapshots as the source.
+
+To create an EBS volume from a snapshot using the console
+
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+2. In the navigation panel, choose Volumes.
+
+3. Choose Create volume.
+
+4. For Volume type, choose the type of volume to create. For more information, see Amazon EBS volume types.
+
+5. For Size, enter the size of the volume, in GiB. For more information, see Constraints on the size and configuration of an EBS volume.
+
+6. (io1, io2, and gp3 only) For IOPS, enter the maximum number of input/output operations per second (IOPS) that the volume should provide.
+
+7. (gp3 only) For Throughput, enter the throughput that the volume should provide, in MiB/s.
+
+8. For Availability Zone, choose the Availability Zone in which to create the volume. A volume can be attached only to instances that are in the same Availability Zone.
+
+9. For Snapshot ID, select the snapshot from which to create the volume.
+
+10. Set the encryption status for the volume.
+
+11. If the selected snapshot is encrypted, or if your account is enabled for encryption by default, then encryption is automatically enabled and you can't disable it. You can choose the KMS key to use to encrypt the volume.
+
+If the selected snapshot is unencrypted and your account is not enabled for encryption by default, encryption is optional. To encrypt the volume, for Encryption, choose Encrypt this volume and then select the KMS key to use to encrypt the volume.
+
+> Note
+>
+> Encrypted volumes can be attached only to instances that support Amazon EBS encryption. For more information, see Amazon EBS encryption.
+
+![image VS](image/volumesnapshot.PNG)
+
+12. (Optional) To assign custom tags to the volume, in the Tags section, choose Add tag, and then enter a tag key and value pair. For more information, see Tag your Amazon EC2 resources.
+
+13. Choose Create Volume.
+
+> Note
+> 
+> The volume is ready for use when the Volume state is available.
+
+![image VS](image/volumesnapshot1.PNG)
+
+To use the volume, attach it to an instance. 
