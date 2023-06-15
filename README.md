@@ -1311,7 +1311,7 @@ key features and benefits of the AWS CLI:
 * [**Elastic Block Store (EBS volumes)**](#elastic-block-store) <!-- style="font-size:18px" -->
 * [**Status checks and monitoring**](#status-checks-and-monitoring) <!-- style="font-size:18px" -->
 * [**Attaching, preparing & mounting**](#attaching-preparing-and-mounting) <!-- style="font-size:18px" -->
-* [**Snapshots from Volumes**] <!-- style="font-size:18px" -->
+* [**Snapshots from Volumes**](#snapshots-from-volumes) <!-- style="font-size:18px" -->
 * [**Volumes from snapshots**] <!-- style="font-size:18px" -->
 * [**Data migration strategies**] <!-- style="font-size:18px" -->
 * [**Volume performance**] <!-- style="font-size:18px" -->
@@ -1500,7 +1500,7 @@ To attach an EBS volume to an instance using the console
 
 **1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-**2.** In the navigation pane, choose Volumes.
+**2.** In the navigation panel, choose Volumes.
 
 **3.** Select the volume to attach and choose Actions, Attach volume.
 
@@ -1585,3 +1585,29 @@ The above command should show the free space in the newvolume directory.
 ```markdown
 sudo umount /dev/xvdf
 ```
+
+### **Snapshots from Volumes**
+
+Snapshots are a crucial feature of Amazon Elastic Block Store (EBS) that allow you to create point-in-time backups of your EBS volumes. 
+
+To create a snapshot using the console
+
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+2. In the navigation panel, choose Snapshots, Create snapshot.
+
+3. For Resource type, choose Volume.
+
+4. For Volume ID, select the volume from which to create the snapshot.
+
+The Encryption field indicates the selected volume's encryption status. If the selected volume is encrypted, the snapshot is automatically encrypted using the same KMS key. If the selected volume is unencrypted, the snapshot is not encrypted.
+
+5. (Optional) For Description, enter a brief description for the snapshot.
+
+![image snapshot](image/snapshot.PNG)
+
+6. (Optional) To assign custom tags to the snapshot, in the Tags section, choose Add tag, and then enter the key-value pair. You can add up to 50 tags.
+
+7. Choose Create snapshot.
+
+![image snapshot](image/snapshot1.PNG)
