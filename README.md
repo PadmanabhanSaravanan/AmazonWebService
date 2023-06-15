@@ -1313,8 +1313,8 @@ key features and benefits of the AWS CLI:
 * [**Attaching, preparing & mounting**](#attaching-preparing-and-mounting) <!-- style="font-size:18px" -->
 * [**Snapshots from Volumes**](#snapshots-from-volumes) <!-- style="font-size:18px" -->
 * [**Volumes from snapshots**](#volumes-from-snapshots) <!-- style="font-size:18px" -->
-* [**Data migration strategies**] <!-- style="font-size:18px" -->
-* [**Elastic File System (EFS)**] <!-- style="font-size:18px" -->
+* [**Data migration strategies**](#data-migration-strategies) <!-- style="font-size:18px" -->
+* [**Elastic File System (EFS)**](#elastic-file-system) <!-- style="font-size:18px" -->
 * [**Simple Storage Service (S3)**] <!-- style="font-size:18px" -->
 * [**Permissions**] <!-- style="font-size:18px" -->
 * [**Storage class**] <!-- style="font-size:18px" -->
@@ -1674,3 +1674,59 @@ Data migration refers to the process of transferring data from one system or sto
 **5. Data Replication:** Data replication involves replicating data in real-time or near real-time from the source system to the target system. It is often used in scenarios where the source system needs to remain operational during the migration process. Once the data replication is in sync, the source system is switched off or put into a read-only mode, and the target system takes over.
 
 **6. Hybrid Migration:** Hybrid migration involves a combination of different migration strategies, tailored to specific data sets or components. It allows for flexibility and customization based on the unique requirements of each subset of data.
+
+### **Elastic File System**
+
+Amazon EFS provides scalable file storage for use with Amazon EC2. You can use an EFS file system as a common data source for workloads and applications running on multiple instances
+
+To create an EFS file system using Amazon EFS Quick Create
+
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+2. Choose Launch instance.
+
+3. (Optional) Under Name and tags, for Name, enter a name to identify your instance.
+
+4. Under Application and OS Images (Amazon Machine Image), choose a Linux operating system, and then for Amazon Machine Image (AMI), select a Linux AMI.
+
+5. Under Instance type, for Instance type, select an instance type or keep the default.
+
+6. Under Key pair (login), for Key pair name, choose an existing key pair or create a new one.
+
+7. Under Network settings, choose Edit (at right), and then for Subnet, select a subnet.
+
+> Note
+>
+> You must select a subnet before you can add an EFS file system.
+
+8. Under Configure storage, choose Edit (at bottom right), and then do the following:
+
+* Make sure that EFS is selected.
+
+* Choose Add shared file system.
+
+> Troubleshooting tip
+> 
+> If Add shared file system is not visible, you must first select a subnet.
+
+* For File system, select an existing file system, or choose Create new shared file system and create a file system using Amazon EFS Quick Create.
+
+* For Mount point, specify a mount point or keep the default.
+
+* To enable access to the file system, select Automatically create and attach security groups. By selecting this check box, the necessary security groups will automatically be created and attached to the instance and the mount targets of the file system, as follows:
+
+    => Instance security group – Includes an outbound rule that allows traffic over the NFS 2049 port, but includes no inbound rules.
+
+    => File system mount targets security group – Includes an inbound rule that allows traffic over the NFS 2049 port from the instance security group (described above), and an outbound rule that allows traffic over the NFS 2049 port.
+
+You can choose to manually create and attach the security groups. If you want to manually create and attach the security groups, clear Automatically create and attach the required security groups.
+
+* To automatically mount the shared file system when the instance launches, select Automatically mount shared file system by attaching required user data script. To view the user data that is automatically generated, expand Advanced details, and scroll down to User data.
+
+> Note
+> 
+> If you added user data before selecting this check box, the original user data is overwritten by the user data that is automatically generated.
+
+9. Configure any other instance configuration settings as needed.
+
+10. In the Summary panel, review your instance configuration, and then choose Launch instance. 
