@@ -8,7 +8,7 @@
 * [**SECURITY**](#security) <!-- style="font-size:20px" -->
 * [**COMPUTE I**](#compute-i) <!-- style="font-size:20px" -->
 * [**COMPUTE II**](#compute-ii)<!-- style="font-size:20px" -->
-* **STORAGE AND DELIVERY**<!-- style="font-size:20px" -->
+* [**STORAGE AND DELIVERY**](#storage-and-delivery) <!-- style="font-size:20px" -->
 * **NETWORKING**<!-- style="font-size:20px" -->
 
 ## **INTRODUCTION** 
@@ -1093,8 +1093,8 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 * [**AMI across AZ**](#ami-across-az) <!-- style="font-size:18px" -->
 * [**Security aspects of AMI**](#security-aspects-of-ami) <!-- style="font-size:18px" -->
 * [**Elastic Beanstalk**](#elastic-beanstalk) <!-- style="font-size:18px" -->
-* [**Command line interface (CLI)**] <!-- style="font-size:18px" -->
-* [**Multi AZ EC2 setup**] <!-- style="font-size:18px" -->
+* [**Command line interface (CLI)**](#command-line-interface) <!-- style="font-size:18px" -->
+* [**Multi AZ EC2 setup**](#multi-az-ec2-setup) <!-- style="font-size:18px" -->
 
 ### **Auto scaling launch configuration**
 
@@ -1278,7 +1278,7 @@ Elastic Beanstalk simplifies the deployment and management of applications, maki
 
 ![image EB](image/Elastic-Beanstalk-Environment-Tiers.png)
 
-### **Command line interface (CLI)**
+### **Command line interface**
 
 The AWS Command Line Interface (AWS CLI) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.
 
@@ -1303,3 +1303,109 @@ key features and benefits of the AWS CLI:
 **AWS SDK Compatibility:** The AWS CLI is built on top of the AWS SDKs (Software Development Kits), which are available in various programming languages. This allows developers to use the CLI for quick command execution and switch to the SDKs for more advanced programming and integration requirements.
 
 **Security and Encryption:** The AWS CLI supports secure communication with AWS services using HTTPS protocols. It also provides options for encrypting sensitive data, such as credentials and output files.
+
+### **Multi AZ EC2 setup**
+
+## Storage and Delivery 
+
+* [**Elastic Block Store (EBS volumes)**](#elastic-block-store) <!-- style="font-size:18px" -->
+* [**Status checks and monitoring**] <!-- style="font-size:18px" -->
+* [**Attaching, preparing & mounting**] <!-- style="font-size:18px" -->
+* [**Snapshots from Volumes**] <!-- style="font-size:18px" -->
+* [**Volumes from snapshots**] <!-- style="font-size:18px" -->
+* [**Data migration strategies**] <!-- style="font-size:18px" -->
+* [**Volume performance**] <!-- style="font-size:18px" -->
+* [**Elastic File System (EFS)**] <!-- style="font-size:18px" -->
+* [**Simple Storage Service (S3)**] <!-- style="font-size:18px" -->
+* [**Permissions**] <!-- style="font-size:18px" -->
+* [**Storage class**] <!-- style="font-size:18px" -->
+* [**Metadata & Tags**] <!-- style="font-size:18px" -->
+* [**Version management**] <!-- style="font-size:18px" -->
+* [**Cross region replication**] <!-- style="font-size:18px" -->
+* [**Lifecycle management**] <!-- style="font-size:18px" -->
+* [**Glacier (discussion)**] <!-- style="font-size:18px" -->
+* [**Transfer acceleration**] <!-- style="font-size:18px" -->
+
+### **Elastic Block Store**
+
+* EBS stands for Elastic Block Store.
+* EC2 is a virtual server in a cloud while EBS is a virtual disk in a cloud.
+* Amazon EBS allows you to create storage volumes and attach them to the EC2 instances.
+* Once the storage volume is created, you can create a file system on the top of these volumes, and then you can run a database, store the files, applications or you can even use them as a block device in some other way.
+* Amazon EBS volumes are placed in a specific availability zone, and they are automatically replicated to protect you from the failure of a single component.
+* EBS volume does not exist on one disk, it spreads across the Availability Zone. EBS volume is a disk which is attached to an EC2 instance.
+* EBS volume attached to the EC2 instance where windows or Linux is installed known as Root device of volume.
+
+**EBS Volume Types**
+
+Amazon EBS provides two types of volume that differ in performance characteristics and price. EBS Volume types fall into two parts:
+
+![image EB](image/awsebs.png)
+
+* [**SSD-backed volumes**](#ssd-backed-volumes)
+* [**HDD-backed volumes**](#hdd-backed-volumes)
+
+#### **SSD backed volumes**
+
+* SSD stands for solid-state Drives.
+* In June 2014, SSD storage was introduced.
+* It is a general purpose storage.
+* It supports up to 4000 IOPS which is quite very high.
+* SSD storage is very high performing, but it is quite expensive as compared to HDD (Hard Disk Drive) storage.
+* SSD volume types are optimized for transactional workloads such as frequent read/write operations with small I/O size, where the performance attribute is IOPS.
+
+**SSD is further classified into two parts:**
+
+![image EB](image/awsebs1.png)
+
+* General Purpose SSD
+* Provisioned IOPS SSD
+
+**General Purpose SSD**
+
+* General Purpose SSD is also sometimes referred to as a GP2.
+* It is a General purpose SSD volume that balances both price and performance.
+* You can get a ratio of 3 IOPS per GB with up to 10,000 IOPS and the ability to burst up to 3000 IOPS for an extended period of time for volumes at 3334 GiB and above. For example, if you get less than 10,000 IOPS, then GP2 is preferable as it gives you the best performance and price.
+
+**Provisioned IOPS SSD**
+
+* It is also referred to as IO1.
+* It is mainly used for high-performance applications such as intense applications, relational databases.
+* It is designed for I/O intensive applications such as large relational or NOSQL databases.
+* It is used when you require more than 10,000 IOPS.
+
+#### **HDD backed volumes** 
+
+* It stands for Hard Disk Drive.
+* HDD based storage was introduced in 2008.
+* The size of the HDD based storage could be between 1 GB to 1TB.
+* It can support up to 100 IOPS which is very low.
+
+![image EB](image/awsebs2.png)
+
+**Throughput Optimized HDD (st1)**
+
+* It is also referred to as ST1.
+* Throughput Optimized HDD is a low-cost HDD designed for those applications that require higher throughput up to 500 MB/s.
+* It is useful for those applications that require the data to be frequently accessed.
+* It is used for Big data, Data warehouses, Log processing, etc.
+* It cannot be a boot volume, so it contains some additional volume. For example, if we have Windows server installed in a C: drive, then C drive cannot be a Throughput Optimized Hard disk, D: drive or some other drive could be a Throughput Optimized Hard disk.
+* The size of the Throughput Hard disk can be 500 GiB to 16 TiB.
+* It supports up to 500 IOPS.
+
+**Cold HDD (sc1)**
+
+* It is also known as SC1.
+* It is the lowest cost storage designed for the applications where the workloads are infrequently accessed.
+* It is useful when data is rarely accessed.
+* It is mainly used for a File server.
+* It cannot be a boot volume.
+* The size of the Cold Hard disk can be 500 GiB to 16 TiB.
+* It supports up to 250 IOPS.
+
+**Magnetic Volume**
+
+* It is the lowest cost storage per gigabyte of all EBS volume types.
+* It is ideal for the applications where the data is accessed infrequently
+* It is useful for applications where the lowest storage cost is important.
+* Magnetic volume is the only hard disk which is bootable. Therefore, we can say that it can be used as a boot volume.
