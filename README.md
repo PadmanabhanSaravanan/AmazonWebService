@@ -1310,7 +1310,7 @@ key features and benefits of the AWS CLI:
 
 * [**Elastic Block Store (EBS volumes)**](#elastic-block-store) <!-- style="font-size:18px" -->
 * [**Status checks and monitoring**](#status-checks-and-monitoring) <!-- style="font-size:18px" -->
-* [**Attaching, preparing & mounting**] <!-- style="font-size:18px" -->
+* [**Attaching, preparing & mounting**](#attaching-preparing-and-mounting) <!-- style="font-size:18px" -->
 * [**Snapshots from Volumes**] <!-- style="font-size:18px" -->
 * [**Volumes from snapshots**] <!-- style="font-size:18px" -->
 * [**Data migration strategies**] <!-- style="font-size:18px" -->
@@ -1493,3 +1493,95 @@ Status checks and monitoring play a crucial role in ensuring the health and avai
 * By collecting and analyzing EBS logs, you can gain insights into volume-related activities and troubleshoot any issues that arise.
 
 ![image SCAM](image/EbsCloudWatchInsightlog.PNG)
+
+### **Attaching preparing and mounting**
+
+To attach an EBS volume to an instance using the console
+
+**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+**2.** In the navigation pane, choose Volumes.
+
+**3.** Select the volume to attach and choose Actions, Attach volume.
+
+> Note:
+> 
+> You can attach only volumes that are in the Available state.
+
+![image Mount](image/mount.PNG)
+
+**4.** For Instance, enter the ID of the instance or select the instance from the list of options.
+
+> Note:
+> 
+> * The volume must be attached to an instance in the same Availability Zone.
+> * If the volume is encrypted, it can only be attached to instance types that support Amazon EBS encryption. For more information, see Amazon EBS encryption.
+
+**5.** For Device name, enter a supported device name for the volume. This device name is used by Amazon EC2. The block device driver for the instance might assign a different device name when mounting the volume. For more information, see Device names on Linux instances.
+
+![image Mount](image/mount1.PNG)
+
+**6.** Choose Attach volume.
+
+**7.** Connect to the instance and mount the volume
+
+* Now, login to your ec2 instance and list the available disks using the following command.
+
+```markdown
+ lsblk
+```
+
+![image Mount](image/mount2.PNG)
+
+*  Check if the volume has any data using the following command
+
+```markdown
+sudo file -s /dev/xvdf
+```
+
+![image Mount](image/mount3.PNG)
+
+If the above command output shows “/dev/xvdf: data“, it means your volume is empty.
+
+* Format the volume to the ext4 filesystem using the following command.
+
+```markdown
+sudo mkfs -t ext4 /dev/xvdf
+```
+
+![image Mount](image/mount4.PNG)
+
+Alternatively, you can also use the xfs format. You have to use either ext4 or xfs.
+
+```markdown
+sudo mkfs -t xfs /dev/xvdf
+```
+
+* Create a directory of your choice to mount our new ext4 volume. I am using the name “newvolume“. You can name it something meaningful to you.
+
+```markdown
+sudo mkdir /newvolume
+```
+
+*  Mount the volume to “newvolume” directory using the following command.
+
+```markdown
+sudo mount /dev/xvdf /newvolume/
+```
+
+* cd into newvolume directory and check the disk space to validate the volume mount.
+
+```markdown
+cd /newvolume
+df -h .
+```
+
+![image Mount](image/mount5.PNG)
+
+The above command should show the free space in the newvolume directory.
+
+* To unmount the volume, use the unmount command as shown below..
+
+```markdown
+sudo umount /dev/xvdf
+```
