@@ -1309,7 +1309,7 @@ key features and benefits of the AWS CLI:
 ## Storage and Delivery 
 
 * [**Elastic Block Store (EBS volumes)**](#elastic-block-store) <!-- style="font-size:18px" -->
-* [**Status checks and monitoring**] <!-- style="font-size:18px" -->
+* [**Status checks and monitoring**](#status-checks-and-monitoring) <!-- style="font-size:18px" -->
 * [**Attaching, preparing & mounting**] <!-- style="font-size:18px" -->
 * [**Snapshots from Volumes**] <!-- style="font-size:18px" -->
 * [**Volumes from snapshots**] <!-- style="font-size:18px" -->
@@ -1409,3 +1409,49 @@ Amazon EBS provides two types of volume that differ in performance characteristi
 * It is ideal for the applications where the data is accessed infrequently
 * It is useful for applications where the lowest storage cost is important.
 * Magnetic volume is the only hard disk which is bootable. Therefore, we can say that it can be used as a boot volume.
+
+### **Status checks and monitoring**
+
+Status checks and monitoring play a crucial role in ensuring the health and availability of your infrastructure components, including EC2 instances and EBS volumes. Here's an overview of status checks and monitoring in AWS:
+
+**1. EBS Volume Status Checks:**
+
+* EBS volume status checks verify the integrity of the data stored on the volume and the overall health of the volume.
+* These checks are automatically performed by AWS on a regular basis.
+* The status of the volume can be either "ok" or "impaired".
+* You can view the status checks for your EBS volumes in the AWS Management Console, AWS CLI, or through the Amazon CloudWatch API.
+
+![image SCAM](image/volumestatuscheck.PNG)
+
+**2. CloudWatch Monitoring for EBS:**
+
+* Amazon CloudWatch provides various metrics for monitoring EBS volumes, including:
+
+    => VolumeReadOps: The number of read operations per second on the volume.
+
+    => VolumeWriteOps: The number of write operations per second on the volume.
+
+    => VolumeIdleTime: The amount of time the volume has been idle.
+
+    => VolumeQueueLength: The number of read and write operation requests waiting to be completed on the volume.
+
+
+* These metrics can help you understand the performance and usage patterns of your EBS volumes.
+* You can set alarms based on these metrics to receive notifications when specific thresholds are breached.
+
+![image SCAM](image/EBSCloudWatch.png)
+
+**3. EBS Performance Monitoring:**
+
+* In addition to CloudWatch metrics, you can also monitor EBS volume performance using the AWS Command Line Interface (CLI) or SDKs.
+* The AWS CLI provides the describe-volume-performance command to retrieve performance information for an EBS volume.
+* This command provides details such as the volume's burst balance, throughput, and IOPS performance.
+
+![image SCAM](image/volumemonitoring.PNG)
+
+**4. CloudWatch Logs for EBS:**
+
+* You can configure Amazon CloudWatch Logs to capture EBS-related log events, including volume creation, attachment, detachment, and deletion.
+* By collecting and analyzing EBS logs, you can gain insights into volume-related activities and troubleshoot any issues that arise.
+
+![image SCAM](image/EbsCloudWatchInsightlog.PNG)
