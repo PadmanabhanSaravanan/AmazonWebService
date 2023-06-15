@@ -1410,6 +1410,44 @@ Amazon EBS provides two types of volume that differ in performance characteristi
 * It is useful for applications where the lowest storage cost is important.
 * Magnetic volume is the only hard disk which is bootable. Therefore, we can say that it can be used as a boot volume.
 
+#### **Create Volume** 
+
+To create an empty EBS volume using the console
+
+1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+2. In the navigation pane, choose Volumes.
+
+3. Choose Create volume.
+
+4. For Volume type, choose the type of volume to create. For more information, see Amazon EBS volume types.
+
+5. For Size, enter the size of the volume, in GiB. For more information, see Constraints on the size and configuration of an EBS volume.
+
+6. (io1, io2, and gp3 only) For IOPS, enter the maximum number of input/output operations per second (IOPS) that the volume should provide.
+
+7. (gp3 only) For Throughput, enter the throughput that the volume should provide, in MiB/s.
+
+8. For Availability Zone, choose the Availability Zone in which to create the volume. A volume can be attached only to an instance that is in the same Availability Zone.
+
+9. For Snapshot ID, keep the default value (Don't create volume from a snapshot).
+
+10. (io1 and io2 only) To enable the volume for Amazon EBS Multi-Attach, select Enable Multi-Attach. For more information, see Attach a volume to multiple instances with Amazon EBS Multi-Attach.
+
+11. Set the encryption status for the volume.
+
+If your account is enabled for encryption by default, then encryption is automatically enabled and you can't disable it. You can choose the KMS key to use to encrypt the volume.
+
+If your account is not enabled for encryption by default, encryption is optional. To encrypt the volume, for Encryption, choose Encrypt this volume and then select the KMS key to use to encrypt the volume.
+
+![Image Volume](image/volume.PNG)
+
+12. (Optional) To assign custom tags to the volume, in the Tags section, choose Add tag, and then enter a tag key and value pair. For more information, see Tag your Amazon EC2 resources.
+
+13. Choose Create volume.
+
+![Image Volume](image/volume1.PNG)
+
 ### **Status checks and monitoring**
 
 Status checks and monitoring play a crucial role in ensuring the health and availability of your infrastructure components, including EC2 instances and EBS volumes. Here's an overview of status checks and monitoring in AWS:
