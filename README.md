@@ -1277,3 +1277,29 @@ Here are some key aspects and features of Elastic Beanstalk:
 Elastic Beanstalk simplifies the deployment and management of applications, making it an ideal choice for developers and teams looking for a streamlined and scalable deployment solution without the need for managing the underlying infrastructure.
 
 ![image EB](image/Elastic-Beanstalk-Environment-Tiers.png)
+
+### **Command line interface (CLI)**
+
+The AWS Command Line Interface (AWS CLI) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.
+
+AWS CLI Reference [click here](https://docs.aws.amazon.com/cli/latest/reference/)
+
+key features and benefits of the AWS CLI:
+
+**Cross-Platform Compatibility:** The AWS CLI is available for Windows, macOS, and Linux, providing a consistent experience across different operating systems.
+
+**Easy Installation and Setup:** The AWS CLI can be easily installed using a package manager or a standalone installer. Once installed, you can configure it with your AWS credentials, including access keys, to authenticate and authorize your CLI commands.
+
+**Broad AWS Service Coverage:** The AWS CLI supports a wide range of AWS services, allowing you to manage and interact with resources such as EC2 instances, S3 buckets, RDS databases, IAM users, CloudFormation stacks, and more.
+
+**Command Line Syntax:** The AWS CLI follows a consistent command syntax, with commands structured as aws <service> <operation> [parameters]. It provides various options and parameters to customize and refine your commands based on your specific needs.
+
+**Scripting and Automation:** The AWS CLI is scriptable, which means you can write scripts and automate repetitive tasks by combining multiple CLI commands. This allows for efficient management and configuration of AWS resources.
+
+**Output Formatting:** The AWS CLI provides different output formats, including JSON, text, and table formats, making it flexible to work with the output of CLI commands. You can also customize the output format using filters and queries.
+
+**Integration with Other Tools:** The AWS CLI integrates well with other command line tools and scripting languages. You can incorporate AWS CLI commands into shell scripts, batch files, or automation frameworks to build more complex workflows and integrations.
+
+**AWS SDK Compatibility:** The AWS CLI is built on top of the AWS SDKs (Software Development Kits), which are available in various programming languages. This allows developers to use the CLI for quick command execution and switch to the SDKs for more advanced programming and integration requirements.
+
+**Security and Encryption:** The AWS CLI supports secure communication with AWS services using HTTPS protocols. It also provides options for encrypting sensitive data, such as credentials and output files.
