@@ -1314,7 +1314,6 @@ key features and benefits of the AWS CLI:
 * [**Snapshots from Volumes**](#snapshots-from-volumes) <!-- style="font-size:18px" -->
 * [**Volumes from snapshots**](#volumes-from-snapshots) <!-- style="font-size:18px" -->
 * [**Data migration strategies**] <!-- style="font-size:18px" -->
-* [**Volume performance**] <!-- style="font-size:18px" -->
 * [**Elastic File System (EFS)**] <!-- style="font-size:18px" -->
 * [**Simple Storage Service (S3)**] <!-- style="font-size:18px" -->
 * [**Permissions**] <!-- style="font-size:18px" -->
@@ -1659,3 +1658,19 @@ If the selected snapshot is unencrypted and your account is not enabled for encr
 ![image VS](image/volumesnapshot1.PNG)
 
 To use the volume, attach it to an instance. 
+
+### **Data migration strategies**
+
+Data migration refers to the process of transferring data from one system or storage environment to another. There are several data migration strategies available, depending on the specific requirements and constraints of the migration project. Here are some common data migration strategies:
+
+**1. Big Bang Migration:** In this strategy, the entire data set is migrated from the source system to the target system in a single operation. This approach is suitable when there is a limited amount of data, minimal downtime is acceptable, and data dependencies are straightforward.
+
+**2. Phased Migration:** Phased migration involves migrating data in stages or phases. Each phase focuses on a subset of the data or specific functionality. It allows for incremental migration, reduces risks, and provides opportunities for testing and validation between each phase.
+
+**3. Trickle Migration:** Trickle migration involves a continuous and gradual transfer of data from the source system to the target system over an extended period. It is suitable for scenarios where minimizing downtime and ensuring continuous availability are critical. This approach requires synchronization mechanisms to keep data consistent between the source and target systems during the migration period.
+
+**4. Parallel Migration:** Parallel migration involves running the source and target systems simultaneously and gradually transferring data from the source to the target in parallel. This approach minimizes downtime and allows for continuous operation during the migration process. Once the data transfer is complete, the target system takes over full operation.
+
+**5. Data Replication:** Data replication involves replicating data in real-time or near real-time from the source system to the target system. It is often used in scenarios where the source system needs to remain operational during the migration process. Once the data replication is in sync, the source system is switched off or put into a read-only mode, and the target system takes over.
+
+**6. Hybrid Migration:** Hybrid migration involves a combination of different migration strategies, tailored to specific data sets or components. It allows for flexibility and customization based on the unique requirements of each subset of data.
