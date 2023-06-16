@@ -1320,7 +1320,7 @@ key features and benefits of the AWS CLI:
 * [**Permissions**](#permissions) <!-- style="font-size:18px" -->
 * [**Storage class**](#storage-class) <!-- style="font-size:18px" -->
 * [**Metadata & Tags**](#metadata-and-tags) <!-- style="font-size:18px" -->
-* [**Version management**] <!-- style="font-size:18px" -->
+* [**Version management**](#version-management) <!-- style="font-size:18px" -->
 * [**Cross region replication**] <!-- style="font-size:18px" -->
 * [**Lifecycle management**] <!-- style="font-size:18px" -->
 * [**Glacier (discussion)**] <!-- style="font-size:18px" -->
@@ -1954,6 +1954,12 @@ The s3:*Object action uses a wildcard as part of the action name. The AllObjectA
 }
 ```
 
+![image permission](image/permissions.PNG)
+
+you can add the above policy in the edit policy tab
+
+![image permission](image/permissions1.PNG)
+
 ### **Storage class**
 
 * S3 storage classes are used to assist the concurrent loss of data in one or two facilities.
@@ -2040,3 +2046,33 @@ To retrieve an object's metadata, you can use the HEAD request or access it thro
 ```markdown
 aws s3api put-bucket-tagging --bucket mybucket --tagging 'TagSet=[{Key=Environment,Value=Production},{Key=Department,Value=Finance}]'
 ```
+
+### **Version management**
+
+You can use S3 Versioning to keep multiple versions of an object in one bucket. This section provides examples of how to enable versioning on a bucket using the console, REST API, AWS SDKs, and AWS Command Line Interface (AWS CLI).
+
+Before using version management,Enable the version management.
+
+**1.** In S3 console,Select bucket name 
+
+![image version](image/version.PNG)
+
+**2.** Upload the updated object or a file 
+
+* select upload option
+
+![image version](image/version1.PNG)
+
+* Select Add files,Open the uploaded file of the existing file.
+
+![image version](image/version2.PNG)
+
+* click on upload ,the object will be updated
+
+**3.** Click on the file name
+
+![image version](image/version3.PNG)
+
+**4.** Select the version tab and you can see the versions of the s3 object.
+
+![image version](image/version4.PNG)
