@@ -1318,7 +1318,7 @@ key features and benefits of the AWS CLI:
 * [**Simple Storage Service (S3)**](#simple-storage-service) <!-- style="font-size:18px" -->
 * [**Create your first S3 bucket**](#create-your-first-s3-bucket) <!-- style="font-size:18px" -->
 * [**Permissions**](#permissions) <!-- style="font-size:18px" -->
-* [**Storage class**] <!-- style="font-size:18px" -->
+* [**Storage class**](#storage-class) <!-- style="font-size:18px" -->
 * [**Metadata & Tags**] <!-- style="font-size:18px" -->
 * [**Version management**] <!-- style="font-size:18px" -->
 * [**Cross region replication**] <!-- style="font-size:18px" -->
@@ -1953,3 +1953,63 @@ The s3:*Object action uses a wildcard as part of the action name. The AllObjectA
     ]
 }
 ```
+
+### **Storage class**
+
+* S3 storage classes are used to assist the concurrent loss of data in one or two facilities.
+* S3 storage classes maintain the integrity of the data using checksums.
+* S3 provides lifecycle management for the automatic migration of objects for cost savings.
+
+**S3 contains four types of storage classes:**
+
+* [**S3 Standard**](#s3-standard)
+* [**S3 Standard IA**](#s3-standard-ia)
+* [**S3 one zone-infrequent access**](#s3-one-zone-infrequent-access)
+* [**S3 Glacier**](#s3-glacier)
+
+![image s3](image/aws-storage-classes.jpg)
+
+####  **S3 Standard**
+
+* Standard storage class stores the data redundantly across multiple devices in multiple facilities.
+* It is designed to sustain the loss of 2 facilities concurrently.
+* Standard is a default storage class if none of the storage class is specified during upload.
+* It provides low latency and high throughput performance.
+* It designed for 99.99% availability and 99.999999999% durability
+
+#### **S3 Standard IA**
+
+* IA stands for infrequently accessed.
+* Standard IA storage class is used when data is accessed less frequently but requires rapid access when needed.
+* It has a lower fee than S3, but you will be charged for a retrieval fee.
+* It is designed to sustain the loss of 2 facilities concurrently.
+* It is mainly used for larger objects greater than 128 KB kept for atleast 30 days.
+* It provides low latency and high throughput performance.
+* It designed for 99.99% availability and 99.999999999% durability
+
+#### **S3 one zone infrequent access**
+
+* S3 one zone-infrequent access storage class is used when data is accessed less frequently but requires rapid access when needed.
+* It stores the data in a single availability zone while other storage classes store the data in a minimum of three availability zones. Due to this reason, its cost is 20% less than Standard IA storage class.
+* It is an optimal choice for the less frequently accessed data but does not require the availability of Standard or Standard IA storage class.
+* It is a good choice for storing the backup data.
+* It is cost-effective storage which is replicated from other AWS region using S3 Cross Region replication.
+* It has the same durability, high performance, and low latency, with a low storage price and low retrieval fee.
+* It designed for 99.5% availability and 99.999999999% durability of objects in a single availability zone.
+* It provides lifecycle management for the automatic migration of objects to other S3 storage classes.
+* The data can be lost at the time of the destruction of an availability zone as it stores the data in a single availability zone.
+
+#### **S3 Glacier**
+
+* S3 Glacier storage class is the cheapest storage class, but it can be used for archive only.
+* You can store any amount of data at a lower cost than other storage classes.
+* S3 Glacier provides three types of models:
+
+    => Expedited: In this model, data is stored for a few minutes, and it has a very higher fee.
+
+    => Standard: The retrieval time of the standard model is 3 to 5 hours.
+
+    => Bulk: The retrieval time of the bulk model is 5 to 12 hours.
+    
+* You can upload the objects directly to the S3 Glacier.
+* It is designed for 99.999999999% durability of objects across multiple availability zones.
