@@ -1323,8 +1323,8 @@ key features and benefits of the AWS CLI:
 * [**Version management**](#version-management) <!-- style="font-size:18px" -->
 * [**Cross region replication**](#cross-region-replication) <!-- style="font-size:18px" -->
 * [**Lifecycle management**](#lifecycle-management) <!-- style="font-size:18px" -->
-* [**Glacier (discussion)**] <!-- style="font-size:18px" -->
-* [**Transfer acceleration**] <!-- style="font-size:18px" -->
+* [**Glacier (discussion)**](#glacier) <!-- style="font-size:18px" -->
+* [**Transfer acceleration**](#transfer-acceleration) <!-- style="font-size:18px" -->
 
 ### **Elastic Block Store**
 
@@ -2330,3 +2330,24 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 
 * You can upload the objects directly to the S3 Glacier.
 * It is designed for 99.999999999% durability of objects across multiple availability zones.
+
+### **Transfer acceleration**
+
+* S3 Transfer Acceleration utilizes the CloudFront Edge Network to accelerate uploads to S3.
+* Instead of directly uploading the file to S3 bucket, you will get a distinct URL that will upload the data to the nearest edge location which in turn transfer the file to S3 bucket.
+
+![image transfer-acceleration](image/aws-s3-transfer-acceleration.png)
+
+**To activate Transfer Acceleration**
+
+**1.** Click on the bucket that you have created.
+
+**2.** Move to the properties of the bucket.
+
+**3.** In properties, go to the Transfer Acceleration property of a bucket.
+
+![image transfer-acceleration](image/transfer-acceleration.PNG)
+
+**4.** Click on the Enabled and then save changes.
+
+![image transfer-acceleration](image/transfer-acceleration1.PNG)
