@@ -1883,3 +1883,27 @@ For more information, see [Using S3 Object Lock](https://docs.aws.amazon.com/Ama
 **14.** Choose Create bucket.
 
 ![image s3](image/s3-9.PNG)
+
+#### **To upload an object to a bucket**
+
+1. Open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+
+2. In the Buckets list, choose the name of the bucket that you want to upload your object to.
+
+![image s3](image/s3-9.PNG)
+
+3. On the Objects tab for your bucket, choose Upload.
+
+![image s3](image/s3-10.PNG)
+
+4. Under Files and folders, choose Add files.
+
+![image s3](image/s3-11.PNG)
+
+5. Choose a file to upload, and then choose Open.
+
+![image s3](image/s3-13.PNG)
+
+6. Choose Upload.
+
+![image s3](image/s3-14.PNG)
