@@ -1319,7 +1319,7 @@ key features and benefits of the AWS CLI:
 * [**Create your first S3 bucket**](#create-your-first-s3-bucket) <!-- style="font-size:18px" -->
 * [**Permissions**](#permissions) <!-- style="font-size:18px" -->
 * [**Storage class**](#storage-class) <!-- style="font-size:18px" -->
-* [**Metadata & Tags**] <!-- style="font-size:18px" -->
+* [**Metadata & Tags**](#metadata-and-tags) <!-- style="font-size:18px" -->
 * [**Version management**] <!-- style="font-size:18px" -->
 * [**Cross region replication**] <!-- style="font-size:18px" -->
 * [**Lifecycle management**] <!-- style="font-size:18px" -->
@@ -2010,6 +2010,33 @@ The s3:*Object action uses a wildcard as part of the action name. The AllObjectA
     => Standard: The retrieval time of the standard model is 3 to 5 hours.
 
     => Bulk: The retrieval time of the bulk model is 5 to 12 hours.
-    
+
 * You can upload the objects directly to the S3 Glacier.
 * It is designed for 99.999999999% durability of objects across multiple availability zones.
+
+### **Metadata and Tags**
+
+In AWS S3, you can use metadata and tags to add additional information to your S3 objects (files) and buckets. Both metadata and tags provide a way to organize and categorize your objects, but they serve different purposes:
+
+**1. Metadata**:
+
+* Metadata in S3 is a set of key-value pairs that you can assign to individual objects. 
+* It allows you to provide custom information about the object, such as author, creation date, or any other relevant details. Metadata is stored as part of the object's properties and is accessible when retrieving the object. You can use metadata to add descriptive information or to enable custom logic in your applications.
+* To add metadata to an S3 object, you include custom headers when uploading the object or by updating the object's metadata after it has been uploaded. Here's an example of adding metadata using the AWS CLI:
+
+
+```markdown
+aws s3 cp myobject.txt s3://mybucket/myobject.txt --metadata author=John --metadata creation_date=2023-05-16
+```
+
+To retrieve an object's metadata, you can use the HEAD request or access it through the object's properties in your application code.
+
+**2. Tags**: 
+
+* Tags in S3 are key-value pairs that you can assign to buckets and objects. 
+* Tags are used for categorizing and organizing resources. They can be useful for purposes such as cost allocation, access control, or resource management. Unlike metadata, which is specific to individual objects, tags are associated with the bucket or object as a whole.
+* You can assign tags to S3 buckets and objects using the AWS Management Console, AWS CLI, or programmatically through SDKs and APIs. Here's an example of adding tags to an S3 bucket using the AWS CLI:
+
+```markdown
+aws s3api put-bucket-tagging --bucket mybucket --tagging 'TagSet=[{Key=Environment,Value=Production},{Key=Department,Value=Finance}]'
+```
