@@ -2087,7 +2087,7 @@ S3 Cross-Region Replication (CRR) is used to copy objects across Amazon S3 bucke
 
 **3. Increase operational efficiency** – If you have compute clusters in two different AWS Regions that analyze the same set of objects, you might choose to maintain object copies in those Regions.
 
-**Steps to configure Replication rule**:
+#### **Steps to configure Replication rule**:
 
 **1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
 
@@ -2207,3 +2207,111 @@ For more information about creating an AWS KMS key, see [Creating keys](https://
 ![image crossorigin](image/crossorigin9.PNG)
 
 **15.** After you save your rule, you can edit, enable, disable, or delete your rule by selecting your rule and choosing Edit rule.
+
+### **Lifecycle management**
+
+Define S3 Lifecycle configuration rules for objects that have a well-defined lifecycle. For example:
+
+* If you upload periodic logs to a bucket, your application might need them for a week or a month. After that, you might want to delete them.
+
+* Some documents are frequently accessed for a limited period of time. After that, they are infrequently accessed. At some point, you might not need real-time access to them, but your organization or regulations might require you to archive them for a specific period. After that, you can delete them.
+
+* You might upload some types of data to Amazon S3 primarily for archival purposes. For example, you might archive digital media, financial and healthcare records, raw genomics sequence data, long-term database backups, and data that must be retained for regulatory compliance.
+
+With S3 Lifecycle configuration rules, you can tell Amazon S3 to transition objects to less-expensive storage classes, or archive or delete them.
+
+#### **To create a lifecycle rule**
+
+**1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+
+**2.** In the Buckets list, choose the name of the bucket that you want to create a lifecycle rule for.
+
+**3.** Choose the Management tab, and choose Create lifecycle rule.
+
+![image lifecycle](image/lifecycle.PNG)
+
+**4.** In Lifecycle rule name, enter a name for your rule.
+
+    The name must be unique within the bucket.
+
+![image lifecycle](image/lifecycle1.PNG)
+
+**5.** Choose the scope of the lifecycle rule:
+
+* To apply this lifecycle rule to all objects with a specific prefix or tag, choose Limit the scope to specific prefixes or tags.
+
+* To limit the scope by prefix, in Prefix, enter the prefix.
+
+* To limit the scope by tag, choose Add tag, and enter the tag key and value.
+
+* For more information about object name prefixes, see [Creating object key names](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html). For more information about object tags, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
+
+To apply this lifecycle rule to all objects in the bucket, choose This rule applies to all objects in the bucket, and choose I acknowledge that this rule applies to all objects in the bucket.
+
+![image lifecycle](image/lifecycle2.PNG)
+
+**6.** To filter a rule by object size, you can check Specify minimum object size, Specify maximum object size, or both options.
+
+* When you're specifying a minimum object size or maximum object size, the value must be larger than 0 bytes and up to 5TB. You can specify this value in bytes, KB, MB, or GB.
+
+* When you're specifying both, the maximum object size must be larger than the minimum object size.
+
+![image lifecycle](image/lifecycle3.PNG)
+
+**7.** Under Lifecycle rule actions, choose the actions that you want your lifecycle rule to perform:
+
+* Transition current versions of objects between storage classes
+* Transition previous versions of objects between storage classes
+* Expire current versions of objects
+* Permanently delete previous versions of objects
+* Delete expired delete markers or incomplete multipart uploads
+
+Depending on the actions that you choose, different options appear.
+
+![image lifecycle](image/lifecycle4.PNG)
+
+**8.** To transition current versions of objects between storage classes, under Transition current versions of objects between storage classes:
+
+**a.** In Storage class transitions, choose the storage class to transition to:
+
+* Standard-IA
+* Intelligent-Tiering
+* One Zone-IA
+* S3 Glacier Flexible Retrieval
+* Glacier Deep Archive
+
+**b.** In Days after object creation, enter the number of days after creation to transition the object.
+
+![image lifecycle](image/lifecycle5.PNG)
+
+For more information about storage classes, see [Using Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html). You can define transitions for current or previous object versions or for both current and previous versions. Versioning enables you to keep multiple versions of an object in one bucket. For more information about versioning, see Using the S3 console.
+
+**9.** To transition non-current versions of objects between storage classes, under Transition non-current versions of objects between storage classes:
+
+**a.** In Storage class transitions, choose the storage class to transition to:
+
+* Standard-IA
+* Intelligent-Tiering
+* One Zone-IA
+* S3 Glacier Flexible Retrieval
+* Glacier Deep Archive
+
+**b.** In Days after object becomes non-current, enter the number of days after creation to transition the object.
+
+![image lifecycle](image/lifecycle6.PNG)
+
+**10.** To expire current versions of objects, under Expire current versions of objects, in Number of days after object creation, enter the number of days.
+
+![image lifecycle](image/lifecycle7.PNG)
+
+**11.** To permanently delete previous versions of objects, under Permanently delete noncurrent versions of objects, in Days after objects become noncurrent, enter the number of days. You can optionally specify the number of newer versions to retain by entering a value under Number of newer versions to retain.
+
+![image lifecycle](image/lifecycle8.PNG)
+
+**12.** Under Delete expired delete markers or incomplete multipart uploads, choose Delete expired object delete markers and Delete incomplete multipart uploads. Then, enter the number of days after the multipart upload initiation that you want to end and clean up incomplete multipart uploads.
+
+For more information about multipart uploads, see [Uploading and copying objects using multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html).
+
+**13.** Choose Create rule.
+
+If the rule does not contain any errors, Amazon S3 enables it, and you can see it on the Management tab under Lifecycle rules.
