@@ -1317,7 +1317,7 @@ key features and benefits of the AWS CLI:
 * [**Elastic File System (EFS)**](#elastic-file-system) <!-- style="font-size:18px" -->
 * [**Simple Storage Service (S3)**](#simple-storage-service) <!-- style="font-size:18px" -->
 * [**Create your first S3 bucket**](#create-your-first-s3-bucket) <!-- style="font-size:18px" -->
-* [**Permissions**] <!-- style="font-size:18px" -->
+* [**Permissions**](#permissions) <!-- style="font-size:18px" -->
 * [**Storage class**] <!-- style="font-size:18px" -->
 * [**Metadata & Tags**] <!-- style="font-size:18px" -->
 * [**Version management**] <!-- style="font-size:18px" -->
@@ -1907,3 +1907,49 @@ For more information, see [Using S3 Object Lock](https://docs.aws.amazon.com/Ama
 6. Choose Upload.
 
 ![image s3](image/s3-14.PNG)
+
+### **Permissions**
+
+In AWS S3, permissions are managed using the AWS Identity and Access Management (IAM) service. IAM allows you to control access to your S3 buckets and objects by defining policies and assigning them to IAM users, groups, or roles.
+
+**Example:**
+
+Allows read and write access to objects in an S3 Bucket, programmatically and in the console
+
+This example shows how you might create an identity-based policy that allows Read and Write access to objects in a specific S3 bucket. This policy defines permissions for programmatic and console access. To use this policy, replace the italicized placeholder text in the example policy with your own information. Then, follow the directions in [create a policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create.html) or [edit a policy](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-edit.html).
+
+The s3:*Object action uses a wildcard as part of the action name. The AllObjectActions statement allows the GetObject, DeleteObject, PutObject, and any other Amazon S3 action that ends with the word "Object".
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3ConsoleAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetAccountPublicAccessBlock",
+                "s3:GetBucketAcl",
+                "s3:GetBucketLocation",
+                "s3:GetBucketPolicyStatus",
+                "s3:GetBucketPublicAccessBlock",
+                "s3:ListAccessPoints",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ListObjectsInBucket",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": ["arn:aws:s3:::bucket-name"]
+        },
+        {
+            "Sid": "AllObjectActions",
+            "Effect": "Allow",
+            "Action": "s3:*Object",
+            "Resource": ["arn:aws:s3:::bucket-name/*"]
+        }
+    ]
+}
+```
