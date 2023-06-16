@@ -1322,7 +1322,7 @@ key features and benefits of the AWS CLI:
 * [**Metadata & Tags**](#metadata-and-tags) <!-- style="font-size:18px" -->
 * [**Version management**](#version-management) <!-- style="font-size:18px" -->
 * [**Cross region replication**](#cross-region-replication) <!-- style="font-size:18px" -->
-* [**Lifecycle management**] <!-- style="font-size:18px" -->
+* [**Lifecycle management**](#lifecycle-management) <!-- style="font-size:18px" -->
 * [**Glacier (discussion)**] <!-- style="font-size:18px" -->
 * [**Transfer acceleration**] <!-- style="font-size:18px" -->
 
@@ -2315,3 +2315,18 @@ For more information about multipart uploads, see [Uploading and copying objects
 **13.** Choose Create rule.
 
 If the rule does not contain any errors, Amazon S3 enables it, and you can see it on the Management tab under Lifecycle rules.
+
+### **Glacier**
+
+* S3 Glacier storage class is the cheapest storage class, but it can be used for archive only.
+* You can store any amount of data at a lower cost than other storage classes.
+* S3 Glacier provides three types of models:
+
+    => Expedited: In this model, data is stored for a few minutes, and it has a very higher fee.
+
+    => Standard: The retrieval time of the standard model is 3 to 5 hours.
+
+    => Bulk: The retrieval time of the bulk model is 5 to 12 hours.
+
+* You can upload the objects directly to the S3 Glacier.
+* It is designed for 99.999999999% durability of objects across multiple availability zones.
