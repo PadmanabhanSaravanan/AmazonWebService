@@ -9,7 +9,7 @@
 * [**COMPUTE I**](#compute-i) <!-- style="font-size:20px" -->
 * [**COMPUTE II**](#compute-ii)<!-- style="font-size:20px" -->
 * [**STORAGE AND DELIVERY**](#storage-and-delivery) <!-- style="font-size:20px" -->
-* **NETWORKING**<!-- style="font-size:20px" -->
+* [**NETWORKING**](#networking)<!-- style="font-size:20px" -->
 
 ## **INTRODUCTION** 
 
@@ -2351,3 +2351,22 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 **4.** Click on the Enabled and then save changes.
 
 ![image transfer-acceleration](image/transfer-acceleration1.PNG)
+
+## Networking
+
+* [**Route 53 overview (Discussion)**](#route-53-overview) <!-- style="font-size:18px" -->
+* [**Virtual Private Cloud overview**] <!-- style="font-size:18px" -->
+* [**Subnets - AZ**] <!-- style="font-size:18px" -->
+* [**Public and private subnets**] <!-- style="font-size:18px" -->
+* [**Internet Gateway**] <!-- style="font-size:18px" -->
+* [**Route Tables**] <!-- style="font-size:18px" -->
+* [**NAT instance & Gateway**] <!-- style="font-size:18px" -->
+* [**ACL management**] <!-- style="font-size:18px" -->
+* [**Bastion hosts and use**] <!-- style="font-size:18px" -->
+* [**Peering**] <!-- style="font-size:18px" -->
+
+### **Route 53 overview**
+
+Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. It is designed for developers and corporates to route the end users to Internet applications by translating human readable names like www.mydomain.com, into the numeric IP addresses like 192.0.2.1 that computers use to connect to each other.
+
+![image route53](image/route53.PNG)
