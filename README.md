@@ -2355,7 +2355,7 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 ## Networking
 
 * [**Route 53 overview (Discussion)**](#route-53-overview) <!-- style="font-size:18px" -->
-* [**Virtual Private Cloud overview**] <!-- style="font-size:18px" -->
+* [**Virtual Private Cloud overview**](#virtual-private-cloud-overview) <!-- style="font-size:18px" -->
 * [**Subnets - AZ**] <!-- style="font-size:18px" -->
 * [**Public and private subnets**] <!-- style="font-size:18px" -->
 * [**Internet Gateway**] <!-- style="font-size:18px" -->
@@ -2369,4 +2369,18 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 
 Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web service. It is designed for developers and corporates to route the end users to Internet applications by translating human readable names like www.mydomain.com, into the numeric IP addresses like 192.0.2.1 that computers use to connect to each other.
 
+![image route53](image/route53-1.PNG)
+
 ![image route53](image/route53.PNG)
+
+### **Virtual Private Cloud overview**
+
+* VPC stands for Virtual Private Cloud.
+* Amazon Virtual Private Cloud (Amazon VPC) provides a logically isolated area of the AWS cloud where you can launch AWS resources in a virtual network that you define.
+* You have complete control over your virtual networking environment, including a selection of your IP address range, the creation of subnets, and configuration of route tables and network gateways.
+* You can easily customize the network configuration for your Amazon Virtual Private Cloud. For example, you can create a public-facing subnet for web servers that can access to the internet and can also place your backend system such as databases or application servers to a private-facing subnet.
+* You can provide multiple layers of security, including security groups and network access control lists, to help control access to Amazon EC2 instances in each subnet.
+
+**Architecture of VPC**
+
+![image vpc](image/architecture-of-vpc.png)
