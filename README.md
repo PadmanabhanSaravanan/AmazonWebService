@@ -2363,7 +2363,7 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 * [**NAT instance & Gateway**](#nat-instance-and-gateway) <!-- style="font-size:18px" -->
 * [**ACL management**](#acl-management) <!-- style="font-size:18px" -->
 * [**Bastion hosts and use**](#bastion-hosts-and-use) <!-- style="font-size:18px" -->
-* [**Peering**] <!-- style="font-size:18px" -->
+* [**Peering**](#peering) <!-- style="font-size:18px" -->
 
 ### **Route 53 overview**
 
@@ -2501,3 +2501,14 @@ A route table contains a set of rules, called routes, that are used to determine
 * It provides security by reducing the attacks on your infrastructure.
 * A Bastion host is used to to administer EC2 instances using SSH or RDP securely. Bastion hosts are also known as jump boxes in Australia.
 * You cannot use NAT Gateway as a Bastion host. If you SSH or RDP to an instance in a private subnet, you need to configure a Bastion host. You cannot use NAT Gateway.
+
+### **Peering**
+
+* VPC Peering is a networking connection that allows you to connect one VPC with another VPC through a direct network route using private IP addresses.
+* Instances behave as if they were on the same private network.
+* You can peer VPC's with other AWS accounts as well as other VPCs in the same account.
+* Peering is in a star configuration, i.e., 1 VPC peers other 4 VPCs.
+* It has no Transitive Peering!!.
+* You can peer between regions. Suppose you have one VPC in one region and other VPC in another region, then you can peer the VPCs between different regions.
+
+![image vpc-peering](image/peering-intro-diagram.png)
