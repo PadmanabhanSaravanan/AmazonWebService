@@ -2361,7 +2361,7 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 * [**Internet Gateway**](#internet-gateway) <!-- style="font-size:18px" -->
 * [**Route Tables**](#route-tables) <!-- style="font-size:18px" -->
 * [**NAT instance & Gateway**](#nat-instance-and-gateway) <!-- style="font-size:18px" -->
-* [**ACL management**] <!-- style="font-size:18px" -->
+* [**ACL management**](#acl-management) <!-- style="font-size:18px" -->
 * [**Bastion hosts and use**] <!-- style="font-size:18px" -->
 * [**Peering**] <!-- style="font-size:18px" -->
 
@@ -2468,3 +2468,19 @@ A route table contains a set of rules, called routes, that are used to determine
 * It starts at 5Gbps and scales up to 45 Gbps.
 * It is not configured with the security groups.
 * In NAT Gateways, there is no need to disable the source/destination checks.
+
+### **ACL management**
+
+* NACL stands for Network Access Control Lists.
+* It is a security layer for your VPC that controls the traffic in and out of one or more subnets.
+* It is an optional layer for your VPC.
+* You can set up a Network ACL similar to the security group that adds an additional layer of security to your VPC.
+
+**Some important related to Network ACL:**
+
+* Your custom VPC automatically comes with the default Network ACL which includes all inbound and outbound ipv4 traffic.
+* You can also create a custom network ACL and associates with a subnet. By default, a custom Network ACL denies all the inbound and outbound ipv4 traffic until you add rules.
+* If you do not explicitly create Network ACL, then the default Network ACL automatically associated with the subnet.
+* You can associate multiple subnets with a Network ACL. However, a subnet can be associated with the single Network ACL at a time.
+* Network ACL is associated with both inbound and outbound rules that can either deny or allow the rules.
+* A Network ACL contains numbered lists of rules that are evaluated in order, starting from the lowest numbered rule, to determine whether the traffic goes in or out of the subnet associated with the Network ACL. The highest numbered rule can be 32766. It is recommended to create new rules with increments (For example, increments of 10 or 100) so that you can easily add new rules where you need later on.
