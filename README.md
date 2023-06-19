@@ -2406,3 +2406,21 @@ When you create a subnet, you specify its IP addresses, depending on the configu
 The following diagram shows two VPCs in a Region. Each VPC has public and private subnets and an internet gateway. You can optionally add subnets in a Local Zone, as shown in the diagram. A Local Zone is an AWS infrastructure deployment that places compute, storage, and database services closer to your end users. When you use a Local Zone, your end users can run applications that require single-digit millisecond latencies. For more information, see [AWS Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/).
 
 ![image subnet](image/subnet-diagram.png)
+
+### **Public and private subnets**
+
+**Public Subnet**
+
+A public subnet is a subnet that is associated with a Route Table that has a route to an Internet Gateway (Igw). This route allows access from the Public Internet to the subnet.
+
+![image subnet](image/public-subnet.png)
+
+**Private Subnet**
+
+A private subnet is a subnet that is associated with a route table that doesn’t have a route to an internet gateway. Resources in private subnets cannot communicate with the public internet.
+
+AWS resources within the same VPC CIDR can communicate via their private IP addresses.
+
+Resources in a private subnet can use the NAT Gateway to communicate to the Internet. A NAT Gateway is deployed in a public subnet.
+
+![image subnet](image/private-subnet.png)
