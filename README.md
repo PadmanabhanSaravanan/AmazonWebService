@@ -1098,7 +1098,53 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ### **Auto scaling launch configuration**
 
+An Auto Scaling launch configuration is a template that defines the configuration settings for instances that are launched by an Auto Scaling group. It specifies the Amazon Machine Image (AMI), instance type, security groups, key pair, block device mapping, and other parameters required to launch instances.
 
+**Start launch template creation**
+
+**Step 1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+
+**Step 2.** In the navigation pane, choose Launch Templates, and then choose Create launch template.
+
+![image LaunchTemplate](image/LaunchTemplate1.PNG)
+
+**Step 3.** Launch template name, description, and tags
+
+![image LaunchTemplate](image/LaunchTemplate2.PNG)
+
+**Step 4.** Application and OS Images (Amazon Machine Image)
+
+![image LaunchTemplate](image/LaunchTemplate3.PNG)
+
+**Step 5.** Instance type
+
+![image LaunchTemplate](image/LaunchTemplate4.PNG)
+
+**Step 6.** Key pair (login)
+
+![image LaunchTemplate](image/LaunchTemplate5.PNG)
+
+**Step 7.** Network settings
+
+![image LaunchTemplate](image/LaunchTemplate6.PNG)
+
+**Step 8.** Configure storage
+
+![image LaunchTemplate](image/LaunchTemplate7.PNG)
+
+**Step 9.** Resource tags
+
+![image LaunchTemplate](image/LaunchTemplate8.PNG)
+
+**Step 10.** Summary
+
+Use the Summary panel to review your launch template configuration and to create your launch template.
+
+Review the details of your launch template, and make any necessary changes. You can navigate directly to a section by choosing its link in the Summary panel.
+
+When you're ready to create your launch template, choose Create launch template.
+
+![image LaunchTemplate](image/LaunchTemplate9.PNG)
 
 ### **Auto scale groups**
 
