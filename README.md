@@ -1094,7 +1094,6 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 * [**Security aspects of AMI**](#security-aspects-of-ami) <!-- style="font-size:18px" -->
 * [**Elastic Beanstalk**](#elastic-beanstalk) <!-- style="font-size:18px" -->
 * [**Command line interface (CLI)**](#command-line-interface) <!-- style="font-size:18px" -->
-* [**Multi AZ EC2 setup**](#multi-az-ec2-setup) <!-- style="font-size:18px" -->
 
 ### **Auto scaling launch configuration**
 
@@ -1428,8 +1427,6 @@ key features and benefits of the AWS CLI:
 **AWS SDK Compatibility:** The AWS CLI is built on top of the AWS SDKs (Software Development Kits), which are available in various programming languages. This allows developers to use the CLI for quick command execution and switch to the SDKs for more advanced programming and integration requirements.
 
 **Security and Encryption:** The AWS CLI supports secure communication with AWS services using HTTPS protocols. It also provides options for encrypting sensitive data, such as credentials and output files.
-
-### **Multi AZ EC2 setup**
 
 ## Storage and Delivery 
 
@@ -2488,6 +2485,70 @@ Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web 
 **Architecture of VPC**
 
 ![image vpc](image/architecture-of-vpc.png)
+
+#### **Create a VPC**
+
+Create a VPC with two public subnets. AWS Directory Service requires two subnets in your VPC, and each subnet must be in a different Availability Zone.
+
+**Step1.** Open the Amazon VPC console at https://console.aws.amazon.com/vpc/.
+
+**Step2.** In the VPC Dashboard, choose Create VPC.
+
+![image vpc](image/vpc.PNG)
+
+**Step3.** Under Resources to create choose VPC and more.
+
+![image vpc](image/vpc1.PNG)
+
+**Step4.** Complete these fields as follows:
+
+**Name tag auto-generation (clear Auto-generate)**
+
+ADS VPC
+
+![image vpc](image/vpc2.PNG)
+
+**IPv4 CIDR block**
+
+10.0.0.0/16
+
+![image vpc](image/vpc3.PNG)
+
+**IPv6 CIDR block**
+
+No IPv6 CIDR block
+
+![image vpc](image/vpc4.PNG)
+
+**Tenancy**
+
+Default
+
+![image vpc](image/vpc5.PNG)
+
+**Number of Availability Zones (AZs)**
+
+Choose 1 or 2, depending on your needs.
+
+![image vpc](image/vpc6.PNG)
+
+**Number of public subnets**
+
+2
+
+**Number of private subnets**
+
+0
+
+![image vpc](image/vpc7.PNG)
+
+![image vpc](image/vpc8.PNG)
+
+**Step5.** Choose Create VPC. It takes several minutes for the VPC to be created.
+
+**Preview**
+
+![image vpc](image/vpc9.PNG)
 
 ### **Subnets AZ**
 
