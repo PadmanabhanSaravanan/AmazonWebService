@@ -2359,7 +2359,7 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 * [**Subnets - AZ**](#subnets-az) <!-- style="font-size:18px" -->
 * [**Public and private subnets**](#public-and-private-subnets) <!-- style="font-size:18px" -->
 * [**Internet Gateway**](#internet-gateway) <!-- style="font-size:18px" -->
-* [**Route Tables**] <!-- style="font-size:18px" -->
+* [**Route Tables**](#route-tables) <!-- style="font-size:18px" -->
 * [**NAT instance & Gateway**] <!-- style="font-size:18px" -->
 * [**ACL management**] <!-- style="font-size:18px" -->
 * [**Bastion hosts and use**] <!-- style="font-size:18px" -->
@@ -2432,3 +2432,14 @@ An internet gateway is a horizontally scaled, redundant, and highly available VP
 An internet gateway enables resources in your public subnets (such as EC2 instances) to connect to the internet if the resource has a public IPv4 address or an IPv6 address. Similarly, resources on the internet can initiate a connection to resources in your subnet using the public IPv4 address or IPv6 address. For example, an internet gateway enables you to connect to an EC2 instance in AWS using your local computer.
 
 ![image subnet](image/internet-gateway.png)
+
+### **Route Tables**
+
+A route table contains a set of rules, called routes, that are used to determine where network traffic from your subnet or gateway is directed. To put it simply, a route table tells network packets which way they need to go to get to their destination.
+
+**There are two types of routes in a route table:**
+
+* Local routes: These routes apply to traffic within the VPC. Every VPC has a default local route that allows traffic to flow between subnets within the VPC.
+* Internet Gateway routes: These routes apply to traffic going to and from the internet. Every VPC has a default Internet Gateway route that allows traffic to flow between the VPC and the internet.
+
+![image route](image/routetables.png)
