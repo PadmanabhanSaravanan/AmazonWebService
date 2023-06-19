@@ -2362,7 +2362,7 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 * [**Route Tables**](#route-tables) <!-- style="font-size:18px" -->
 * [**NAT instance & Gateway**](#nat-instance-and-gateway) <!-- style="font-size:18px" -->
 * [**ACL management**](#acl-management) <!-- style="font-size:18px" -->
-* [**Bastion hosts and use**] <!-- style="font-size:18px" -->
+* [**Bastion hosts and use**](#bastion-hosts-and-use) <!-- style="font-size:18px" -->
 * [**Peering**] <!-- style="font-size:18px" -->
 
 ### **Route 53 overview**
@@ -2484,3 +2484,20 @@ A route table contains a set of rules, called routes, that are used to determine
 * You can associate multiple subnets with a Network ACL. However, a subnet can be associated with the single Network ACL at a time.
 * Network ACL is associated with both inbound and outbound rules that can either deny or allow the rules.
 * A Network ACL contains numbered lists of rules that are evaluated in order, starting from the lowest numbered rule, to determine whether the traffic goes in or out of the subnet associated with the Network ACL. The highest numbered rule can be 32766. It is recommended to create new rules with increments (For example, increments of 10 or 100) so that you can easily add new rules where you need later on.
+
+### **Bastion hosts and use**
+
+* A Bastion Host is a special purpose computer on a host designed and configured to withstand attacks.
+* The computer hosts a single application, for example, a proxy server and all the other services are removed to reduce the threat to the computer.
+* A Bastion host is hardened due to its location and purpose, which is either on the outside of a firewall or demilitarized zone, i.e., public subnet and it usually accesses from untrusted networks or computers.
+
+**Architecture of Bastion Host**
+
+![image bastion](image/aws-bastion-host.png)
+
+**Key Points related to Bastion Host**
+
+* Bastion Host is launched in Public subnets and acts as a proxy to the instances in a private subnet.
+* It provides security by reducing the attacks on your infrastructure.
+* A Bastion host is used to to administer EC2 instances using SSH or RDP securely. Bastion hosts are also known as jump boxes in Australia.
+* You cannot use NAT Gateway as a Bastion host. If you SSH or RDP to an instance in a private subnet, you need to configure a Bastion host. You cannot use NAT Gateway.
