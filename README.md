@@ -2356,7 +2356,7 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 
 * [**Route 53 overview (Discussion)**](#route-53-overview) <!-- style="font-size:18px" -->
 * [**Virtual Private Cloud overview**](#virtual-private-cloud-overview) <!-- style="font-size:18px" -->
-* [**Subnets - AZ**] <!-- style="font-size:18px" -->
+* [**Subnets - AZ**](#subnets-az) <!-- style="font-size:18px" -->
 * [**Public and private subnets**] <!-- style="font-size:18px" -->
 * [**Internet Gateway**] <!-- style="font-size:18px" -->
 * [**Route Tables**] <!-- style="font-size:18px" -->
@@ -2384,3 +2384,25 @@ Amazon Route 53 is a highly available and scalable Domain Name System (DNS) web 
 **Architecture of VPC**
 
 ![image vpc](image/architecture-of-vpc.png)
+
+### **Subnets AZ**
+
+A subnet is a range of IP addresses in your VPC. You can create AWS resources, such as EC2 instances, in specific subnets.
+
+Each subnet must reside entirely within one Availability Zone and cannot span zones. By launching AWS resources in separate Availability Zones, you can protect your applications from the failure of a single Availability Zone.
+
+**Subnet IP address range**
+
+When you create a subnet, you specify its IP addresses, depending on the configuration of the VPC:
+
+* **IPv4 only** – The subnet has an IPv4 CIDR block but does not have an IPv6 CIDR block. Resources in an IPv4-only subnet must communicate over IPv4.
+
+* **Dual stack** – The subnet has both an IPv4 CIDR block and an IPv6 CIDR block. The VPC must have both an IPv4 CIDR block and an IPv6 CIDR block. Resources in a dual-stack subnet can communicate over IPv4 and IPv6.
+
+* **IPv6 only** – The subnet has an IPv6 CIDR block but does not have an IPv4 CIDR block. The VPC must have an IPv6 CIDR block. Resources in an IPv6-only subnet must communicate over IPv6.
+
+**Subnet diagram**
+
+The following diagram shows two VPCs in a Region. Each VPC has public and private subnets and an internet gateway. You can optionally add subnets in a Local Zone, as shown in the diagram. A Local Zone is an AWS infrastructure deployment that places compute, storage, and database services closer to your end users. When you use a Local Zone, your end users can run applications that require single-digit millisecond latencies. For more information, see [AWS Local Zones](https://docs.aws.amazon.com/local-zones/latest/ug/).
+
+![image subnet](image/subnet-diagram.png)
