@@ -2357,8 +2357,8 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 * [**Route 53 overview (Discussion)**](#route-53-overview) <!-- style="font-size:18px" -->
 * [**Virtual Private Cloud overview**](#virtual-private-cloud-overview) <!-- style="font-size:18px" -->
 * [**Subnets - AZ**](#subnets-az) <!-- style="font-size:18px" -->
-* [**Public and private subnets**] <!-- style="font-size:18px" -->
-* [**Internet Gateway**] <!-- style="font-size:18px" -->
+* [**Public and private subnets**](#public-and-private-subnets) <!-- style="font-size:18px" -->
+* [**Internet Gateway**](#internet-gateway) <!-- style="font-size:18px" -->
 * [**Route Tables**] <!-- style="font-size:18px" -->
 * [**NAT instance & Gateway**] <!-- style="font-size:18px" -->
 * [**ACL management**] <!-- style="font-size:18px" -->
@@ -2424,3 +2424,11 @@ AWS resources within the same VPC CIDR can communicate via their private IP addr
 Resources in a private subnet can use the NAT Gateway to communicate to the Internet. A NAT Gateway is deployed in a public subnet.
 
 ![image subnet](image/private-subnet.png)
+
+### **Internet Gateway**
+
+An internet gateway is a horizontally scaled, redundant, and highly available VPC component that allows communication between your VPC and the internet. It supports IPv4 and IPv6 traffic. It does not cause availability risks or bandwidth constraints on your network traffic.
+
+An internet gateway enables resources in your public subnets (such as EC2 instances) to connect to the internet if the resource has a public IPv4 address or an IPv6 address. Similarly, resources on the internet can initiate a connection to resources in your subnet using the public IPv4 address or IPv6 address. For example, an internet gateway enables you to connect to an EC2 instance in AWS using your local computer.
+
+![image subnet](image/internet-gateway.png)
