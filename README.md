@@ -2360,7 +2360,7 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 * [**Public and private subnets**](#public-and-private-subnets) <!-- style="font-size:18px" -->
 * [**Internet Gateway**](#internet-gateway) <!-- style="font-size:18px" -->
 * [**Route Tables**](#route-tables) <!-- style="font-size:18px" -->
-* [**NAT instance & Gateway**] <!-- style="font-size:18px" -->
+* [**NAT instance & Gateway**](#nat-instance-and-gateway) <!-- style="font-size:18px" -->
 * [**ACL management**] <!-- style="font-size:18px" -->
 * [**Bastion hosts and use**] <!-- style="font-size:18px" -->
 * [**Peering**] <!-- style="font-size:18px" -->
@@ -2443,3 +2443,28 @@ A route table contains a set of rules, called routes, that are used to determine
 * Internet Gateway routes: These routes apply to traffic going to and from the internet. Every VPC has a default Internet Gateway route that allows traffic to flow between the VPC and the internet.
 
 ![image route](image/routetables.png)
+
+### **NAT instance and Gateway**
+
+* NAT stands for Network Address Translation.
+* If you want your EC2 instance in a private subnet can access the internet, this can be achieved only when it can communicate to the internet. However, we do not want to make a subnet public as we want to maintain the degree of control. To overcome the problem, we need to create either NAT Gateways or NAT Instances.
+* In real time, NAT Gateways are highly used than NAT instances as NAT instances are an individual EC2 instances, and NAT Gateways are highly available across multiple availability zones, and they are not on a single EC2 instance.
+
+![image NAT](image/aws-nat-gateways.png)
+
+**Important points related to NAT instance:**
+
+* When creating a NAT instance, you need to disable source/destination check on the instance.
+* NAT instances must be available in a public subnet.
+* There must be some route from private subnet to NAT instance, in order to work for this.
+* The amount of traffic that NAT instances can support depends upon the instance size.
+* You can create high availability using Autoscaling groups, multiple subnets in different AZ's.
+* NAT instance is configured with the security group.
+
+**Important points related to NAT Gateways:**
+
+* It is redundant inside the availability zone.
+* It is preferred by an enterprise.
+* It starts at 5Gbps and scales up to 45 Gbps.
+* It is not configured with the security groups.
+* In NAT Gateways, there is no need to disable the source/destination checks.
