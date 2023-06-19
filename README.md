@@ -505,11 +505,11 @@ There are several pricing options available for EC2 instances:
 
 **Step4.** Select Application and OS Image
 
-![Create AWS](image/5.PNG)
+![Create AWS](image/5.png)
 
 **Step5.** In Key Pair(Login) Select create new key pair
 
-![Create AWS](image/8_1.PNG)
+![Create AWS](image/8_1.png)
 
 **Step6.** Give keypair name ,select Key Pair Type and file format and select create key pair and file will be downloaded
 
