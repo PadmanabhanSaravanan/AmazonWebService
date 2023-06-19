@@ -491,39 +491,39 @@ There are several pricing options available for EC2 instances:
 
 ### **Create EC2 Insatnce**
 
-1. Search EC2 in search bar and Select EC2 Instance 
+**Step1.** Search EC2 in search bar and Select EC2 Instance 
 
 ![Create AWS](image/AWS1.PNG)
 
-2. To Create Instance click on Launch instance
+**Step2.** To Create Instance click on Launch instance
 
 ![Create AWS](image/2.PNG)
 
-3. Give the name for the instance
+**Step3.** Give the name for the instance
 
 ![Create AWS](image/4.PNG)
 
-4. Select Application and OS Image
+**Step4.** Select Application and OS Image
 
 ![Create AWS](image/5.PNG)
 
-5. In Key Pair(Login) Select create new key pair
+**Step5.** In Key Pair(Login) Select create new key pair
 
 ![Create AWS](image/8_1.PNG)
 
-6. Give keypair name ,select Key Pair Type and file format and select create key pair and file will be downloaded
+**Step6.** Give keypair name ,select Key Pair Type and file format and select create key pair and file will be downloaded
 
 ![Create AWS](image/7.PNG)
 
-7. Select network settings
+**Step7.** Select network settings
 
 ![Create AWS](image/9.PNG)
 
-8. Connfigure storage
+**Step8.** Connfigure storage
 
 ![Create AWS](image/10.PNG)
 
-9. After all configuration select Launch Instance which will launch the instance
+**Step9.** After all configuration select Launch Instance which will launch the instance
 
 ![Create AWS](image/11.PNG)
 
@@ -848,15 +848,15 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 #### **Configure a target group**
 
-**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-**2.** In the navigation panel, choose Target Groups.
+**Step2.** In the navigation panel, choose Target Groups.
 
-**3.** Choose Create target group.
+**Step3.** Choose Create target group.
 
 ![image TG](image/targetgroup8.PNG)
 
-**4.** In the Basic configuration section, set the following parameters:
+**Step4.** In the Basic configuration section, set the following parameters:
 
 * For Choose a target type, select Instances to specify targets by instance ID or IP addresses to specify targets by IP address. If the target type is a Lambda function, you can enable health checks by selecting Enable in the Health checks section.
 
@@ -878,11 +878,11 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image TG](image/targetgroup3.PNG)
 
-**5.** In the Health checks section, modify the default settings as needed. For Advanced health check settings, choose the health check port, count, timeout, interval, and specify success codes. If health checks consecutively exceed the Unhealthy threshold count, the load balancer takes the target out of service. If health checks consecutively exceed the Healthy threshold count, the load balancer puts the target back in service. For more information, see Health checks for your target groups.
+**Step5.** In the Health checks section, modify the default settings as needed. For Advanced health check settings, choose the health check port, count, timeout, interval, and specify success codes. If health checks consecutively exceed the Unhealthy threshold count, the load balancer takes the target out of service. If health checks consecutively exceed the Healthy threshold count, the load balancer puts the target back in service.
 
 ![image TG](image/targetgroup4.PNG)
 
-**6.** (Optional) Add one or more tags as follows:
+**Step6.** (Optional) Add one or more tags as follows:
 
 * Expand the Tags section.
 * Choose Add tag.
@@ -890,11 +890,11 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image TG](image/targetgroup5.PNG)
 
-**7.** Choose Next.
+**Step7.** Choose Next.
 
 #### **Register targets**
 
-**1.** In the Register targets page, add one or more targets as follows:
+**Step1.** In the Register targets page, add one or more targets as follows:
 
 * If the target type is Instances, select one or more instances, enter one or more ports, and then choose Include as pending below.
 
@@ -912,25 +912,25 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image TG](image/targetgroup6.PNG)
 
-**2.** Choose Create target group.
+**Step2.** Choose Create target group.
 
 ![image TG](image/targetgroup7.PNG)
 
 #### **Configure a load balancer and a listener**
 
-**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-**2.** In the navigation panel, choose Load Balancers.
+**Step2.** In the navigation panel, choose Load Balancers.
 
-**3.** Choose Create Load Balancer.
+**Step3.** Choose Create Load Balancer.
 
 ![image LB](image/loadbalancer1.PNG)
 
-**4.** Under Application Load Balancer, choose Create.
+**Step4.** Under Application Load Balancer, choose Create.
 
 ![image LB](image/loadbalancer2.PNG)
 
-**5.** Basic configuration
+**Step5.** Basic configuration
 
 * For Load balancer name, enter a name for your load balancer. For example, my-alb. The name of your Application Load Balancer must be unique within your set of Application Load Balancers and Network Load Balancers for the Region. Names can have a maximum of 32 characters, and can contain only alphanumeric characters and hyphens. They can not begin or end with a hyphen, or with internal-.
 
@@ -940,7 +940,7 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image LB](image/loadbalancer3.PNG)
 
-**6.** Network mapping
+**Step6.** Network mapping
 
 * For VPC, select the VPC that you used for your EC2 instances. If you selected Internet-facing for Scheme, only VPCs with an internet gateway are available for selection.
 
@@ -958,15 +958,15 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image LB](image/loadbalancer4.PNG)
 
-**7.** For Security groups, select an existing security group, or create a new one.
+**Step7.** For Security groups, select an existing security group, or create a new one.
 
-    The security group for your load balancer must allow it to communicate with registered targets on both the listener port and the health check port. The console can create a security group for your load balancer on your behalf with rules that allow this communication. You can also create a security group and select it instead. For more information, see Recommended rules.
+    The security group for your load balancer must allow it to communicate with registered targets on both the listener port and the health check port. The console can create a security group for your load balancer on your behalf with rules that allow this communication. You can also create a security group and select it instead.
 
     (Optional) To create a new security group for your load balancer, choose Create a new security group.
 
 ![image LB](image/loadbalancer5.PNG)
 
-**8.** For Listeners and routing, the default listener accepts HTTP traffic on port 80. You can keep the default protocol and port, or choose different ones. For Default action, choose the target group that you created. You can optionally choose Add listener to add another listener (for example, an HTTPS listener).
+**Step8.** For Listeners and routing, the default listener accepts HTTP traffic on port 80. You can keep the default protocol and port, or choose different ones. For Default action, choose the target group that you created. You can optionally choose Add listener to add another listener (for example, an HTTPS listener).
 
     If you create an HTTPS listener, configure the required Secure listener settings. Otherwise, go to the next step.
 
@@ -982,15 +982,15 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image LB](image/loadbalancer6.PNG)
 
-**9.** (Optional) You can use Add-on services, such as the AWS Global Accelerator to create an accelerator and associate the load balancer with the accelerator. The accelerator name can have up to 64 characters. Allowed characters are a-z, A-Z, 0-9, . and - (hyphen). Once the accelerator is created, you can use the AWS Global Accelerator console to manage it.
+**Step9.** (Optional) You can use Add-on services, such as the AWS Global Accelerator to create an accelerator and associate the load balancer with the accelerator. The accelerator name can have up to 64 characters. Allowed characters are a-z, A-Z, 0-9, . and - (hyphen). Once the accelerator is created, you can use the AWS Global Accelerator console to manage it.
 
 ![image LB](image/loadbalancer7.PNG)
 
-**10.** Tag and create
+**Step10.** Tag and create
 
 * (Optional) Add a tag to categorize your load balancer. Tag keys must be unique for each load balancer. Allowed characters are letters, spaces, numbers (in UTF-8), and the following special characters: + - = . _ : / @. Do not use leading or trailing spaces. Tag values are case-sensitive.
 
-* Review your configuration, and choose Create load balancer. A few default attributes are applied to your load balancer during creation. You can view and edit them after creating the load balancer. For more information, see Load balancer attributes.
+* Review your configuration, and choose Create load balancer. A few default attributes are applied to your load balancer during creation. You can view and edit them after creating the load balancer.
 
 ![image LB](image/loadbalancer8.PNG)
 
@@ -1000,15 +1000,15 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 > **To create a new function (console)**
 
-**1.** Open the Functions page of the Lambda console and choose Create Function.
+**Step1.** Open the Functions page of the Lambda console and choose Create Function.
 
 ![image LambdaTG](image/lambdaTG.PNG)
 
-**2.** Choose Author from scratch.
+**Step2.** Choose Author from scratch.
 
 ![image LambdaTG](image/lambdaTG1.PNG)
 
-**3.** Under Basic information, do the following:
+**Step3.** Under Basic information, do the following:
 
 * For Function name, enter the name for your function.
 
@@ -1018,27 +1018,27 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image LambdaTG](image/lambdaTG2.PNG)
 
-**4.** Advanced Settings
+**Step4.** Advanced Settings
 
 ![image LambdaTG](image/lambdaTG3.PNG)
 
-**5.** Choose Create function. Lambda creates a basic 'Hello App' function using your chosen runtime.
+**Step5.** Choose Create function. Lambda creates a basic 'Hello App' function using your chosen runtime.
 
 > **To upload a .zip or JAR archive from your local machine (console)**
 
-**1.** In the Functions page of the Lambda console, choose the function you want to upload the .zip or JAR file for.
+**Step1.** In the Functions page of the Lambda console, choose the function you want to upload the .zip or JAR file for.
 
 ![image LambdaTG](image/lambdaTG4.PNG)
 
-**2.** Select the Code tab.
+**Step2.** Select the Code tab.
 
 ![image LambdaTG](image/lambdaTG5.PNG)
 
-**3.** In the Code source pane, choose Upload from.
+**Step3.** In the Code source pane, choose Upload from.
 
-**4.** Choose .zip or .jar file.
+**Step4.** Choose .zip or .jar file.
 
-**5.** To upload the .zip or JAR file, do the following:
+**Step5.** To upload the .zip or JAR file, do the following:
 
 * Select Upload, then select your .zip or JAR file in the file chooser.
 
@@ -1048,23 +1048,23 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 > **To create a target group and register the Lambda function using the new console**
 
-**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-**2.** On the navigation pane, under LOAD BALANCING, choose Target Groups.
+**Step2.** On the navigation pane, under LOAD BALANCING, choose Target Groups.
 
-**3.** Choose Create target group.
+**Step3.** Choose Create target group.
 
-**4.** For Choose a target type, select Lambda function.
+**Step4.** For Choose a target type, select Lambda function.
 
-**5.** For Target group name, type a name for the target group.
+**Step5.** For Target group name, type a name for the target group.
 
 ![image LambdaTG](image/lambdaTG9.PNG)
 
-**6.** (Optional) To enable health checks, choose Enable in the Health checks section.
+**Step6.** (Optional) To enable health checks, choose Enable in the Health checks section.
 
 ![image LambdaTG](image/lambdaTG10.PNG)
 
-**7.** (Optional) Add one or more tags as follows:
+**Step7.** (Optional) Add one or more tags as follows:
 
 * Expand the Tags section.
 
@@ -1074,11 +1074,11 @@ Before you begin, ensure that you have a virtual private cloud (VPC) with at lea
 
 ![image LambdaTG](image/lambdaTG12.PNG)
 
-**8.** Choose Next.
+**Step8.** Choose Next.
 
-**9.** Specify a single Lambda function or omit this step and specify a Lambda function later.
+**Step9.** Specify a single Lambda function or omit this step and specify a Lambda function later.
 
-**10.** Choose Create target group.
+**Step10.** Choose Create target group.
 
 ![image LambdaTG](image/lambdaTG13.PNG)
 
@@ -1152,6 +1152,85 @@ When you're ready to create your launch template, choose Create launch template.
 * You can specify the minimum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. You can specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes above this size. If you specify the desired capacity, either when you create the group or at any time thereafter, Amazon EC2 Auto Scaling ensures that your group has this many instances. If you specify scaling policies, then Amazon EC2 Auto Scaling can launch or terminate instances as demand on your application increases or decreases.
 
 ![image AS](image/autoscaling.png)
+
+**To create an Auto Scaling group using a launch template (console)**
+
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/, and choose Auto Scaling Groups from the navigation panel.
+
+**Step2.** On the navigation bar at the top of the screen, choose the same AWS Region that you used when you created the launch template.
+
+**Step3.** Choose Create an Auto Scaling group.
+
+![image AS](image/autoscaling2.png)
+
+**Step4.** On the Choose launch template or configuration page, do the following:
+
+* For Auto Scaling group name, enter a name for your Auto Scaling group.
+* For Launch template, choose an existing launch template.
+* For Launch template version, choose whether the Auto Scaling group uses the default, the latest, or a specific version of the launch template when scaling out.
+* Verify that your launch template supports all of the options that you are planning to use, and then choose Next.
+
+![image AS](image/autoscaling3.png)
+
+![image AS](image/autoscaling4.png)
+
+**Step5.** On the Choose instance launch options page, under Network, for VPC, choose a VPC. The Auto Scaling group must be created in the same VPC as the security group you specified in your launch template.
+
+**Step6.** For Availability Zones and subnets, choose one or more subnets in the specified VPC. Use subnets in multiple Availability Zones for high availability.
+
+![image AS](image/autoscaling5.png)
+
+**Step7.** If you created a launch template with an instance type specified, then you can continue to the next step to create an Auto Scaling group that uses the instance type in the launch template.
+
+Alternatively, you can choose the Override launch template option if no instance type is specified in your launch template or if you want to use multiple instance types for auto scaling.
+
+![image AS](image/autoscaling6.png)
+
+**Step8.** Choose Next to continue to the next step.
+
+Or, you can accept the rest of the defaults, and choose Skip to review.
+
+**Step9.** (Optional) On the Configure advanced options page, configure the following options, and then choose Next:
+
+* To register your Amazon EC2 instances with a load balancer, choose an existing load balancer or create a new one.
+
+* (Optional) For Health checks, Additional health check types, select Turn on Elastic Load Balancing health checks.
+
+* (Optional) For Health check grace period, enter the amount of time, in seconds. This is how long Amazon EC2 Auto Scaling needs to wait before checking the health status of an instance after it enters the InService state.
+
+* Under Additional settings, Monitoring, choose whether to enable CloudWatch group metrics collection. These metrics provide measurements that can be indicators of a potential issue, such as number of terminating instances or number of pending instances. 
+
+* For Enable default instance warmup, select this option and choose the warm-up time for your application. If you are creating an Auto Scaling group that has a scaling policy, the default instance warmup feature improves the Amazon CloudWatch metrics used for dynamic scaling.
+
+![image AS](image/autoscaling7.png)
+
+![image AS](image/autoscaling8.png)
+
+![image AS](image/autoscaling9.png)
+
+**Step10.** (Optional) On the Configure group size and scaling policies page, configure the following options, and then choose **Next**:
+
+* For Desired capacity, enter the initial number of instances to launch. When you change this number to a value outside of the minimum or maximum capacity limits, you must update the values of Minimum capacity or Maximum capacity.
+
+* To automatically scale the size of the Auto Scaling group, choose Target tracking scaling policy and follow the directions. 
+
+* Under Instance scale-in protection, choose whether to enable instance scale-in protection. 
+
+![image AS](image/autoscaling10.png)
+
+![image AS](image/autoscaling11.png)
+
+![image AS](image/autoscaling12.png)
+
+**Step11.** (Optional) To receive notifications, for Add notification, configure the notification, and then choose Next. 
+
+![image AS](image/autoscaling13.png)
+
+**Step12.** (Optional) To add tags, choose Add tag, provide a tag key and value for each tag, and then choose Next. 
+
+![image AS](image/autoscaling14.png)
+
+**Step13.** On the Review page, choose Create Auto Scaling group.
 
 ### **Bootstrap scripts**
 
@@ -1460,27 +1539,27 @@ Amazon EBS provides two types of volume that differ in performance characteristi
 
 To create an empty EBS volume using the console
 
-1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-2. In the navigation pane, choose Volumes.
+**Step2.** In the navigation pane, choose Volumes.
 
-3. Choose Create volume.
+**Step3.** Choose Create volume.
 
-4. For Volume type, choose the type of volume to create. For more information, see Amazon EBS volume types.
+**Step4.** For Volume type, choose the type of volume to create. For more information, see Amazon EBS volume types.
 
-5. For Size, enter the size of the volume, in GiB. For more information, see Constraints on the size and configuration of an EBS volume.
+**Step5.** For Size, enter the size of the volume, in GiB. For more information, see Constraints on the size and configuration of an EBS volume.
 
-6. (io1, io2, and gp3 only) For IOPS, enter the maximum number of input/output operations per second (IOPS) that the volume should provide.
+**Step6.** (io1, io2, and gp3 only) For IOPS, enter the maximum number of input/output operations per second (IOPS) that the volume should provide.
 
-7. (gp3 only) For Throughput, enter the throughput that the volume should provide, in MiB/s.
+**Step7.** (gp3 only) For Throughput, enter the throughput that the volume should provide, in MiB/s.
 
-8. For Availability Zone, choose the Availability Zone in which to create the volume. A volume can be attached only to an instance that is in the same Availability Zone.
+**Step8.** For Availability Zone, choose the Availability Zone in which to create the volume. A volume can be attached only to an instance that is in the same Availability Zone.
 
-9. For Snapshot ID, keep the default value (Don't create volume from a snapshot).
+**Step9.** For Snapshot ID, keep the default value (Don't create volume from a snapshot).
 
-10. (io1 and io2 only) To enable the volume for Amazon EBS Multi-Attach, select Enable Multi-Attach. For more information, see Attach a volume to multiple instances with Amazon EBS Multi-Attach.
+**Step10.** (io1 and io2 only) To enable the volume for Amazon EBS Multi-Attach, select Enable Multi-Attach. For more information, see Attach a volume to multiple instances with Amazon EBS Multi-Attach.
 
-11. Set the encryption status for the volume.
+**Step11.** Set the encryption status for the volume.
 
 If your account is enabled for encryption by default, then encryption is automatically enabled and you can't disable it. You can choose the KMS key to use to encrypt the volume.
 
@@ -1488,9 +1567,9 @@ If your account is not enabled for encryption by default, encryption is optional
 
 ![Image Volume](image/volume.PNG)
 
-12. (Optional) To assign custom tags to the volume, in the Tags section, choose Add tag, and then enter a tag key and value pair. For more information, see Tag your Amazon EC2 resources.
+**Step12.** (Optional) To assign custom tags to the volume, in the Tags section, choose Add tag, and then enter a tag key and value pair. For more information, see Tag your Amazon EC2 resources.
 
-13. Choose Create volume.
+**Step13.** Choose Create volume.
 
 ![Image Volume](image/volume1.PNG)
 
@@ -1544,11 +1623,11 @@ Status checks and monitoring play a crucial role in ensuring the health and avai
 
 To attach an EBS volume to an instance using the console
 
-**1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-**2.** In the navigation panel, choose Volumes.
+**Step2.** In the navigation panel, choose Volumes.
 
-**3.** Select the volume to attach and choose Actions, Attach volume.
+**Step3.** Select the volume to attach and choose Actions, Attach volume.
 
 > Note:
 > 
@@ -1556,20 +1635,20 @@ To attach an EBS volume to an instance using the console
 
 ![image Mount](image/mount.PNG)
 
-**4.** For Instance, enter the ID of the instance or select the instance from the list of options.
+**Step4.** For Instance, enter the ID of the instance or select the instance from the list of options.
 
 > Note:
 > 
 > * The volume must be attached to an instance in the same Availability Zone.
 > * If the volume is encrypted, it can only be attached to instance types that support Amazon EBS encryption. For more information, see Amazon EBS encryption.
 
-**5.** For Device name, enter a supported device name for the volume. This device name is used by Amazon EC2. The block device driver for the instance might assign a different device name when mounting the volume. For more information, see Device names on Linux instances.
+**Step5.** For Device name, enter a supported device name for the volume. This device name is used by Amazon EC2. The block device driver for the instance might assign a different device name when mounting the volume. For more information, see Device names on Linux instances.
 
 ![image Mount](image/mount1.PNG)
 
-**6.** Choose Attach volume.
+**Step6.** Choose Attach volume.
 
-**7.** Connect to the instance and mount the volume
+**Step7.** Connect to the instance and mount the volume
 
 * Now, login to your ec2 instance and list the available disks using the following command.
 
@@ -1638,23 +1717,23 @@ Snapshots are a crucial feature of Amazon Elastic Block Store (EBS) that allow y
 
 To create a snapshot using the console
 
-1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-2. In the navigation panel, choose Snapshots, Create snapshot.
+**Step2.** In the navigation panel, choose Snapshots, Create snapshot.
 
-3. For Resource type, choose Volume.
+**Step3.** For Resource type, choose Volume.
 
-4. For Volume ID, select the volume from which to create the snapshot.
+**Step4.** For Volume ID, select the volume from which to create the snapshot.
 
 The Encryption field indicates the selected volume's encryption status. If the selected volume is encrypted, the snapshot is automatically encrypted using the same KMS key. If the selected volume is unencrypted, the snapshot is not encrypted.
 
-5. (Optional) For Description, enter a brief description for the snapshot.
+**Step5.** (Optional) For Description, enter a brief description for the snapshot.
 
 ![image snapshot](image/snapshot.PNG)
 
-6. (Optional) To assign custom tags to the snapshot, in the Tags section, choose Add tag, and then enter the key-value pair. You can add up to 50 tags.
+**Step6.** (Optional) To assign custom tags to the snapshot, in the Tags section, choose Add tag, and then enter the key-value pair. You can add up to 50 tags.
 
-7. Choose Create snapshot.
+**Step7.** Choose Create snapshot.
 
 ![image snapshot](image/snapshot1.PNG)
 
@@ -1664,27 +1743,27 @@ Volumes from snapshots refer to the process of creating new Amazon Elastic Block
 
 To create an EBS volume from a snapshot using the console
 
-1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-2. In the navigation panel, choose Volumes.
+**Step2.** In the navigation panel, choose Volumes.
 
-3. Choose Create volume.
+**Step3.** Choose Create volume.
 
-4. For Volume type, choose the type of volume to create. For more information, see Amazon EBS volume types.
+**Step4.** For Volume type, choose the type of volume to create. For more information, see Amazon EBS volume types.
 
-5. For Size, enter the size of the volume, in GiB. For more information, see Constraints on the size and configuration of an EBS volume.
+**Step5.** For Size, enter the size of the volume, in GiB. For more information, see Constraints on the size and configuration of an EBS volume.
 
-6. (io1, io2, and gp3 only) For IOPS, enter the maximum number of input/output operations per second (IOPS) that the volume should provide.
+**Step6.** (io1, io2, and gp3 only) For IOPS, enter the maximum number of input/output operations per second (IOPS) that the volume should provide.
 
-7. (gp3 only) For Throughput, enter the throughput that the volume should provide, in MiB/s.
+**Step7.** (gp3 only) For Throughput, enter the throughput that the volume should provide, in MiB/s.
 
-8. For Availability Zone, choose the Availability Zone in which to create the volume. A volume can be attached only to instances that are in the same Availability Zone.
+**Step8.** For Availability Zone, choose the Availability Zone in which to create the volume. A volume can be attached only to instances that are in the same Availability Zone.
 
-9. For Snapshot ID, select the snapshot from which to create the volume.
+**Step9.** For Snapshot ID, select the snapshot from which to create the volume.
 
-10. Set the encryption status for the volume.
+**Step10.** Set the encryption status for the volume.
 
-11. If the selected snapshot is encrypted, or if your account is enabled for encryption by default, then encryption is automatically enabled and you can't disable it. You can choose the KMS key to use to encrypt the volume.
+**Step11.** If the selected snapshot is encrypted, or if your account is enabled for encryption by default, then encryption is automatically enabled and you can't disable it. You can choose the KMS key to use to encrypt the volume.
 
 If the selected snapshot is unencrypted and your account is not enabled for encryption by default, encryption is optional. To encrypt the volume, for Encryption, choose Encrypt this volume and then select the KMS key to use to encrypt the volume.
 
@@ -1694,9 +1773,9 @@ If the selected snapshot is unencrypted and your account is not enabled for encr
 
 ![image VS](image/volumesnapshot.PNG)
 
-12. (Optional) To assign custom tags to the volume, in the Tags section, choose Add tag, and then enter a tag key and value pair. For more information, see Tag your Amazon EC2 resources.
+**Step12.** (Optional) To assign custom tags to the volume, in the Tags section, choose Add tag, and then enter a tag key and value pair.
 
-13. Choose Create Volume.
+**Step13.** Choose Create Volume.
 
 > Note
 > 
@@ -1728,25 +1807,25 @@ Amazon EFS provides scalable file storage for use with Amazon EC2. You can use a
 
 To create an EFS file system using Amazon EFS Quick Create
 
-1. Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
+**Step1.** Open the Amazon EC2 console at https://console.aws.amazon.com/ec2/.
 
-2. Choose Launch instance.
+**Step2.** Choose Launch instance.
 
-3. (Optional) Under Name and tags, for Name, enter a name to identify your instance.
+**Step3.** (Optional) Under Name and tags, for Name, enter a name to identify your instance.
 
-4. Under Application and OS Images (Amazon Machine Image), choose a Linux operating system, and then for Amazon Machine Image (AMI), select a Linux AMI.
+**Step4.** Under Application and OS Images (Amazon Machine Image), choose a Linux operating system, and then for Amazon Machine Image (AMI), select a Linux AMI.
 
-5. Under Instance type, for Instance type, select an instance type or keep the default.
+**Step5.** Under Instance type, for Instance type, select an instance type or keep the default.
 
-6. Under Key pair (login), for Key pair name, choose an existing key pair or create a new one.
+**Step6.** Under Key pair (login), for Key pair name, choose an existing key pair or create a new one.
 
-7. Under Network settings, choose Edit (at right), and then for Subnet, select a subnet.
+**Step7.** Under Network settings, choose Edit (at right), and then for Subnet, select a subnet.
 
 > Note
 >
 > You must select a subnet before you can add an EFS file system.
 
-8. Under Configure storage, choose Edit (at bottom right), and then do the following:
+**Step8.** Under Configure storage, choose Edit (at bottom right), and then do the following:
 
 * Make sure that EFS is selected.
 
@@ -1774,9 +1853,9 @@ You can choose to manually create and attach the security groups. If you want to
 > 
 > If you added user data before selecting this check box, the original user data is overwritten by the user data that is automatically generated.
 
-9. Configure any other instance configuration settings as needed.
+**Step9.** Configure any other instance configuration settings as needed.
 
-10. In the Summary panel, review your instance configuration, and then choose Launch instance. 
+**Step10.** In the Summary panel, review your instance configuration, and then choose Launch instance. 
 
 ### **Simple Storage Service**
 
@@ -1806,17 +1885,17 @@ If you create a bucket, URL look like:
 
 ### **Create your first S3 bucket**
 
-**1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+**Step1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
 
-**2.** In the left navigation pane, choose Buckets.
+**Step2.** In the left navigation pane, choose Buckets.
 
-**3.** Choose Create bucket.
+**Step3.** Choose Create bucket.
 
 ![image s3](image/s3.PNG)
 
 * The Create bucket page opens.
 
-**4.** For Bucket name, enter a name for your bucket.
+**Step4.** For Bucket name, enter a name for your bucket.
 
 The bucket name must:
 
@@ -1828,27 +1907,27 @@ The bucket name must:
 
 * Begin and end with a letter or number.
 
-After you create the bucket, you cannot change its name. For more information about naming buckets, see [Bucket naming rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+After you create the bucket, you cannot change its name.
 
-**5.** For Region, choose the AWS Region where you want the bucket to reside.
+**Step5.** For Region, choose the AWS Region where you want the bucket to reside.
 
-To minimize latency and costs and address regulatory requirements, choose a Region close to you. Objects stored in a Region never leave that Region unless you explicitly transfer them to another Region. For a list of Amazon S3 AWS Regions, see [AWS service endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) in the Amazon Web Services General Reference.
+To minimize latency and costs and address regulatory requirements, choose a Region close to you. Objects stored in a Region never leave that Region unless you explicitly transfer them to another Region.
 
 ![image s3](image/s31.PNG)
 
-**6.** Under Object Ownership, to disable or enable ACLs and control ownership of objects uploaded in your bucket, choose one of the following settings:
+**Step6.** Under Object Ownership, to disable or enable ACLs and control ownership of objects uploaded in your bucket, choose one of the following settings:
 
 ACLs disabled
 
 * Bucket owner enforced (default) – ACLs are disabled, and the bucket owner automatically owns and has full control over every object in the bucket. ACLs no longer affect access permissions to data in the S3 bucket. The bucket uses policies exclusively to define access control.
 
-By default, ACLs are disabled. A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except in unusual circumstances where you must control access for each object individually. For more information, see [Controlling ownership of objects and disabling ACLs for your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html).
+By default, ACLs are disabled. A majority of modern use cases in Amazon S3 no longer require the use of ACLs. We recommend that you keep ACLs disabled, except in unusual circumstances where you must control access for each object individually. 
 
 ACLs enabled
 
 * Bucket owner preferred – The bucket owner owns and has full control over new objects that other accounts write to the bucket with the bucket-owner-full-control canned ACL.
 
-* If you apply the Bucket owner preferred setting, to require all Amazon S3 uploads to include the bucket-owner-full-control canned ACL, you can [add a bucket policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/ensure-object-ownership.html#ensure-object-ownership-bucket-policy) that allows only object uploads that use this ACL.
+* If you apply the Bucket owner preferred setting, to require all Amazon S3 uploads to include the bucket-owner-full-control canned ACL, you can add a bucket policy that allows only object uploads that use this ACL.
 
 * Object writer – The AWS account that uploads an object owns the object, has full control over it, and can grant other users access to it through ACLs.
 
@@ -1858,9 +1937,9 @@ ACLs enabled
 
 ![image s3](image/s3-2.PNG)
 
-**7.**  Under Block Public Access settings for this bucket, choose the Block Public Access settings that you want to apply to the bucket.
+**Step7.**  Under Block Public Access settings for this bucket, choose the Block Public Access settings that you want to apply to the bucket.
 
-By default, all four Block Public Access settings are enabled. We recommend that you keep all settings enabled, unless you know that you need to turn off one or more of them for your specific use case. For more information about blocking public access, see [Blocking public access to your Amazon S3 storage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html).
+By default, all four Block Public Access settings are enabled. We recommend that you keep all settings enabled, unless you know that you need to turn off one or more of them for your specific use case. 
 
 > Note
 >
@@ -1868,19 +1947,19 @@ By default, all four Block Public Access settings are enabled. We recommend that
 
 ![image s3](image/s3-3.PNG)
 
-**8.** (Optional) Under Bucket Versioning, you can choose if you wish to keep variants of objects in your bucket. For more information about versioning, see [Using versioning in S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html).
+**Step8.** (Optional) Under Bucket Versioning, you can choose if you wish to keep variants of objects in your bucket. 
 
 ![image s3](image/s3-4.PNG)
 
-**9.** (Optional) Under Tags, you can choose to add tags to your bucket. Tags are key-value pairs used to categorize storage.
+**Step9.** (Optional) Under Tags, you can choose to add tags to your bucket. Tags are key-value pairs used to categorize storage.
 
 To add a bucket tag, enter a Key and optionally a Value and choose Add Tag.
 
 ![image s3](image/s3-5.PNG)
 
-**10.** Under Default encryption, choose Edit.
+**Step10.** Under Default encryption, choose Edit.
 
-**11.** To configure default encryption, under Encryption type, choose one of the following:
+**Step11.** To configure default encryption, under Encryption type, choose one of the following:
 
 * Amazon S3 managed key (SSE-S3)
 
@@ -1888,41 +1967,33 @@ To add a bucket tag, enter a Key and optionally a Value and choose Add Tag.
 
 * AWS Key Management Service key (SSE-KMS)
 
-Buckets and new objects are encrypted with server-side encryption with an Amazon S3 managed key as the base level of encryption configuration. For more information about default encryption, see [Setting default server-side encryption behavior for Amazon S3 buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-encryption.html).
-
-For more information about using Amazon S3 server-side encryption to encrypt your data, see [Using server-side encryption with Amazon S3 managed keys (SSE-S3)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html).
+Buckets and new objects are encrypted with server-side encryption with an Amazon S3 managed key as the base level of encryption configuration. 
 
 ![image s3](image/s3-7.PNG)
 
-**12.** If you chose AWS Key Management Service key (SSE-KMS), do the following:
+**Step12.** If you chose AWS Key Management Service key (SSE-KMS), do the following:
 
 -> Under AWS KMS key, specify your KMS key in one of the following ways:
 
 * To choose from a list of available KMS keys, choose Choose from your AWS KMS keys, and choose your KMS key from the list of available keys.
 
-* Both the AWS managed key (aws/s3) and your customer managed keys appear in this list. For more information about customer managed keys, see [Customer keys and AWS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt) in the AWS Key Management Service Developer Guide.
+* Both the AWS managed key (aws/s3) and your customer managed keys appear in this list.
 
 * To enter the KMS key ARN, choose Enter AWS KMS key ARN, and enter your KMS key ARN in the field that appears.
 
 * To create a new customer managed key in the AWS KMS console, choose Create a KMS key.
 
-For more information about creating an AWS KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the AWS Key Management Service Developer Guide.
-
-For more information about creating an AWS KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the AWS Key Management Service Developer Guide. For more information about using AWS KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).
-
--> When you configure your bucket to use default encryption with SSE-KMS, you can also enable S3 Bucket Keys. S3 Bucket Keys lower the cost of encryption by decreasing request traffic from Amazon S3 to AWS KMS. For more information, see [Reducing the cost of SSE-KMS with Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html).
+-> When you configure your bucket to use default encryption with SSE-KMS, you can also enable S3 Bucket Keys. S3 Bucket Keys lower the cost of encryption by decreasing request traffic from Amazon S3 to AWS KMS. 
 
 ![image s3](image/s3-7.PNG)
 
 To use S3 Bucket Keys, under Bucket Key, choose Enable.
 
-**13.** (Optional) If you want to enable S3 Object Lock, do the following:
+**Step13.** (Optional) If you want to enable S3 Object Lock, do the following:
 
 * Choose Advanced settings.
 
 * If you want to enable Object Lock, choose Enable, read the warning that appears, and acknowledge it.
-
-For more information, see [Using S3 Object Lock](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock.html).
 
 ![image s3](image/s3-8.PNG)
 
@@ -1932,25 +2003,25 @@ For more information, see [Using S3 Object Lock](https://docs.aws.amazon.com/Ama
 
 #### **To upload an object to a bucket**
 
-1. Open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+**Step1.** Open the Amazon S3 console at https://console.aws.amazon.com/s3/.
 
-2. In the Buckets list, choose the name of the bucket that you want to upload your object to.
+**Step2.** In the Buckets list, choose the name of the bucket that you want to upload your object to.
 
 ![image s3](image/s3-9.PNG)
 
-3. On the Objects tab for your bucket, choose Upload.
+**Step3.** On the Objects tab for your bucket, choose Upload.
 
 ![image s3](image/s3-10.PNG)
 
-4. Under Files and folders, choose Add files.
+**Step4.** Under Files and folders, choose Add files.
 
 ![image s3](image/s3-11.PNG)
 
-5. Choose a file to upload, and then choose Open.
+**Step5.** Choose a file to upload, and then choose Open.
 
 ![image s3](image/s3-13.PNG)
 
-6. Choose Upload.
+**Step6.** Choose Upload.
 
 ![image s3](image/s3-14.PNG)
 
@@ -2099,11 +2170,11 @@ You can use S3 Versioning to keep multiple versions of an object in one bucket. 
 
 Before using version management,Enable the version management.
 
-**1.** In S3 console,Select bucket name 
+**Step1.** In S3 console,Select bucket name 
 
 ![image version](image/version.PNG)
 
-**2.** Upload the updated object or a file 
+**Step2.** Upload the updated object or a file 
 
 * select upload option
 
@@ -2115,11 +2186,11 @@ Before using version management,Enable the version management.
 
 * click on upload ,the object will be updated
 
-**3.** Click on the file name
+**Step3.** Click on the file name
 
 ![image version](image/version3.PNG)
 
-**4.** Select the version tab and you can see the versions of the s3 object.
+**Step4.** Select the version tab and you can see the versions of the s3 object.
 
 ![image version](image/version4.PNG)
 
@@ -2135,28 +2206,28 @@ S3 Cross-Region Replication (CRR) is used to copy objects across Amazon S3 bucke
 
 #### **Steps to configure Replication rule**:
 
-**1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+**Step1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
 
-**2.** In the left navigation pane, choose Buckets.
+**Step2.** In the left navigation pane, choose Buckets.
 
-**3.** In the Buckets list, choose the name of the bucket that you want.
+**Step3.** In the Buckets list, choose the name of the bucket that you want.
 
 ![image crossorigin](image/crossorigin.PNG)
 
-**4.** Choose the Management tab, scroll down to Replication rules, and then choose Create replication rule.
+**Step4.** Choose the Management tab, scroll down to Replication rules, and then choose Create replication rule.
 
 ![image crossorigin](image/crossorigin1.PNG)
 
-**5.** In the Replication rule configuration section, under Replication rule name, enter a name for your rule to help identify the rule later. The name is required and must be unique within the bucket.
+**Step5.** In the Replication rule configuration section, under Replication rule name, enter a name for your rule to help identify the rule later. The name is required and must be unique within the bucket.
 
-**6.** Under Status, Enabled is selected by default. An enabled rule starts to work as soon as you save it. If you want to enable the rule later, choose Disabled.
+**Step6.** Under Status, Enabled is selected by default. An enabled rule starts to work as soon as you save it. If you want to enable the rule later, choose Disabled.
 
-**7.** If the bucket has existing replication rules, you are instructed to set a priority for the rule. You must set a priority for the rule to avoid conflicts caused by objects that are included in the scope of more than one rule. In the case of overlapping rules, Amazon S3 uses the rule priority to determine which rule to apply. The higher the number, the higher the priority. For more information about rule priority, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html).
+**Step7.** If the bucket has existing replication rules, you are instructed to set a priority for the rule. You must set a priority for the rule to avoid conflicts caused by objects that are included in the scope of more than one rule. In the case of overlapping rules, Amazon S3 uses the rule priority to determine which rule to apply. The higher the number, the higher the priority. 
 
 
 ![image crossorigin](image/crossorigin2.PNG)
 
-**8.** Under Source bucket, you have the following options for setting the replication source:
+**Step8.** Under Source bucket, you have the following options for setting the replication source:
 
 * To replicate the whole bucket, choose Apply to all objects in the bucket.
 
@@ -2166,13 +2237,11 @@ S3 Cross-Region Replication (CRR) is used to copy objects across Amazon S3 bucke
 > 
 > If you enter a prefix that is the name of a folder, you must use / (forward slash) as the last character (for example, pictures/).
 
-* To replicate all objects with one or more object tags, choose Add tag and enter the key-value pair in the boxes. Repeat the procedure to add another tag. You can combine a prefix and tags. For more information about object tags, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
-
-The new replication configuration XML schema supports prefix and tag filtering and the prioritization of rules. For more information about the new schema, see [Backward compatibility](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html#replication-backward-compat-considerations). For more information about the XML used with the Amazon S3 API that works behind the user interface, see [Replication configuration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-add-config.html). The new schema is described as replication configuration XML V2.
+* To replicate all objects with one or more object tags, choose Add tag and enter the key-value pair in the boxes. Repeat the procedure to add another tag. You can combine a prefix and tags.
 
 ![image crossorigin](image/crossorigin3.PNG)
 
-**9.** Under Destination, choose the bucket where you want Amazon S3 to replicate objects.
+**Step9.** Under Destination, choose the bucket where you want Amazon S3 to replicate objects.
 
 > Note
 > 
@@ -2182,9 +2251,9 @@ The new replication configuration XML schema supports prefix and tag filtering a
 
 * To replicate to a bucket or buckets in a different AWS account, choose Specify a bucket in another account, and enter the destination bucket account ID and bucket name.
 
-* If the destination is in a different account from the source bucket, you must add a bucket policy to the destination buckets to grant the owner of the source bucket account permission to replicate objects. For more information, see [Granting permissions when the source and destination buckets are owned by different AWS accounts](https://docs.aws.amazon.com/AmazonS3/latest/userguide/setting-repl-config-perm-overview.html#setting-repl-config-crossacct).
+* If the destination is in a different account from the source bucket, you must add a bucket policy to the destination buckets to grant the owner of the source bucket account permission to replicate objects. 
 
-* Optionally, if you want to help standardize ownership of new objects in the destination bucket, choose Change object ownership to the destination bucket owner. For more information about this option, see [Controlling ownership of objects and disabling ACLs for your bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html).
+* Optionally, if you want to help standardize ownership of new objects in the destination bucket, choose Change object ownership to the destination bucket owner. 
 
 > Note
 > 
@@ -2192,7 +2261,7 @@ The new replication configuration XML schema supports prefix and tag filtering a
 
 ![image crossorigin](image/crossorigin4.PNG)
 
-**10.** Set up an AWS Identity and Access Management (IAM) role that Amazon S3 can assume to replicate objects on your behalf.
+**Step10.** Set up an AWS Identity and Access Management (IAM) role that Amazon S3 can assume to replicate objects on your behalf.
 
 To set up an IAM role, in the IAM role section, select one of the following from the IAM role dropdown list:
 
@@ -2202,13 +2271,13 @@ To set up an IAM role, in the IAM role section, select one of the following from
 
 > Important
 >
-> When you add a replication rule to a bucket, you must have the iam:PassRole permission to be able to pass the IAM role that grants Amazon S3 replication permissions. For more information, see [Granting a user permissions to pass a role to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html) in the IAM User Guide.
+> When you add a replication rule to a bucket, you must have the iam:PassRole permission to be able to pass the IAM role that grants Amazon S3 replication permissions.
 
 ![image crossorigin](image/crossorigin5.PNG)
 
-**11.** To replicate objects in the source bucket that are encrypted with server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS), under Encryption, select Replicate objects encrypted with AWS KMS. Under AWS KMS keys for encrypting destination objects are the source keys that you allow replication to use. All source KMS keys are included by default. To narrow the KMS key selection, you can choose an alias or key ID.
+**Step11.** To replicate objects in the source bucket that are encrypted with server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS), under Encryption, select Replicate objects encrypted with AWS KMS. Under AWS KMS keys for encrypting destination objects are the source keys that you allow replication to use. All source KMS keys are included by default. To narrow the KMS key selection, you can choose an alias or key ID.
 
-Objects encrypted by AWS KMS keys that you do not select are not replicated. A KMS key or a group of KMS keys is chosen for you, but you can choose the KMS keys if you want. For information about using AWS KMS with replication, see [Replicating objects created with server-side encryption (SSE-C, SSE-S3, SSE-KMS, DSSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-config-for-kms-objects.html).
+Objects encrypted by AWS KMS keys that you do not select are not replicated. A KMS key or a group of KMS keys is chosen for you, but you can choose the KMS keys if you want.
 
 If you chose to replicate objects encrypted with AWS KMS, do the following:
 
@@ -2222,25 +2291,20 @@ If you chose to replicate objects encrypted with AWS KMS, do the following:
 
 * To create a new customer managed key in the AWS KMS console, choose Create a KMS key.
 
-For more information about creating an AWS KMS key, see [Creating keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the AWS Key Management Service Developer Guide.For more information about using AWS KMS with Amazon S3, see [Using server-side encryption with AWS KMS keys (SSE-KMS)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html).
-
 ![image crossorigin](image/crossorigin11.PNG)
 
-**12.** Under Destination storage class, if you want to replicate your data into a specific storage class in the destination, choose Change the storage class for the replicated objects. Then choose the storage class that you want to use for the replicated objects in the destination. If you don't choose this option, the storage class for replicated objects is the same class as the original objects.
+**Step12.** Under Destination storage class, if you want to replicate your data into a specific storage class in the destination, choose Change the storage class for the replicated objects. Then choose the storage class that you want to use for the replicated objects in the destination. If you don't choose this option, the storage class for replicated objects is the same class as the original objects.
 
 ![image crossorigin](image/crossorigin6.PNG)
 
 ![image crossorigin](image/crossorigin7.PNG)
 
-**13.** You have the following additional options while setting the Additional replication options:
+**Step13.** You have the following additional options while setting the Additional replication options:
 
-* If you want to enable S3 Replication Time Control (S3 RTC) in your replication configuration, select Replication Time Control (RTC). For more information about this option, see [Meeting compliance requirements using S3 Replication Time Control (S3 RTC)](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-time-control.html).
-
-* If you want to enable S3 Replication metrics in your replication configuration, select Replication metrics and events. For more information see, [Monitoring progress with replication metrics and S3 Event Notifications](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-metrics.html).
-
-* If you want to enable delete marker replication in your replication configuration, select Delete marker replication. For more information see, [Replicating delete markers between buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-metrics.html).
-
-* If you want to enable Amazon S3 replica modification sync in your replication configuration, select Replica modification sync. For more information see, [Replicating metadata changes with Amazon S3 replica modification sync](https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication-metrics.html).
+* If you want to enable S3 Replication Time Control (S3 RTC) in your replication configuration, select Replication Time Control (RTC).
+* If you want to enable S3 Replication metrics in your replication configuration, select Replication metrics and events. 
+* If you want to enable delete marker replication in your replication configuration, select Delete marker replication. 
+* If you want to enable Amazon S3 replica modification sync in your replication configuration, select Replica modification sync. 
 
 > Note
 >
@@ -2248,11 +2312,11 @@ For more information about creating an AWS KMS key, see [Creating keys](https://
 
 ![image crossorigin](image/crossorigin8.PNG)
 
-**14.** To finish, choose Save and replicate existing objects(if object exists) 
+**Step14.** To finish, choose Save and replicate existing objects(if object exists) 
 
 ![image crossorigin](image/crossorigin9.PNG)
 
-**15.** After you save your rule, you can edit, enable, disable, or delete your rule by selecting your rule and choosing Edit rule.
+**Step15.** After you save your rule, you can edit, enable, disable, or delete your rule by selecting your rule and choosing Edit rule.
 
 ### **Lifecycle management**
 
@@ -2268,21 +2332,21 @@ With S3 Lifecycle configuration rules, you can tell Amazon S3 to transition obje
 
 #### **To create a lifecycle rule**
 
-**1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
+**Step1.** Sign in to the AWS Management Console and open the Amazon S3 console at https://console.aws.amazon.com/s3/.
 
-**2.** In the Buckets list, choose the name of the bucket that you want to create a lifecycle rule for.
+**Step2.** In the Buckets list, choose the name of the bucket that you want to create a lifecycle rule for.
 
-**3.** Choose the Management tab, and choose Create lifecycle rule.
+**Step3.** Choose the Management tab, and choose Create lifecycle rule.
 
 ![image lifecycle](image/lifecycle.PNG)
 
-**4.** In Lifecycle rule name, enter a name for your rule.
+**Step4.** In Lifecycle rule name, enter a name for your rule.
 
     The name must be unique within the bucket.
 
 ![image lifecycle](image/lifecycle1.PNG)
 
-**5.** Choose the scope of the lifecycle rule:
+**Step5.** Choose the scope of the lifecycle rule:
 
 * To apply this lifecycle rule to all objects with a specific prefix or tag, choose Limit the scope to specific prefixes or tags.
 
@@ -2290,13 +2354,11 @@ With S3 Lifecycle configuration rules, you can tell Amazon S3 to transition obje
 
 * To limit the scope by tag, choose Add tag, and enter the tag key and value.
 
-* For more information about object name prefixes, see [Creating object key names](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html). For more information about object tags, see [Categorizing your storage using tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
-
 To apply this lifecycle rule to all objects in the bucket, choose This rule applies to all objects in the bucket, and choose I acknowledge that this rule applies to all objects in the bucket.
 
 ![image lifecycle](image/lifecycle2.PNG)
 
-**6.** To filter a rule by object size, you can check Specify minimum object size, Specify maximum object size, or both options.
+**Step6.** To filter a rule by object size, you can check Specify minimum object size, Specify maximum object size, or both options.
 
 * When you're specifying a minimum object size or maximum object size, the value must be larger than 0 bytes and up to 5TB. You can specify this value in bytes, KB, MB, or GB.
 
@@ -2304,7 +2366,7 @@ To apply this lifecycle rule to all objects in the bucket, choose This rule appl
 
 ![image lifecycle](image/lifecycle3.PNG)
 
-**7.** Under Lifecycle rule actions, choose the actions that you want your lifecycle rule to perform:
+**Step7.** Under Lifecycle rule actions, choose the actions that you want your lifecycle rule to perform:
 
 * Transition current versions of objects between storage classes
 * Transition previous versions of objects between storage classes
@@ -2316,7 +2378,7 @@ Depending on the actions that you choose, different options appear.
 
 ![image lifecycle](image/lifecycle4.PNG)
 
-**8.** To transition current versions of objects between storage classes, under Transition current versions of objects between storage classes:
+**Step8.** To transition current versions of objects between storage classes, under Transition current versions of objects between storage classes:
 
 **a.** In Storage class transitions, choose the storage class to transition to:
 
@@ -2330,9 +2392,7 @@ Depending on the actions that you choose, different options appear.
 
 ![image lifecycle](image/lifecycle5.PNG)
 
-For more information about storage classes, see [Using Amazon S3 storage classes](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html). You can define transitions for current or previous object versions or for both current and previous versions. Versioning enables you to keep multiple versions of an object in one bucket. For more information about versioning, see Using the S3 console.
-
-**9.** To transition non-current versions of objects between storage classes, under Transition non-current versions of objects between storage classes:
+**Step9.** To transition non-current versions of objects between storage classes, under Transition non-current versions of objects between storage classes:
 
 **a.** In Storage class transitions, choose the storage class to transition to:
 
@@ -2346,19 +2406,17 @@ For more information about storage classes, see [Using Amazon S3 storage classes
 
 ![image lifecycle](image/lifecycle6.PNG)
 
-**10.** To expire current versions of objects, under Expire current versions of objects, in Number of days after object creation, enter the number of days.
+**Step10.** To expire current versions of objects, under Expire current versions of objects, in Number of days after object creation, enter the number of days.
 
 ![image lifecycle](image/lifecycle7.PNG)
 
-**11.** To permanently delete previous versions of objects, under Permanently delete noncurrent versions of objects, in Days after objects become noncurrent, enter the number of days. You can optionally specify the number of newer versions to retain by entering a value under Number of newer versions to retain.
+**Step11.** To permanently delete previous versions of objects, under Permanently delete noncurrent versions of objects, in Days after objects become noncurrent, enter the number of days. You can optionally specify the number of newer versions to retain by entering a value under Number of newer versions to retain.
 
 ![image lifecycle](image/lifecycle8.PNG)
 
 **12.** Under Delete expired delete markers or incomplete multipart uploads, choose Delete expired object delete markers and Delete incomplete multipart uploads. Then, enter the number of days after the multipart upload initiation that you want to end and clean up incomplete multipart uploads.
 
-For more information about multipart uploads, see [Uploading and copying objects using multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html).
-
-**13.** Choose Create rule.
+**Step13.** Choose Create rule.
 
 If the rule does not contain any errors, Amazon S3 enables it, and you can see it on the Management tab under Lifecycle rules.
 
@@ -2386,15 +2444,15 @@ If the rule does not contain any errors, Amazon S3 enables it, and you can see i
 
 **To activate Transfer Acceleration**
 
-**1.** Click on the bucket that you have created.
+**Step1.** Click on the bucket that you have created.
 
-**2.** Move to the properties of the bucket.
+**Step2.** Move to the properties of the bucket.
 
-**3.** In properties, go to the Transfer Acceleration property of a bucket.
+**Step3.** In properties, go to the Transfer Acceleration property of a bucket.
 
 ![image transfer-acceleration](image/transfer-acceleration.PNG)
 
-**4.** Click on the Enabled and then save changes.
+**Step4.** Click on the Enabled and then save changes.
 
 ![image transfer-acceleration](image/transfer-acceleration1.PNG)
 
