@@ -7,9 +7,10 @@
 * [**INTRODUCTION**](#introduction)<!-- style="font-size:20px" -->
 * [**SECURITY**](#security) <!-- style="font-size:20px" -->
 * [**COMPUTE I**](#compute-i) <!-- style="font-size:20px" -->
-* [**COMPUTE II**](#compute-ii)<!-- style="font-size:20px" -->
+* [**COMPUTE II**](#compute-ii) <!-- style="font-size:20px" -->
 * [**STORAGE AND DELIVERY**](#storage-and-delivery) <!-- style="font-size:20px" -->
-* [**NETWORKING**](#networking)<!-- style="font-size:20px" -->
+* [**NETWORKING**](#networking) <!-- style="font-size:20px" -->
+* [**References**](#references) <!-- style="font-size:20px" -->
 
 ## **INTRODUCTION** 
 
@@ -2677,3 +2678,7 @@ A route table contains a set of rules, called routes, that are used to determine
 * You can peer between regions. Suppose you have one VPC in one region and other VPC in another region, then you can peer the VPCs between different regions.
 
 ![image vpc-peering](image/peering-intro-diagram.png)
+
+### References
+
+Refere AWS documentation for more information https://docs.aws.amazon.com/
